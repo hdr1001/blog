@@ -1,3 +1,8 @@
 .no_underline {
    text-decoration: none;
 }
+
+.height_64px {
+   height: 64px;
+   width: auto;
+}

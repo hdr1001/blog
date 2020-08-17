@@ -1,0 +1,44 @@
+/* *****************************************************************
+//
+// hdrcheat_bg.css is a Cascading Style Sheet cheat sheet
+// Copyright 2013 Hans de Rooij, original design Andreas Viklund
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU General Public License for more details.
+// 
+// Please visit the website of the Free Software Foundation
+// (http://www.fsf.org/) for more information about the GNU
+// GPL (http://www.gnu.org/licenses/#GPL).
+// 
+// ************************************************************** */
+
+body {
+   background-color: #f4f4f4;
+   background-image: url("../assets/imgs/bg.gif");
+   background-position: top center;
+   background-attachment: scroll;
+   background-repeat: repeat-y;
+}
+
+#center_col {
+   background-color: #ffffff;
+}
+
+#announce, #legal, #site_menu li a {
+   background-color: #f4f4f4;
+}
+
+#site_menu li a:hover{
+   background-color: #eaeaea;
+}
+
+hr#below_content {
+   background-color: #cccccc;
+}

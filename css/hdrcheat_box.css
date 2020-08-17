@@ -1,0 +1,220 @@
+/* *****************************************************************
+//
+// hdrcheat_box.css is a Cascading Style Sheet cheat sheet
+// Copyright 2013 Hans de Rooij, original design Andreas Viklund
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU General Public License for more details.
+// 
+// Please visit the website of the Free Software Foundation
+// (http://www.fsf.org/) for more information about the GNU
+// GPL (http://www.gnu.org/licenses/#GPL).
+// 
+// ************************************************************** */
+
+@import url("./hdrcheat_bg.css");
+
+#center_col {
+   width: 760px;
+   padding: 12px 10px;
+   margin: 0 auto;
+}
+
+#page_header {
+   height: 40px;
+   margin-bottom: 5px;
+}
+
+#page_header_url {
+   width: 300px;
+   float: left;
+}
+
+#page_header_quote {
+   width: 450px;
+   float: right;
+}
+
+#banner {
+   margin-top: 8px;
+   margin-bottom: 5px;
+}
+
+#left_col {
+   width: 150px;
+   margin-top: 8px;
+   margin-bottom: 5px;
+   float: left;
+}
+
+#site_menu {
+   margin-top: 0;
+   margin-bottom: 5px;
+}
+
+#announce {
+   padding: 10px;
+   margin-top: 20px;
+   margin-bottom: 15px;
+}
+
+#right_col {
+   width: 120px;
+   margin-top: 8px;
+   margin-bottom: 5px;
+   float: right;
+}
+
+#add_info {
+   margin-top: 0;
+   margin-bottom: 5px;
+}
+
+#ext_menu {
+   margin-top: 20px;
+   margin-bottom: 15px;
+}
+
+#content {
+   width: auto;
+   padding: 8px 10px 5px;
+   margin: 10px 130px 5px 160px;
+   border-left-style: solid;
+   border-left-width: 1px;
+   border-left-color: #f0f0f0;
+   border-right-style: solid;
+   border-right-width: 1px;
+   border-right-color: #f0f0f0;
+}
+
+hr#below_content {
+   height: 2px;
+   width: 600px;
+   margin-top: 15px;
+   margin-bottom: 5px;
+   clear: both;
+}
+
+#contact_info {
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+
+#tech_dedication {
+   margin-top: 20px;
+   margin-bottom: 5px;
+}
+
+#legal {
+   width: 480px;
+   padding: 10px;
+   margin-top: 40px;
+   margin-bottom: 10px;
+   border-style: solid;
+   border-width: 1px;
+}
+
+.hide {
+   display: none;
+}
+
+a img {
+   border-style: none;
+}
+
+h1 {
+   margin: 2.3em 0 1em 0;
+}
+
+#page_header_url h1 {
+   margin: 0;
+}
+
+div+h1 {
+   margin-top: 0;
+}
+
+h2 {
+   margin: 1.9em 0 0.6em 0;
+}
+
+h3 {
+   margin: 1.7em 0 0 0;
+}
+
+#announce h3, #add_info h3, #ext_menu h3 {
+   margin: 0;
+}
+
+p, pre {
+   margin: 1em 0;
+}
+
+h3+p {
+   margin: 0.7em 0;
+}
+
+#page_header_quote p {
+   margin: 0;
+}
+
+#announce p {
+   margin-top: 3px;
+   margin-bottom: 10px;
+}
+
+#add_info p, #ext_menu p {
+   margin-top: 0;
+   margin-bottom: 5px;
+}
+
+#legal p {
+   padding: 5px;
+   margin: 0;
+}
+
+p+h3, ol+h3, ul+h3, table+h3 {
+   margin-top: 1.8em;
+}
+
+ol, ul {
+   padding: 0 0 0 40px;
+   margin: 1em 0;
+}
+
+li ol, li ul {
+   margin: 0;
+}
+
+blockquote {
+   margin: 1em 40px;
+}
+
+#site_menu ul {
+   padding: 0;
+   margin: 0;
+}
+
+#site_menu li {
+   margin-bottom: 4px;
+}
+
+#site_menu li a {
+   height: 20px;
+   padding: 5px 0 2px 10px;
+   border-left-style: solid;
+   border-left-width: 4px;
+   border-left-color: #cccccc;
+   display: block;
+}
+
+#site_menu li a:hover {
+   border-color: #286ea0;
+}

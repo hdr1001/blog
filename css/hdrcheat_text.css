@@ -1,0 +1,108 @@
+/* *****************************************************************
+//
+// hdrcheat_text.css is a Cascading Style Sheet cheat sheet
+// Copyright 2013 Hans de Rooij, original design Andreas Viklund
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU General Public License for more details.
+// 
+// Please visit the website of the Free Software Foundation
+// (http://www.fsf.org/) for more information about the GNU
+// GPL (http://www.gnu.org/licenses/#GPL).
+// 
+// ************************************************************** */
+
+body {
+   color: #303030;
+}
+
+#page_header_url h1 {
+   letter-spacing: -0.1em;
+}
+
+#page_header_quote p {
+   color: #a0a0a0;
+   text-align: center;
+   line-height: 1.2em;
+}
+
+#site_menu ul {
+   list-style: none;
+}
+
+#site_menu li a {
+   color: #505050;
+   text-decoration: none;
+}
+
+#site_menu li a:hover {
+   color: #286ea0;
+}
+
+#announce {
+   color: #505050;
+   line-height: 1.3em;
+}
+
+#ext_menu p {
+   line-height: 1.3em;
+}
+
+#content {
+   text-align: left;
+   line-height: 1.6em;
+}
+
+hr#below_content {
+   color: #cccccc;
+   text-align: left;
+}
+
+#tech_dedication p img{
+   vertical-align: middle;
+}
+
+#legal {
+   text-align: justify;
+}
+
+.cap1st {
+   color: #286ea0;
+   text-transform: capitalize;
+}
+
+a img {
+   text-decoration: none;
+}
+
+h1 {
+   letter-spacing: -0.05em;
+   word-spacing: -0.025em;
+}
+
+h2 {
+   letter-spacing: -0.05em;
+   word-spacing: -0.025em;
+}
+
+h3 {
+   letter-spacing: -0.05em;
+   word-spacing: -0.02em;
+}
+
+ul {
+   list-style-type: disc;
+   list-style-position: outside;
+}
+
+ol {
+   list-style-type: decimal;
+   list-style-position: outside;
+}

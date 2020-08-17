@@ -1,0 +1,194 @@
+/* *****************************************************************
+//
+// hdrcheat.css is a Cascading Style Sheet cheat sheet
+// Copyright 2013 Hans de Rooij, original design Andreas Viklund
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU General Public License for more details.
+// 
+// Please visit the website of the Free Software Foundation
+// (http://www.fsf.org/) for more information about the GNU
+// GPL (http://www.gnu.org/licenses/#GPL).
+// 
+// ************************************************************** */
+
+@import url("./hdrcheat_font.css");
+@import url("./hdrcheat_text.css");
+@import url("./hdrcheat_box.css");
+
+* {
+    padding: 0;
+    margin: 0;
+    border-style: none;
+}
+
+/*
+CSS notes summary;
+  - Basic syntax
+  - Most common properties and associated values
+  - Selector options
+  - Units of measurement
+
+
+Basic cascading style sheet syntax; selector{property: value;}
+
+
+Selector {
+    - Font properties
+    font-family: name/serif/sans-serif/cursive/fantasy/monospace;
+    font-style: normal/oblique/italic;
+    font-weight: normal/bold/bolder/lighter;
+    font-variant: none/small-caps;
+    font-size: ;
+
+    - Text formatting
+    color: ;
+    text-align: left/right/center/justify;
+    vertical-align: baseline/middle/sub/super/(text-)top/(text-)bottom;
+    text-indent: ;
+    text-decoration: none/underline/overline/line-through/blink;
+    text-transform: none/capitalize/uppercase/lowercase;
+    letter-spacing: ;
+    word-spacing: ;
+    line-height: ;
+    white-space: normal/nowrap/pre;
+
+    - List formatting
+    list-style-type: none/disc/circle/square;
+    list-style-type: decimal/lower-alpha/upper-alpha/lower-roman/upper-roman;
+    list-style-position: inside/outside;
+    list-style-image: ;
+
+    - Box dimensions
+    height: ;
+    width: ;
+
+    - Box margin and padding
+    padding: ;
+    margin: ;
+
+    - Box positioning
+    position: relative/absolute;
+    top: ;
+    left: ;
+    bottom: ;
+    right: ;
+    float: left/right;
+    clear: none/left/right/both;
+    z-index: ;
+
+    - Box border
+    border-style: none/dotted/dashed/solid/double/groove/ridge/inset/outset;
+    border-width: ;
+    border-color: ;
+
+    - Box behaviour in case contents does not fit
+    overflow: visible/hidden/scroll;
+
+    - Box display
+    display: none/block/inline/list-item;
+
+    - Box background and color
+    background-color: ;
+    background-image: ;
+    background-position: ;
+    background-attachment: fixed/scroll;
+    background-repeat: no-repeat/repeat/repeat-x/repeat-y;
+}
+
+
+Selector options
+- Universal selector
+  Matches all elements in the associated document;
+  * {}
+
+- Type selector
+  Matches every instance of a specific element type;
+  h1 {}
+
+- Class selector
+  Matches all elements carrying a class attribute the value of which is
+  specified in the class selector;
+  .cap1st {} (matches <span class="cap1st"> ... </span>)
+
+  The class selector can also be used in conjunction with an element type;
+  p.cap1st {} (matches <p class="cap1st"> ... </p>)
+
+- ID selector
+  Matches the element carrying an ID attribute the value of which is
+  specified in the ID selector;
+  #announce {} (matches <div id="announce"> ... </div>)
+
+- Child selector
+  Matches an element that is a direct child of another element;
+  p>strong {} (matches the strong element in <p><strong> ... </strong></p>)
+
+- Decendent selector
+  Matches an element that is a decendent, at any level of nesting, of another
+  element;
+  table i {} (matches the i element in <table><tr><td><i> ... </i></td> ...)
+
+- Adjacent sibling selector
+  Matches an element that is the next sibling of another element;
+  h1+h2 {} matches the h2 element in <h1> ... </h1><h2> ... </h2>)
+
+- Attribute selectors
+  Attribute selectors match elements which have certain attributes defined
+
+  There are different types of attribute selectors;
+    - Existence selector
+    Matches all elements carrying the attribute listed in the selector;
+    input[tabindex] {} (matches <input ... tabindex="3" ... />)
+
+    - Equality selector
+    Matches all elements carrying the attribute with the value listed in the
+    selector;
+    input[type="radio"] {} (matches <input type="radio" ... />)
+    
+    - For more attribute selectors go to www.w3.org/TR/CSS2/selector.html
+
+- In case several selectors share the same declarations, they may be grouped
+  into a comma-separated list. So, for example;
+
+    h1, h2, .cap1st {text-transform: capitalize;}
+
+  will capitalize all h1 and h2 elements and all elements carrying a class
+  attribute with the value "cap1st"
+
+
+Units of measurement
+- Absolute;
+    mm (millimeters, 1mm = 3.78px)
+    cm (centimeters, 1cm = 37.8px)
+    in (inches, 1in = 96px)
+    pt (points, 1pt = 1/72th of an inch)
+    pc (picas, 1pc = 1/72th of an inch)
+
+  or use xx-small, x-small, small, medium, large, x-large or xx-large
+
+- Relative;
+    em (elementâ€™s font height)
+    ex (elementâ€™s x-height)
+    px (pixels)
+
+  or use larger or smaller
+
+- Percentage
+  Percentage values are relative to the width of the parent element
+  when specifying;
+    - text-indent 
+    - margin
+    - padding
+    - width
+
+  Percentage values are relative to the font size of the parent element
+  when specifying;
+    - font-size
+*/

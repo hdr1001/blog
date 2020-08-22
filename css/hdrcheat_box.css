@@ -23,17 +23,17 @@
 
 #center_col {
    width: 760px;
-   padding: 12px 10px;
+   padding: 5px 10px 12px;
    margin: 0 auto;
 }
 
-#page_header {
-   height: 40px;
-   margin-bottom: 5px;
+header {
+   display: inline-block;
 }
 
 #page_header_url {
    width: 300px;
+   padding: 7px 0 3px;
    float: left;
 }
 
@@ -42,21 +42,16 @@
    float: right;
 }
 
-#banner {
-   margin-top: 8px;
-   margin-bottom: 5px;
+#page_header_banner {
+   width: inherit;
+   height: auto;
+   clear: both;
 }
 
 #left_col {
    width: 150px;
-   margin-top: 8px;
-   margin-bottom: 5px;
+   padding: 8px 0 5px;
    float: left;
-}
-
-#site_menu {
-   margin-top: 0;
-   margin-bottom: 5px;
 }
 
 #announce {
@@ -82,21 +77,22 @@
    margin-bottom: 15px;
 }
 
-#content {
-   width: auto;
-   padding: 8px 10px 5px;
-   margin: 10px 130px 5px 160px;
+article {
+   width: 582px;
+   padding: 5px 8px;
+   margin: 10px 0 0;
    border-left-style: solid;
    border-left-width: 1px;
    border-left-color: #f0f0f0;
    border-right-style: solid;
    border-right-width: 1px;
    border-right-color: #f0f0f0;
+   float: right;
 }
 
 hr#below_content {
    height: 2px;
-   width: 600px;
+   width: 80%;
    margin-top: 15px;
    margin-bottom: 5px;
    clear: both;
@@ -133,11 +129,11 @@ h1 {
    margin: 2.3em 0 1em 0;
 }
 
-#page_header_url h1 {
+#page_header_url h2 {
    margin: 0;
 }
 
-div+h1 {
+div+h1, article+h1 {
    margin-top: 0;
 }
 
@@ -203,7 +199,7 @@ blockquote {
 }
 
 #site_menu li {
-   margin-bottom: 4px;
+   padding-bottom: 3px;
 }
 
 #site_menu li a {

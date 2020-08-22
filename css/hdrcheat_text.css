@@ -23,8 +23,9 @@ body {
    color: #303030;
 }
 
-#page_header_url h1 {
-   letter-spacing: -0.1em;
+#page_header_url h2 {
+   font-weight: lighter;
+   letter-spacing: -0.06em;
 }
 
 #page_header_quote p {

@@ -20,23 +20,38 @@ function getUrlQryStrParamVal(qryStrParam) {
 
 //Update the blog post displayed
 function updateBlogPost() {
-   const xhr = new XMLHttpRequest();
+   //Get a reference to the article node
+   const article = document.getElementById('blog_post');
+
+   //Exit if the article node is not present
+   if(!article) {
+      console.log('getElementById on identifier \'blog_post\' failed');
+      return;
+   }
 
    const sURL = blogProtocol + blogDomain + blogPath + blogContentPath + blogContent;
 
-   xhr.responseType = 'document';
+   const xhr = new XMLHttpRequest();
+
+   xhr.responseType = 'text';
 
    xhr.open('GET', sURL);
 
    xhr.onload = () => {
       if (xhr.status != 200) { //Record HTTP (exception) status
-         console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+         article.innerHTML = `<p>Error ${xhr.status}: ${xhr.statusText}</p>`;
       }
       else { //Success
-         console.log(xhr.response);
-      }
-   };    
+         console.log('Successfully retrieved the requested blog post');
 
+         article.innerHTML = xhr.response;
+      }
+   };
+
+   xhr.onerror = () => { //Technical network error
+      article.innerHTML = '<p>Technical network error occurred</p>';
+   };
+ 
    xhr.send();
 }
 

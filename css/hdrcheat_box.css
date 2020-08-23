@@ -62,8 +62,8 @@ header {
 
 article {
    width: 582px;
-   padding: 5px 8px;
-   margin: 5px 0 0;
+   padding: 5px 8px 0;
+   margin: 5px 0;
    border-left-style: solid;
    border-left-width: 1px;
    border-left-color: #f0f0f0;
@@ -109,11 +109,11 @@ a img {
 }
 
 h1 {
-   margin: 2.3em 0 1em 0;
+   margin: 2.3em 0 0.6em 0;
 }
 
 h2 {
-   margin: 1.9em 0 0.6em 0;
+   margin: 1.9em 0 0.4em 0;
 }
 
 h3 {
@@ -121,7 +121,7 @@ h3 {
 }
 
 p, pre {
-   margin: 1em 0;
+   margin: 0.8em 0;
 }
 
 ol, ul {
@@ -137,12 +137,23 @@ blockquote {
    margin: 1em 40px;
 }
 
+p+p {
+   margin: 1.4em 0;
+}
+
 h3+p {
    margin: 0.7em 0;
 }
 
 p+h3, ol+h3, ul+h3, table+h3 {
    margin-top: 1.8em;
+}
+
+article p img {
+   max-width: 520px;
+   display: block;
+   padding: 0.4em 0;
+   margin: 0 auto;
 }
 
 #page_header_url h2, #announce h3 {

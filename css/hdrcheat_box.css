@@ -50,7 +50,7 @@ header {
 
 #left_col {
    width: 150px;
-   padding: 8px 0 5px;
+   padding: 5px 0;
    float: left;
 }
 
@@ -60,27 +60,10 @@ header {
    margin-bottom: 15px;
 }
 
-#right_col {
-   width: 120px;
-   margin-top: 8px;
-   margin-bottom: 5px;
-   float: right;
-}
-
-#add_info {
-   margin-top: 0;
-   margin-bottom: 5px;
-}
-
-#ext_menu {
-   margin-top: 20px;
-   margin-bottom: 15px;
-}
-
 article {
    width: 582px;
    padding: 5px 8px;
-   margin: 10px 0 0;
+   margin: 5px 0 0;
    border-left-style: solid;
    border-left-width: 1px;
    border-left-color: #f0f0f0;
@@ -129,14 +112,6 @@ h1 {
    margin: 2.3em 0 1em 0;
 }
 
-#page_header_url h2 {
-   margin: 0;
-}
-
-div+h1, article+h1 {
-   margin-top: 0;
-}
-
 h2 {
    margin: 1.9em 0 0.6em 0;
 }
@@ -145,39 +120,8 @@ h3 {
    margin: 1.7em 0 0 0;
 }
 
-#announce h3, #add_info h3, #ext_menu h3 {
-   margin: 0;
-}
-
 p, pre {
    margin: 1em 0;
-}
-
-h3+p {
-   margin: 0.7em 0;
-}
-
-#page_header_quote p {
-   margin: 0;
-}
-
-#announce p {
-   margin-top: 3px;
-   margin-bottom: 10px;
-}
-
-#add_info p, #ext_menu p {
-   margin-top: 0;
-   margin-bottom: 5px;
-}
-
-#legal p {
-   padding: 5px;
-   margin: 0;
-}
-
-p+h3, ol+h3, ul+h3, table+h3 {
-   margin-top: 1.8em;
 }
 
 ol, ul {
@@ -191,6 +135,41 @@ li ol, li ul {
 
 blockquote {
    margin: 1em 40px;
+}
+
+h3+p {
+   margin: 0.7em 0;
+}
+
+p+h3, ol+h3, ul+h3, table+h3 {
+   margin-top: 1.8em;
+}
+
+#page_header_url h2, #announce h3 {
+   margin: 0;
+}
+
+article > h1 {
+   margin-top: 0;
+}
+
+#page_header_quote p {
+   margin: 0;
+}
+
+#announce p {
+   margin-top: 3px;
+   margin-bottom: 10px;
+}
+
+#add_info p {
+   margin-top: 0;
+   margin-bottom: 5px;
+}
+
+#legal p {
+   padding: 5px;
+   margin: 0;
 }
 
 #site_menu ul {

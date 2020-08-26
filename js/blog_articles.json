@@ -1,0 +1,4 @@
+{"hdr_blog_idx": [
+   {"title": "First blog post", "desc": "First post on hdr.is-a-geek.com", "file": "first_post.html"},
+   {"title": "Postgres JSONB", "desc": "Leigh Halliday's blog", "file": "l_halliday_blog.html"}
+]}

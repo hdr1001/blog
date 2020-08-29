@@ -73,6 +73,20 @@ article {
    float: right;
 }
 
+nav#icon_menu {
+   margin-bottom: 10px;
+}
+
+img.icon {
+   height: 1.6em;
+   padding: 0 3px;
+   margin: 0 2px;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #f0f0f0;
+   border-radius: 5px;
+}
+
 hr#below_content {
    height: 2px;
    width: 80%;

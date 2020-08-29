@@ -37,6 +37,7 @@ function BlogNav() {
    this.blogCurrIdx = 0;
    this.arrArticles = null;
    this.elemArticle = null;
+   this.elemIconNavMenu = null;
 
    //HTTP request to retrieve the article array
    const xhr = new XMLHttpRequest();
@@ -106,6 +107,10 @@ BlogNav.prototype.switchBlogPost = function(newIdx) {
          //Replace the existing DOM content
          this.elemArticle.innerHTML = xhr.response;
 
+         this.elemArticle.appendChild(this.elemIconNavMenu
+                                       ? this.elemIconNavMenu
+                                       : this.elemIconNavMenu = this.createIconNavMenu());
+
          //Update the current index
          this.blogCurrIdx = newIdx;
       }
@@ -119,33 +124,76 @@ BlogNav.prototype.switchBlogPost = function(newIdx) {
 }
 
 //Navigate to the next blog post
-BlogNav.prototype.next = function() {
+BlogNav.prototype.next = function(evnt) {
    if(this.arrArticles[this.blogCurrIdx + 1]) {
       this.switchBlogPost(this.blogCurrIdx + 1)
    }
    else {
       console.log('Can\'t navigate beyond the last blog post')
    }
+
+   evnt.preventDefault();
 }
 
 //Navigate to the previous blog post
-BlogNav.prototype.prev = function() {
+BlogNav.prototype.prev = function(evnt) {
    if(this.blogCurrIdx - 1 >= 0) {
       this.switchBlogPost(this.blogCurrIdx - 1)
    }
    else {
       console.log('Can\'t navigate to a blog post before the 1st one')
    }
+
+   evnt.preventDefault();
 }
 
 //Navigate to the last blog post
-BlogNav.prototype.last = function() {
+BlogNav.prototype.last = function(evnt) {
    if(this.arrArticles.length) {
       this.switchBlogPost(this.arrArticles.length - 1)
    }
    else {
       console.log('🤔, can\'t establish the articles array length')
    }
+
+   evnt.preventDefault();
+}
+
+//Create the icon navigation menu
+BlogNav.prototype.createIconNavMenu = function() {
+   const icons = [
+      {class: 'blog_home', title: 'Home', clickHandler: this.prev,
+         file: 'home.svg', alt: 'Click to go to home page'},
+      {class: 'blog_index', title: 'Blog index', clickHandler: this.prev,
+         file: 'index.svg', alt: 'Click to go to blog index'},
+      {class: 'blog_prev', title: 'Previous blog post', clickHandler: this.prev,
+         file: 'prev.svg', alt: 'Click to go to previous post'},
+      {class: 'blog_next', title: 'Next blog post', clickHandler: this.next,
+         file: 'next.svg', alt: 'Click to go to next post'},
+      {class: 'blog_last', title: 'Most recent blog post', clickHandler: this.last,
+         file: 'last.svg', alt: 'Click to go to most recent post'}
+   ];
+
+   const elemIconNav = document.createElement('nav');
+   elemIconNav.setAttribute('id', 'icon_menu');
+
+   icons.forEach(icon => {
+      let elemAnchor = document.createElement('a');
+      elemAnchor.className = icon.class + ' no_underline';
+      elemAnchor.setAttribute('title', icon.title);
+      elemAnchor.addEventListener('click', icon.clickHandler.bind(this))
+   
+      let elemIcon = document.createElement('img');
+      elemIcon.className = 'icon';
+      elemIcon.setAttribute('src', './assets/svg/' + icon.file);
+      elemIcon.setAttribute('alt', icon.alt);
+      elemIcon.setAttribute('title', icon.title);
+   
+      elemAnchor.appendChild(elemIcon);
+      elemIconNav.appendChild(elemAnchor);   
+   });
+
+   return elemIconNav;
 }
 
 //Further initialize the HTML page when the DOM is loaded
@@ -156,37 +204,22 @@ document.addEventListener('DOMContentLoaded', event => {
    let blogNav = new BlogNav;
 
    //Add a couple of event handlers
-   document.querySelectorAll('.blog_index').forEach(elem => {
+/*   document.querySelectorAll('.blog_index').forEach(elem => {
       elem.addEventListener('click', evnt => {
          console.log(evnt.target.className) + ' clicked';
          evnt.preventDefault();
       });
    });
-
+*/
    document.querySelectorAll('.blog_prev').forEach(elem => {
-      elem.addEventListener('click', evnt => {
-         console.log(evnt.target.className + ' clicked');
-         blogNav.prev();
-
-         evnt.preventDefault();
-      });
+      elem.addEventListener('click', blogNav.prev.bind(blogNav));
    });
 
    document.querySelectorAll('.blog_next').forEach(elem => {
-      elem.addEventListener('click', evnt => {
-         console.log(evnt.target.className + ' clicked');
-         blogNav.next();
-
-         evnt.preventDefault();
-      });
+      elem.addEventListener('click', blogNav.next.bind(blogNav));
    });
 
    document.querySelectorAll('.blog_last').forEach(elem => {
-      elem.addEventListener('click', evnt => {
-         console.log(evnt.target.className + ' clicked');
-         blogNav.last();
-
-         evnt.preventDefault();
-      });
+      elem.addEventListener('click', blogNav.last.bind(blogNav));
    });
 });

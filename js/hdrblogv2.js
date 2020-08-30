@@ -11,28 +11,28 @@ function getUrlQryStrParamVal(qryStrParam) {
    return rslt === null ? '' : decodeURIComponent(rslt[1].replace(/\+/g, ' '));
 }
 
-//Object containing & exposing blog parameters
-const blog = {
-   protocol: 'https://',
-   domain: 'hdr1001.github.io/',
-   path: 'blog/',
-   contentPath: 'src/',
-   javaScript: 'js/',
-   defaultArticle: 'first_post.html',
-   contentQryParam: 'content',
-   articleList: 'blog_articles.json',
-
-   getBlogArticleUrl: function() {
-      return this.protocol + this.domain + this.path + this.contentPath;
-   },
-
-   getBlogArticleListUrl: function() {
-      return this.protocol + this.domain + this.path + this.javaScript + this.articleList;
-   }
-};
-
 //Constructor function for blog navigation object
 function BlogNav() {
+   //Object containing & exposing (global) blog parameters
+   this.blog = {
+      protocol: 'https://',
+      domain: 'hdr1001.github.io/',
+      path: 'blog/',
+      contentPath: 'src/',
+      javaScript: 'js/',
+      defaultArticle: 'first_post.html',
+      contentQryParam: 'content',
+      articleList: 'blog_articles.json',
+
+      getBlogArticleUrl: function() {
+         return this.protocol + this.domain + this.path + this.contentPath;
+      },
+
+      getBlogArticleListUrl: function() {
+         return this.protocol + this.domain + this.path + this.javaScript + this.articleList;
+      }
+   };
+
    //Object instance properties
    this.blogCurrIdx = 0;
    this.arrArticles = null;
@@ -45,7 +45,7 @@ function BlogNav() {
    //Format of the content retrieved is JSON
    xhr.responseType = 'json';
 
-   xhr.open('GET', blog.getBlogArticleListUrl()); //Fetch the data
+   xhr.open('GET', this.blog.getBlogArticleListUrl()); //Fetch the data
 
    xhr.onload = () => {
       if (xhr.status != 200) { //Record HTTP (exception) status
@@ -70,6 +70,10 @@ function BlogNav() {
 
 //Add the event handlers needed for a properly functioning blog
 BlogNav.prototype.addEvnts = function(elemTree) {
+   elemTree.querySelectorAll('.blog_home').forEach(elem => {
+      elem.addEventListener('click', this.home.bind(this));
+   });
+
    elemTree.querySelectorAll('.blog_prev').forEach(elem => {
       elem.addEventListener('click', this.prev.bind(this));
    });
@@ -96,12 +100,29 @@ BlogNav.prototype.switchBlogPost = function(newIdx) {
       }
    }
 
-   //Get the file name of the blog post to retrieve
-   let sFileNamePost = this.arrArticles[newIdx] && this.arrArticles[newIdx].file;
+   let sFileNamePost;
 
-   if(!sFileNamePost) {
-      console.log('Unable to establish file name of post @ index ' + newIdx);
-      return;
+   //Get the relevant properties associated with the new index/file name
+   if(typeof this.arrArticles[newIdx] === 'undefined') {
+      //newIdx can also be a file name, let's try to convert it
+      let tmpIdx = this.arrArticles.findIndex(artcl => artcl.file === newIdx);
+
+      if(tmpIdx === -1) {
+         console.log('Unable to locate file name ' + newIdx + ' in article array');
+         return;
+      }
+
+      //Correct parameters associated with the post switch are ...
+      sFileNamePost = newIdx;
+      newIdx = tmpIdx;
+   }
+   else {
+      sFileNamePost = this.arrArticles[newIdx].file;
+
+      if(!sFileNamePost) {
+         console.log('Unable to establish file name of post @ index ' + newIdx);
+         return;
+      }
    }
 
    //Old school HTTP request
@@ -110,7 +131,7 @@ BlogNav.prototype.switchBlogPost = function(newIdx) {
    //Format of the content is plain text
    xhr.responseType = 'text';
 
-   xhr.open('GET', blog.getBlogArticleUrl() + sFileNamePost);
+   xhr.open('GET', this.blog.getBlogArticleUrl() + sFileNamePost);
 
    xhr.onload = () => {
       if (xhr.status != 200) { //Record HTTP (exception) status
@@ -139,6 +160,13 @@ BlogNav.prototype.switchBlogPost = function(newIdx) {
    };
 
    xhr.send();
+}
+
+//Navigate to the blog home page
+BlogNav.prototype.home = function(evnt) {
+   this.switchBlogPost(this.blog.defaultArticle)
+
+   evnt.preventDefault();
 }
 
 //Navigate to the next blog post

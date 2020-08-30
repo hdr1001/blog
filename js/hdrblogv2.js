@@ -68,6 +68,21 @@ function BlogNav() {
    xhr.send();
 }
 
+//Add the event handlers needed for a properly functioning blog
+BlogNav.prototype.addEvnts = function(elemTree) {
+   elemTree.querySelectorAll('.blog_prev').forEach(elem => {
+      elem.addEventListener('click', this.prev.bind(this));
+   });
+
+   elemTree.querySelectorAll('.blog_next').forEach(elem => {
+      elem.addEventListener('click', this.next.bind(this));
+   });
+
+   elemTree.querySelectorAll('.blog_last').forEach(elem => {
+      elem.addEventListener('click', this.last.bind(this));
+   });
+}
+
 //BlogNav member function to change the article displayed in DOM node blog_post
 BlogNav.prototype.switchBlogPost = function(newIdx) {
    //Get a reference to the article node
@@ -107,6 +122,9 @@ BlogNav.prototype.switchBlogPost = function(newIdx) {
          //Replace the existing DOM content
          this.elemArticle.innerHTML = xhr.response;
 
+         //Make sure the required events are defined
+         this.addEvnts(this.elemArticle); //Add the blog event handlers for the article
+
          this.elemArticle.appendChild(this.elemIconNavMenu
                                        ? this.elemIconNavMenu
                                        : this.elemIconNavMenu = this.createIconNavMenu());
@@ -137,7 +155,7 @@ BlogNav.prototype.next = function(evnt) {
 
 //Navigate to the previous blog post
 BlogNav.prototype.prev = function(evnt) {
-   if(this.blogCurrIdx - 1 >= 0) {
+   if(this.arrArticles[this.blogCurrIdx - 1]) {
       this.switchBlogPost(this.blogCurrIdx - 1)
    }
    else {
@@ -149,11 +167,19 @@ BlogNav.prototype.prev = function(evnt) {
 
 //Navigate to the last blog post
 BlogNav.prototype.last = function(evnt) {
-   if(this.arrArticles.length) {
+   if(this.blogCurrIdx < this.arrArticles.length - 1) {
       this.switchBlogPost(this.arrArticles.length - 1)
    }
    else {
-      console.log('🤔, can\'t establish the articles array length')
+      if(this.blogCurrIdx === this.arrArticles.length - 1) {
+         console.log('No need to navigate to the last post if already there');
+      }
+      else {
+         let sHmmm = '🤨 ➡️ Clicked last, blogCurrIdx = ' + this.blogCurrIdx;
+         sHmmm += ', arrArticles.length = ' + this.arrArticles.length;
+
+         console.log(sHmmm);
+      }
    }
 
    evnt.preventDefault();
@@ -181,7 +207,6 @@ BlogNav.prototype.createIconNavMenu = function() {
       let elemAnchor = document.createElement('a');
       elemAnchor.className = icon.class + ' no_underline';
       elemAnchor.setAttribute('title', icon.title);
-      elemAnchor.addEventListener('click', icon.clickHandler.bind(this))
    
       let elemIcon = document.createElement('img');
       elemIcon.className = 'icon';
@@ -193,33 +218,17 @@ BlogNav.prototype.createIconNavMenu = function() {
       elemIconNav.appendChild(elemAnchor);   
    });
 
+   this.addEvnts(elemIconNav); //Add the blog event handlers
+
    return elemIconNav;
 }
 
 //Further initialize the HTML page when the DOM is loaded
 document.addEventListener('DOMContentLoaded', event => {
-   console.log('Hosted on URL ' + window.location.pathname);
+   console.log('DOM content loaded, hosted on URL ' + window.location.pathname);
 
    //Instantiate a new navigation object
    let blogNav = new BlogNav;
 
-   //Add a couple of event handlers
-/*   document.querySelectorAll('.blog_index').forEach(elem => {
-      elem.addEventListener('click', evnt => {
-         console.log(evnt.target.className) + ' clicked';
-         evnt.preventDefault();
-      });
-   });
-*/
-   document.querySelectorAll('.blog_prev').forEach(elem => {
-      elem.addEventListener('click', blogNav.prev.bind(blogNav));
-   });
-
-   document.querySelectorAll('.blog_next').forEach(elem => {
-      elem.addEventListener('click', blogNav.next.bind(blogNav));
-   });
-
-   document.querySelectorAll('.blog_last').forEach(elem => {
-      elem.addEventListener('click', blogNav.last.bind(blogNav));
-   });
+   blogNav.addEvnts(document); //Add the blog event handlers
 });

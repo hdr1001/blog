@@ -1,0 +1,14 @@
+<h1>D&amp;B D+ IDR user interface 🏃🏃🏃</h1>
+
+<p>When, as I do, you fill out forms on the Internet using your keyboard, you become aware of the importance of the order in which form elements receive focus. I'm always annoyed if this order is not logical. The same is true for a reset. In my modest opinion clicking the reset button should reset the form to its initial state <b>and</b> set the focus to the first input field. More than 2 years ago I implemented this same functionality in my now abandoned <a href="http://hdr.is-a-geek.com/svn/dnb_dpl_v2/node/static/dnb_frm_idr.js" title="dnb_frm_idr.js">vanilla JavaScript codebase</a>;</p>
+
+<p><img src="/dev/blog/imgs/js_set_focus.png" alt="Reset focus previous codebase" /></p>
+
+<p>My new, <a href="https://bit.ly/2TTSoC4" title="React based UI for API Hub">React based repository</a> currently contains similar code after my <a href="https://github.com/hdr1001/api_hub_rpr_ui/commit/1e7d0a97a901da18659e03f6cc7de76ec959fbb1">most recent commit</a>. The updated code was inspired by an example in one of the <a href="https://reactjs.org/docs/refs-and-the-dom.html" title="React Refs and the DOM">advanced guides</a> on React's documentation site;</p>
+
+<p><img src="/dev/blog/imgs/ref_2_dom_node.png" alt="React reference to DOM node" /></p>
+
+<p>The GIF below demonstrates that clicking the Reset button automatically returns focus to the 1st field. Please note that, in the screen recording below, the cursor remains stationary while I move around the form using the tab key on my keyboard &amp; clicking the buttons using the spacebar;</p>
+
+<p><img src="/dev/blog/imgs/setFocus2006.gif" alt="Reset moves cursor back to 1st field" /></p>
+

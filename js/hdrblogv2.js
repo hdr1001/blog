@@ -39,6 +39,16 @@ function BlogNav() {
    this.elemArticle = null;
    this.elemIconNavMenu = null;
 
+   //Set blog's initialArticle property
+   let iniContent = getUrlQryStrParamVal(this.blog.contentQryParam);
+
+   if(iniContent) {
+      this.blog.initialArticle = iniContent;
+   }
+   else {
+      this.blog.initialArticle = this.blog.defaultArticle;
+   }
+
    //HTTP request to retrieve the article array
    const xhr = new XMLHttpRequest();
 
@@ -54,10 +64,10 @@ function BlogNav() {
       else { //Success
          console.log('Successfully loaded the requested article list');
 
-         //The article list can be accessed via oArticles
+         //The article list can be accessed via arrArticles
          this.arrArticles = xhr.response.hdr_blog_idx;
 
-         this.switchBlogPost(0);
+         this.switchBlogPost(this.blog.initialArticle);
       }
    };
 
@@ -85,6 +95,10 @@ BlogNav.prototype.addEvnts = function(elemTree) {
    elemTree.querySelectorAll('.blog_last').forEach(elem => {
       elem.addEventListener('click', this.last.bind(this));
    });
+
+   elemTree.querySelectorAll('.blog_anchor').forEach(elem => {
+      elem.addEventListener('click', this.anchor.bind(this));
+   });
 }
 
 //BlogNav member function to change the article displayed in DOM node blog_post
@@ -109,7 +123,18 @@ BlogNav.prototype.switchBlogPost = function(newIdx) {
 
       if(tmpIdx === -1) {
          console.log('Unable to locate file name ' + newIdx + ' in article array');
-         return;
+
+         //Switching to default article
+         newIdx = this.blog.defaultArticle;
+
+         tmpIdx = this.arrArticles.findIndex(artcl => artcl.file === newIdx);
+
+         if(tmpIdx === -1) {
+            console.log('Can\'t locate ' + newIdx + ' either, giving up ...');
+            return;
+         }
+
+         console.log('Default article ' + newIdx + ' will be displayed initially!');
       }
 
       //Correct parameters associated with the post switch are ...
@@ -208,6 +233,31 @@ BlogNav.prototype.last = function(evnt) {
 
          console.log(sHmmm);
       }
+   }
+
+   evnt.preventDefault();
+}
+
+//Navigate to the post specified in the anchor's the href attribute
+BlogNav.prototype.anchor = function(evnt) {
+   let artclFile = evnt.target.getAttribute('href');
+   let artclIdx = -1;
+
+   if(artclFile) {
+      artclIdx = this.arrArticles.findIndex(artcl => artcl.file === artclFile);
+   }
+
+   if(artclIdx === -1) {
+      if(!artclFile) {
+         console.log('Anchor tag clicked, can\'t get a proper href value though');
+      }
+      else {
+         console.log('Anchor tag clicked, href value ' + artclFile);
+         console.log('Can\'t find this post on the article array though');
+      }
+   }
+   else {
+      this.switchBlogPost(artclIdx)
    }
 
    evnt.preventDefault();

@@ -1,0 +1,22 @@
+<h1>Constructing the platform, pt. I</h1>
+
+<p>As a foundation I first created a <a href="https://m.do.co/c/acb83aa3d38f" title="Help a brother out">Digital Ocean Droplet</a>:</p>
+
+<p><img src="/dev/blog/imgs/CreateDroplet.png" alt="Create the Digital Ocean cloud server" /></p>
+
+<p>For this project I opted for a small Ubuntu server instance:</p>
+
+<p><img src="/dev/blog/imgs/do_ubuntu.png" alt="Ubuntu server droplet" /></p>
+<p><img src="/dev/blog/imgs/do_small.png" alt="Digital Ocean small instance" /></p>
+
+<p>Upon completion of the form and after clicking the &quot;Create&quot; button (followed by a few seconds wait), Ubuntu was up-n-running:</p>
+
+<p><img src="/dev/blog/imgs/do_off_you_go.png" alt="Off you go ..." /></p>
+
+<p>Next I logged on to the Droplet using my favourite SSH client on Windows, <a href="http://www.putty.org/" title="PuTTY, a SSH and telnet client">PuTTY</a>. As <a href="#" title="Ubuntu, my favourite Linux distro" onclick="navBlog.anchorAction(event, 'ubuntu.xhtml')">mentioned before</a> my preference is to use <a href="https://en.wikipedia.org/wiki/Secure_Shell#Key_management" title="Secure shell key management">SSH public-private key pairs</a> for authentication purposes. Digital Ocean supports SSH keys as a standard Droplet feature and a couple of good community articles are available regarding <a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets" title="SSH Keys with DigitalOcean Droplets">this topic</a>.</p>
+
+<p>As always I updated the Ubuntu cloud instance right off the bat:
+   <code>apt-get update<br />
+   apt-get upgrade</code>
+My favourite editor, <a href="http://www.vim.org/" title="Vim, a highly configurable text editor">Vim</a>, is available immediately out-of-the-box but I'm kind of attached to a specific colour scheme, <a href="https://github.com/mbbill/vim-seattle" title="Seattle, an elegant yet efficient color scheme for coders">Seattle</a>, and, because I use Vim so much, I therefore make it a point to install this colour scheme before I do anything else.</p>
+

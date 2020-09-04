@@ -1,0 +1,40 @@
+<h1>Don't break the back button! (pt. II)</h1>
+
+<p>Supported end-user interactions in the context of my blog are (1) selecting a menu item:</p>
+
+<p class="img_caption"><img src="/dev/blog/imgs/hdr_blog_menu.png" alt="Available blog menu items" />Available blog menu items</p>
+
+<p>or (2) clicking a link between individual posts:</p>
+
+<p class="img_caption"><img src="/dev/blog/imgs/lnk_btwn_posts.png" alt="Links between blog posts" />Example of links between blog posts</p>
+
+<p>Of course, with the back (&amp; forward) button(s) fixed, there now is a third method for navigating my blog.</p>
+
+<p>Menu click events are handled using the jQuery method <a href="https://learn.jquery.com/events/handling-events/" title="jQuery handling events">.on()</a>.</p>
+
+<script src="https://gist.github.com/hdr1001/f1a84c148025507f208ad09ef89cc516.js" type="text/javascript"></script>
+
+<p>The handler invokes method menuAction on object navBlog and passes on information about the menu item clicked.</p>
+
+<p>Links between blog posts are programmed as regular a(nchor) tags but invoke the JavaScript method anchorAction on object navBlog like this:</p>
+
+<script src="https://gist.github.com/hdr1001/69fddd5efb8494bdd4cf8fa4a7f2a96b.js" type="text/javascript"></script>
+
+<p>The second parameter in this call specifies the file name associated with the new content requested.</p>
+
+<p>The navBlog methods menuAction &amp; anchorAction have a similar structure:</p>
+
+<ol>
+   <li>The current state is temporarily saved.</li>
+   <li>The new state is determined &amp; set.</li>
+   <li>Nothing happens in case the old &amp; new state are the same but new content is loaded if the old &amp; new state differ.</li>
+   <li>Any further event bubbling and/or default actions are cancelled.</li>
+</ol>
+
+<p>As part of step 3 a jQuery AJAX call is executed in <a href="http://hdr.is-a-geek.com/dev/blog/js/a2blog_main.js" title="Blog JavaScript code">function replaceContent</a> so as to retrieve the new content. Upon successful receipt of the HTTP response the old content is replaced and method pushState is invoked on the history object. This adds an entry to the browser's history stack.</p>
+
+<p><img src="/dev/blog/imgs/hist_state_next.png" alt="Two history entries" /></p>
+
+<p>In the screenshot above I first opened a new tab and entered the following URL in the browser's address bar: <a href="http://hdr.is-a-geek.com/blog?content=node_js.xhtml"><code>http://hdr.is-a-geek.com/blog?content=node_js.xhtml</code></a>This took me to my blog with the post titled "I &#x2764; Node.js" loaded. At this stage the history stack contained just two entries and, at the top of the stack, the hdr_idx property of object state had a value of 7. The code driving this functionality is described in detail in my <a class="blog_prev" href="./prev" title="Previous blog post">previous blog post</a>. In order to illustrate blog navigation I clicked menu item "Next blog post". In response the "Constructing the platform, pt. I" post was loaded. In the process an additional history entry was pushed onto the stack. As a result the history stack now contained three entries in total. The current index of the "Constructing the platform, pt. I" post is 8. Method pushState stores this value in variable history.state.hdr_idx. The user's browsing history is recorded step-by-step in this way.</p>
+
+<p>Please note that this topic is continued in this blog's <a class="blog_next" href="./next" title="Next blog post">next post</a>.</p>

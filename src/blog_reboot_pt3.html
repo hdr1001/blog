@@ -1,0 +1,24 @@
+<h1>Blog reboot, part III</h1>
+
+<p>My new <a href="http://bit.ly/2NBvdd6" title="GitHub api_hub_rpr repository">GitHub repository</a> is actually the 3rd version of my API hub. In hindsight I consider the <a href="http://bit.ly/2OKuOWM" title="SVN repository Node.js web services implementation">1st version</a> of the codebase almost as a set of prototypes. At the time the re-use of code didn't feature very high on my agenda. Proving conceptual viability was the name of the game. The <a href="http://bit.ly/2Ssc7bX" title="SVN repository Dockerized version web services implementation">2nd version</a> of the project was all about Dockerizing the application platform. I therefore made a conscious decision to focus on just one API (i.c. <a href="http://bit.ly/2NrDMEw" title="D&amp;B Direct+">D&amp;B Direct+</a>). At this stage my aim is to proceed with multiple API's but simultaneously I want to make sure that I effectively re-use the code I develop.</p>
+
+<p>When it comes to effective code re-use the video below truly was an eye-opener for me.</p>
+
+<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/wfMtDGfHWpA" width="448" height="252">
+   <param name="frameborder" value="0" />
+   <param name="allowfullscreen" value="true" />
+</object></p>
+
+<p>From the days I learned C++ I've always been very much focused on inheritance but in the video <a href="https://about.me/mpj" title="Mattias Petter Johansson">MPJ</a> makes a very strong case to use composition instead of inheritance. Of course I was not able to immediately incorporate all the ideas put forward into my GitHub repository but I succeeded in moving a lot of function code out of classes so as to share it between classes. As a result the current version of the codebase contains just one instance of method invocation <a href="http://bit.ly/2MyG8TQ" title="HTTPS request">https.request</a> compared to <a href="http://bit.ly/2rvlAEk" title="Check out the inefficient code!">six</a> previously. Everything now is neatly parameterized &amp; encapsulated in function <a href="http://bit.ly/39ac36C" title="Check out the optimized code!">execHttpReqResp</a>.</p>
+
+<p>Please note that function execHttpReqResp is invoked using the <a href="https://mzl.la/2ETH68S" title="The call method">call</a> method as defined on JavaScript's Function constructor because, in the body of the function, object instance properties are dereferenced using "this".</p>
+
+<script src="https://gist.github.com/hdr1001/f2c43eb943e2f3e7f7007dbb6adfa491.js" type="text/javascript"></script>
+
+<p>In my next blog I will delve a bit deeper into "this" but I highly recommend MPJ's video on "bind and this" as well.</p>
+
+<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/GhbhD1HR5vk" width="448" height="252">
+   <param name="frameborder" value="0" />
+   <param name="allowfullscreen" value="true" />
+</object></p>
+

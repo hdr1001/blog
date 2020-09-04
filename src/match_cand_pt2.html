@@ -1,0 +1,20 @@
+<h1>D&amp;B Direct+ IDR error handling</h1>
+
+<p>In my <a class="blog_prev" href="./prev" title="Previous blog post">previous post</a> I explained the React code I developed to list <a href="http://bit.ly/2NrDMEw" title="D&amp;B Direct+ Documentation">D&amp;B Direct+</a> <a href="https://bit.ly/3gAhuzq" title="D&amp;B IDentity Resolution">match candidates</a> in a user interface. I did not go into detail about the technique used to obtain the underlying information though. In this post I will explore the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" title="Mozilla Dev Network Fetch API guide">Fetch API</a> which, for me, in the year 2020, is the way to initiate HTTP transactions from a UI.</p>
+
+<p>The <a href="https://bit.ly/3i65CGe" title="Fetch v1">first version</a> of the fetch call basically implemented the entire <a href="https://en.wikipedia.org/wiki/Happy_path" title="Process happy path">happy path</a> of the API transaction. The <a href="https://bit.ly/2BhvzCa" title="Fetch v2">most recent version</a> of the code contains proper error handling. It is interesting to note that adding error handling increased the number of lines of code from 37 to 76!</p>
+
+<p><img src="/dev/blog/imgs/resp_not_ok.png" alt="Fetch with error handling" /></p>
+
+<p>In the fragment above expression ... <code>!resp.ok</code> ... evaluates to true if the Direct+ API responds with an <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" title="HTTP response status codes">HTTP status code</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/ok" title="The fetch response, property ok">outside of the 2xx</a> range. Functionally this maps perfectly to my definition of an error condition (i.e. if there is, for whatever reason, not a single match candidate available) and this, in turn, means that I do not have to parse the transaction's response body to determine if I have to follow an exception path in my code.</p>
+
+<p>Compare this to the <a href="https://toolkit-api.dnb.com/" title="D&amp;B DIT">D&amp;B Toolkit API</a> which is a <a href="https://www.w3.org/TR/soap12/" title="SOAP W3C Recommendation">SOAP API</a>. Requesting a Toolkit lookup with, for example, an invalid country code or search criteria against which no candidates can be generated, results in an error condition but the status code of the HTTP response will be 200 just the same. As a consequence a developer can only determine whether or not an error did occur after parsing the (XML) body of the response.</p>
+
+<p>The two error conditions mentioned before now look like this in my React based UI;</p>
+
+<p class="img_caption"><img src="/dev/blog/imgs/invalid_iso.png" alt="Invalid country code" />Invalid country code (HTTP status 400)</p>
+
+<p class="img_caption"><img src="/dev/blog/imgs/no_cand_avail.png" alt="No candidate available" />No candidate available (HTTP status 404)</p>
+
+<p>PS, <a href="https://directplus.documentation.dnb.com/errorsAndInformationMessages.html" title="Direct+ error and information Messages">click here</a> for more information about Direct+ errors.</p>
+

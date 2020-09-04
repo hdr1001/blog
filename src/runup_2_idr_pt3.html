@@ -1,0 +1,28 @@
+<h1>API Hub throughput on a Pi</h1>
+
+<p>Recently I deployed my <a href="https://bit.ly/3fj3NnS" title="API Hub Request Persist Respond v3x">API Hub code</a> on a <a href="#" title="API Hub on Raspberry Pi" onclick="navBlog.anchorAction(event, 'runup_2_idr_pt2.xhtml')">Raspberry Pi 3B</a>. For me the obvious next question was, <i>what kind of throughput can I achieve on this €35,- device?</i></p>
+
+<p>To answer the question above it is important to distinguish two separate scenarios; (1) the data associated with the requested key is already available on the device &amp; can be delivered directly out of the application's database and (2) the relevant data is not available on the device and, consequently, an external API call must be initiated in order to retrieve it. When testing the second scenario the most important performance bottleneck will probably be the <a href="https://directplus.documentation.dnb.com/html/pages/UsingDplusAPIs.html#adhere-to-rate-limiting-guidelines" title="Adhere to Direct+ rate limiting guidlines">Transactions per Second</a> (TPS for short) restriction enforced by the external API, <b>not</b> the technical capabilities of the Raspberry Pi.</p>
+
+<p>I have created a completely <a href="https://bit.ly/36kGhTj" title="API Hub test application on GitHub">new application</a> to test API Hub throughput. This application uses a <a href="https://www.npmjs.com/package/limiter" title="Generic rate limiter for Node.js">rate limiter</a> to adhere to the TPS ceiling as dictated by the external API.</p>
+
+<p><img src="/dev/blog/imgs/LimiterRemToken.png" alt="Rate limiter for node.js" /></p>
+
+<p>With the database empty I tested requesting products from the API Hub deployed on my Raspberry Pi at rates of 3, 5 &amp; 10 transactions per second.</p>
+
+<p><img src="/dev/blog/imgs/apihubtest5ps.gif" alt="API hub test 5TPS" /></p>
+
+<p>At a rate of 10 transactions per second I expected to see some D&amp;B Direct+ responses with HTTP status code <a href="https://httpstatuses.com/429" title="HTTP status code 429">429</a> but I did not.</p>
+
+<p>With the database sufficiently filled I cranked up the limiter, over a couple of rounds of testing, to 20, 40 and 60 TPS respectively. Although I saw a limited number of 429 returns, the Node.js API Hub application performed like a champ and did not miss a beat. This is especially remarkable considering the modest specs of the supporting hardware platform.</p>
+
+<p>Lastly I wanted to confirm that, while testing, I was not just pumping around error messages. Two quick SQL queries confirmed that, also from a content perspective, everything looked &amp; functioned perfectly fine.</p>
+
+<p><img src="/dev/blog/imgs/select_pg_dnb.png" alt="Select statement D&amp;B products table" /></p>
+
+<p><img src="/dev/blog/imgs/pg_dnb.png" alt="DUNS &amp; primary names returned" /></p>
+
+<p><img src="/dev/blog/imgs/select_pg_lei.png" alt="Select statement GLEIF products table" /></p>
+
+<p><img src="/dev/blog/imgs/pg_lei.png" alt="LEI &amp; legal names returned" /></p>
+

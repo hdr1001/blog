@@ -1,0 +1,34 @@
+<h1>IDR UI, pick a match candidate</h1>
+
+<p>For me this blog post represents another important milestone. <a href="https://directplus.documentation.dnb.com/html/guides/Identify/IdentityResolution.html" title="Direct+ Identity Resolution Guide">IDentity Resolution</a> is a big topic and when I embarked on my journey my goal was to take care of the IDR back-end stuff first (see <a href="http://bit.ly/2OLr053" title="IDR JavaScript object code">here</a>, <a href="http://bit.ly/2nC0Wg7" title="IDR persistence">here</a> &amp; <a href="http://bit.ly/2N0ludz" title="Custom IDR webservices">here</a>) and then build a fully functioning front-end. In my opinion such a front-end must support the following functionality:</p>
+
+<ol>
+   <li>user specification of the search criteria,</li>
+   <li>user submission of the specified criteria,</li>
+   <li>processing of the submitted IDR request,</li>
+   <li>feeding the generated match candidates back to the end-user,</li>
+   <li>enabling the user to pick a candidate from the list and</li>
+   <li>submission of the chosen candidate for the purpose of persistence.</li>
+</ol>
+
+<p>I'm happy to report that all this functionality is now available on my SVN <a href="http://bit.ly/2OKuOWM" title="D&amp;B Direct+ Node.js code repository">code repository</a>.</p>
+
+<p>My <a class="blog_prev" href="./prev" title="Previous blog post">previous post</a> contains a screenshot of the user interface, as it was a week ago or so, displaying a list of match candidates. This same collapsible element now looks like this:</p>
+
+<p><img src="/dev/blog/imgs/idr_mcs_181007.png" alt="Revised IDR form element for match candidate display" /></p>
+
+<p>Obviously there are multiple changes but the biggest difference no doubt is the inclusion of <a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_radio" title="The radio button input">radio buttons</a> on the form:</p>
+
+<p><img src="/dev/blog/imgs/idr_mcs_radio_btns.png" alt="Match candidate radio buttons" /></p>
+
+<p>The radio buttons allow the user to choose a candidate and then the DUNS associated with this particular candidate can be submitted for storage on the back-end server. Clicking the Submit button will also revert the application to an empty search criteria form allowing the user to specify a new IDentity Resolution request if needed. In order to test the application I decided to look-up the top 5 teams of the second division football league in my home country (i.e. countryISOAlpha2Code=NL).</p>
+
+<p><img src="/dev/blog/imgs/idr_top5_kkd_match.gif" alt="Looking up the top five of the Keuken Kampioen divisie" /></p>
+
+<p>The search criteria, the raw Direct+ response and the DUNS chosen by the user are all automatically persisted on my PostgreSQL database because the form uses my custom Node.js web services:</p>
+
+<p><img src="/dev/blog/imgs/pg_idr_data.png" alt="PostgreSQL record of my IDR test transactions" /></p>
+
+<p>Please note that the Agglo example was already on the database when I started my screen recording.</p>
+
+

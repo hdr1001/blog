@@ -1,0 +1,11 @@
+<h1>IDR user interface application logic</h1>
+
+<p>I recently <a href="https://github.com/hdr1001/api_hub_rpr_ui/commit/d513d69210f0c3911c0b6df7eaea50b58f2dc6fc" title="React based UI for API Hub on GitHub">added</a> a 2nd form and the accompanying application logic to my React based D&amp;B <a href="https://bit.ly/3gAhuzq" title="D+ Identity Resolution">Direct+ IDentity Resolution</a> form. The IDR endpoint will basically generate match candidates for a set of search criteria submitted. Considering this functionality it makes sense to have two separate parts to a UI which will interact with the endpoint,</p>
+
+<ol><li>a form which allows the end-user to specify search criteria (this was the subject of my <a class="blog_prev" href="./prev" title="Previous blog post">previous post</a>) and</li><li>a form which allows the end-user to evaluate the match candidates and select the correct one.</li></ol>
+
+<p>Of course the order of the process is clear. The process is started by the specification &amp; submission of the criteria, then there will be a brief wait state and, finally, the generated match candidates will be presented and the end-user should be able to select &amp; confirm one. This last part will the subject of my next blog post. For now there is just the framework &amp; the logic;</p>
+
+<p><img src="/dev/blog/imgs/idr_form_logic.gif" alt="IDentity Resolution UI, application logic" /></p>
+
+<p>With this in place I can now focus on the actual API request &amp; response (<a href="#" title="Port IDR code to new repository" onclick="navBlog.anchorAction(event, 'idr_backend.xhtml')">against my API HUB</a>, not immediately against Direct+) and the React components needed to feedback the candidate information generated in the transaction. Please stay tuned for more ... </p>

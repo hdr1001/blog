@@ -1,0 +1,32 @@
+<h1>Deploying my code</h1>
+
+<p>This blog post is all about deploying my code now that my <a href="#" title="Bought a second-hand Lenovo T430" onclick="navBlog.anchorAction(event, 'ibm_t430_pt1.xhtml')">"new" laptop</a> has an <a href="#" title="Installed Ubuntu Bionic Beaver" onclick="navBlog.anchorAction(event, 'ibm_t430_pt2.xhtml')">OS</a> and a virtualized instance of <a href="#" title="Ubuntu Bionic Beaver VM" onclick="navBlog.anchorAction(event, 'ibm_t430_pt3.xhtml')">Ubuntu 18.04 server edition</a> running on it. As such it basically is a collection of links to previous posts with a couple of remarks mixed in. Of course all the code is deployed on the virtual server. Most of the testing is then done in the ThinkPad's web browser.</p>
+
+<p>As always first order of business was the construction of my favourite open source stack. If you have been following my blog it should come as no surprise that my favourite stack is made up of <a href="#" title="Installed Ubuntu Bionic Beaver" onclick="navBlog.anchorAction(event, 'ibm_t430_pt2.xhtml')">Apache</a> (including SSL for <a href="#" title="Installed Ubuntu Bionic Beaver" onclick="navBlog.anchorAction(event, 'ibm_t430_pt2.xhtml')">HTTPS</a> &amp; <a href="#" title="Installed Ubuntu Bionic Beaver" onclick="navBlog.anchorAction(event, 'ibm_t430_pt2.xhtml')">client authentication</a>), <a href="#" title="Installed Ubuntu Bionic Beaver" onclick="navBlog.anchorAction(event, 'ibm_t430_pt2.xhtml')">PostgreSQL</a> and Node.js. This last component is the odd one out because, whereas the instructions in the Apache and PostgreSQL blog posts are still valid, things have gotten a lot less complicated when it comes to Node.js. Ubuntu 16.04 came with Node.js version 4.2, release 18.04 comes standard with version 8.10. This means that I can now use the Node.js packages straight from the standard Bionic Beaver repositories where, previously, in order to get up to version 8, I had to revert to the <a href="#" title="1st run, run the (test) code!" onclick="navBlog.anchorAction(event, 'first_run_pt2.xhtml')">NodeSource PPA</a>. As a result deploying Node.js is now as easy as:
+   <code>
+      sudo apt install nodejs<br />
+      sudo apt install npm<br />
+      nodejs -v
+   </code>
+   <img src="/dev/blog/imgs/nodejs-v.png" alt="Node.js version 8.10 out-of-the-box" />
+</p>
+
+<p>I configured the server's <a href="#" title="The platform, configure the firewall" onclick="navBlog.anchorAction(event, 'platform_pt7.xhtml')">firewall</a> to conclude my tasks related to platform construction.</p>
+
+<p>With all the major software components in place it was time to <a href="http://hdr.is-a-geek.com/blog?content=first_run_pt1.xhtml" title="First run, check out the code">check out my code</a> and <a href="http://hdr.is-a-geek.com/blog?content=first_run_pt2.xhtml" title="First run, run the (test) code!">run it</a>. Please be aware that my test code has evolved over time. For instance, <a href="http://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_test.js" title="Latest release Node.js test code">currently</a> there are several test functions where there used to be just <a href="http://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_test.js?p=1" title="First release Node.js test code">one</a>. Furthermore, the current implementation of the test code is much cleaner because the DUNS are read from a <a href="http://hdr.is-a-geek.com/svn/dnbdpl/node.js/DUNS.txt" title="My test DUNS">separate file</a> whereas, in the past, they were part of the JavaScript code. A final thing to note is that, as of <a href="http://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_test.js?p=5" title="Revision 5 of the Node.js test code">rev. 5</a>, a test function is invoked as the last instruction in the onLoad event handler associated with the authentication token object instance:</p>
+
+<p><img src="/dev/blog/imgs/inv_test_func.png" alt="Invoke a test function" /></p>
+
+<p>Running the basic test code, even taking into consideration the above-mentioned changes, proved to be relatively simple. So I quickly moved on to my <a href="http://hdr.is-a-geek.com/blog?content=ws_run_pt2.xhtml" title="Web service, test code Express library">web service code</a>. The major challenge with the JavaScript in file <a href="http://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_ws.js" title="Customized web services using the Express library">dnb_dpl_ws.js</a> turned out to be that the service's endpoints had changed because of the introduction of new functionality. For example, to successfully request a D&amp;B Direct+ data packet, this curl command in my blog post:
+   <code>
+      curl http://localhost:8081/dnb/duns/403253052
+   </code>
+had to be replaced with:
+   <code>
+      curl http://localhost:8081/dnb/dpl/duns/403253052
+   </code>
+Of course the correct endpoints can easily be gathered from <a href="http://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_ws.js" title="Customized web services using the Express library">code</a> (search for either "app.get" or "app.post"). It goes without saying that the same difficulty applies to the HTTPS requests initiated from my <a href="http://hdr.is-a-geek.com/blog?content=ws_run_pt3.xhtml" title="Web service, expose the API">desktop's REST client</a>:</p>
+
+<p><img src="dev/blog/imgs/dsk_rest_clnt.png" alt="Desktop REST client" /></p>
+
+<p>Again, this is something which can easily be fixed. The remaining products (<a href="http://hdr.is-a-geek.com/blog?content=ws_dit_pt1.xhtml" title="Toolkit Node.js object code">D&amp;B Toolkit</a>, <a href="http://hdr.is-a-geek.com/blog?content=ws_dit_pt2.xhtml" title="Custom composite data product">custom</a> and <a href="http://hdr.is-a-geek.com/blog?content=add_ggl_tmz.xhtml" title="Custom product incl. Google time zone">Google timezone</a>) functioned straight out-of-the-box without the need to make changes to either system settings or code.</p>

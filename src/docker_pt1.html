@@ -1,0 +1,42 @@
+<h1>Getting started with Docker</h1>
+
+<p>Lately I have been reading up on <a href="https://www.docker.com/why-docker" title="Why Docker?">Docker</a>. This container engine technology packages software into standardised units for development, shipment &amp; deployment. I would recommend the YouTube video below in case you don't know Docker but are interested to learn more about what the hype is all about:</p>
+
+<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/YFl2mCHdv24" width="448" height="252">
+   <param name="frameborder" value="0" />
+   <param name="allowfullscreen" value="true" />
+</object></p>
+
+<p>For me the proof is always in the pudding. I therefore decided to get started with containerization by implementing a minimal Node.js Docker application on two competing cloud platforms:</p>
+
+<ol>
+   <li>The <a href="https://aws.amazon.com/" title="Amazon Elastic Compute Cloud">Amazon Elastic Compute Cloud</a> (a t2.micro instance) and</li>
+   <li><a href="https://www.digitalocean.com/" title="Deploy, manage, and scale cloud applications faster and more efficiently">Digital Ocean</a> (the smallest droplet available).</li>
+</ol>
+
+<p>On both platforms my operating system of choice was <a href="#" title="I &#x2764; Ubuntu" onclick="navBlog.anchorAction(event, 'ubuntu.xhtml')">Ubuntu</a> 18.04.</p>
+
+<p>In this blog post I will not go into too much implementation detail because a lot of stuff was already discussed in previous blog posts (for instance <a href="#" title="Digital Ocean Droplet Creation" onclick="navBlog.anchorAction(event, 'platform_pt1.xhtml')">creating a Digital Ocean droplet</a>) and other topics (like <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html" title="Getting Started with EC2 Linux Instances">launching a new Linux instance in the Amazon Elastic Compute Cloud</a>) are documented very well elsewhere on the Internet. This allows me to proceed immediately with the installation of Docker. To accomplish the install I worked through steps 1 &amp; 2 of the excellent Digital Ocean community tutorial titled "<a href="https://do.co/2PiQda4" title="How to Install and Use Docker on Ubuntu 18.04">How to Install and Use Docker on Ubuntu 18.04</a>". The steps described in the tutorial proved to be valid not only for my Digital Ocean droplet but also worked, without alteration, on my Amazon virtual server.</p>
+
+<p>Next item on my agenda was to <a href="#" title="Installing Apache" onclick="navBlog.anchorAction(event, 'platform_pt2.xhtml')">install Apache</a>. This step is not strictly necessary to accomplish my goal of a deploying a minimal Node.js Docker application but (1) it allowed me to verify client connectivity to my cloud instances and (2) in future posts I intend to use Apache as a reverse proxy for my applications. I think it is important to mention that I installed Apache straight onto my Amazon micro instance &amp; Digital Ocean droplet. So no containerization of the HTTP daemon.</p>
+
+<p>Of course, in order to get to the Apache default page(s), it is necessary to open TCP ports on the virtual server. In the Amazon cloud this can be accomplished by modifying a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html" title="Amazon EC2 Security Groups for Linux Instances">security group</a> in the <a href="https://eu-west-3.console.aws.amazon.com/ec2/v2/home" title="AWS EC2 dashboard">EC2 dashboard</a>. When working with a Digital Ocean droplet I still use <a href="#" title="Uncomplicated Firewall" onclick="navBlog.anchorAction(event, 'platform_pt7.xhtml')">UFW</a> for this same purpose even though nowadays firewall functionality is available on the Digital Ocean platform as well.<img src="/dev/blog/imgs/dkr_do_fw.png" alt="Digital Ocean firewall functionality" /></p>
+
+<p>Now, with all components in place, I was ready to make a start with the creation of my first Docker image. To achieve my goal for this post I followed the steps in the guide titled "<a href="http://bit.ly/2RjgT7W" title="Dockerizing a Node.js web application">Dockerizing a Node.js web app</a>" as available on the official <a href="https://nodejs.org/en/about/" title="About Node.js">Node.js website</a>. In the process I created my own <a href="http://hdr.is-a-geek.com/svn/min_dkr/" title="Minimal Node.js Docker application">SVN repository</a> because occasionally I deviated from the example code provided. The repository consists of a <a href="http://hdr.is-a-geek.com/svn/min_dkr/" title="Root directory SVN repository">root directory</a> and a subdirectory <a href="http://hdr.is-a-geek.com/svn/min_dkr/src/" title="Subdirectory source">src</a>. This last directory contains the following files:</p>
+
+<ol>
+   <li><a href="http://hdr.is-a-geek.com/svn/min_dkr/src/min_node_dkr_app.js" title="JavaScript code for a minimal Node.js Docker Application">min_node_dkr_app.js</a>. This code basically is the minimal Express framework example as can be found <a href="https://www.npmjs.com/package/express" title="Express, a fast, unopinionated, minimalist web framework for node">here</a>. It is interesting to note the obvious similarities between this minimal code and the implementation of my <a href="http://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_ws.js" title="Customized web services implementation of the D&amp;B Direct+ API">customized D&amp;B Direct+ web services</a>.</li>
+   <li><a href="http://hdr.is-a-geek.com/svn/min_dkr/src/package.json" title="The project's manifest">package.json</a>. The file package.json contains the Node.js project's meta-data.</li>
+   <li><a href="http://hdr.is-a-geek.com/svn/min_dkr/src/package-lock.json" title="Empty file">package-lock.json</a>. I included this empty file in my SVN repository to avoid error messages while building the Docker image.</li>
+</ol>
+
+<p>The repository's root directory contains two files:</p>
+
+<ol>
+   <li><a href="http://hdr.is-a-geek.com/svn/min_dkr/Dockerfile" title="Main Docker file">Dockerfile</a>. The Docker file can be considered the recipe for cooking up a specific Docker image. In this file I deviated furthest from the example provided in the guide. In my implementation I opted for the <a href="https://hub.docker.com/_/node/" title="Docker Official Node.js repository">Alpine image</a> instead of the default, Debian based, image. Click <a href="http://bit.ly/2PyHGQv" title="The 3 Biggest Wins Using Alpine">here</a> for more on the reasons why I made this change.</li>
+   <li><a href="http://hdr.is-a-geek.com/svn/min_dkr/License.txt" title="The project's license">License.txt</a>. For this project I chose the <a href="http://unlicense.org" title="Set Your Code Free">unlicense</a> license.</li>
+</ol>
+
+<p>Using the SVN repository to generate a minimal Docker image is as easy as (1), if needed, installing subversion: <code>apt install subversion</code> (2) checking out the code in a development directory: <code>svn checkout http://hdr.is-a-geek.com/svn/min_dkr</code> (3) changing to directory min_dkr: <code>cd min_dkr</code> (4) issuing the Docker build command to generate the image: <code>docker build -t $USER/min_dkr .</code> (5) issuing the Docker run command to create &amp; launch the container (where <i>&lt;xyz&gt;</i> is the external port on which the application is hosted): <code>docker run -p <i>&lt;xyz&gt;</i>:8081 -d $USER/min_dkr</code></p>
+
+<p>These instructions worked perfectly for me on both Amazon EC2 &amp; Digital Ocean. Just a quick reminder, TCP port <i>xyz</i> must be opened in order to be able to reach the application using an external client.</p>

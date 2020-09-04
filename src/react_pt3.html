@@ -1,0 +1,25 @@
+<h1>Getting started with React, forms</h1>
+
+<p>In my <a class="blog_prev" href="./prev" title="Previous blog post">previous post</a> I described my first experiments with React forms on <a href="https://jsfiddle.net/hdr1001/q2oyvbt0/" title="2020 version of my webform">JSFiddle</a>. The final product basically was one form with multiple controlled components which were all contained in a single ES6 class. It is good to remember that React is all about composition but, in case a form is made up of a component hierarchy, <a href="https://reactjs.org/docs/lifting-state-up.html" title="Lifting State Up">lifting state</a> becomes relevant. I tried to implement this concept in JSFiddle but I quickly hit the boundaries of what is possible on this code playground. When an application reaches a certain size, debugging becomes more complicated and, for the goals I wanted to achieve, JSFiddle just was not adequate. I therefore decided to give <a href="https://codesandbox.io/u/hdr1001" title="An instant IDE &amp; repid web dev prototyping tool">CodeSandbox</a>, a different playground, a try.</p>
+
+<p>In my opinion JSFiddle is excellent for prototyping low level concepts but CodeSandbox takes everything to a whole new level. CodeSandbox is an online <abbr title="Integrated Development Environment">IDE</abbr> for rapid Web development. It allows you to get started quickly with the help of numerous templates (for instance for React). The environment is powered by <a href="https://code.visualstudio.com/" title="Visual Studio Code">VS Code</a>, comes fully integrated with <a href="https://github.com/" title="GitHub is how people build software">GitHub</a> &amp; supports more than one million <a href="https://www.npmjs.com/" title="Node Package Manager">npm</a> dependencies. I loved working in the online IDE so much that it actually impacted the choices I make on my personal desktop!</p>
+
+<p>For starters I just moved my <a href="https://jsfiddle.net/hdr1001/q2oyvbt0/" title="2020 version of my webform">JSFiddle form</a> over to <a href="https://codesandbox.io/s/react-form-basics-jsfiddle-port-y36md" title="React form basics (no lifted state!)">CodeSandbox</a>. As expected this turned out to be no problem whatsoever but it allowed me to get a good feel for the development environment. Next I created a <a href="https://codesandbox.io/s/react-form-basics-lifted-state-x9fsz" title="React form basics">new sandbox</a> in which I coded multiple separate components and lifted the state of these components to the FormBasicsCheat class.</p>
+
+<p class="img_caption"><img src="/dev/blog/imgs/RadioInpComponent.png" alt="React radio input component" />React component specification</p>
+
+<p class="img_caption"><img src="/dev/blog/imgs/RadioInpCode.png" alt="Component with lifted state" />React component code</p>
+
+<p class="img_caption"><img src="/dev/blog/imgs/React_setState.png" alt="Relevant setState code" />Relevant React setState code</p>
+
+<p>Just as with JSFiddle, CodeSandbox allows you to embed projects in Web pages like this blog post;</p>
+
+<iframe
+     src="https://codesandbox.io/embed/react-form-basics-lifted-state-x9fsz?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="React form basics (lifted state)"
+     allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+     sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
+
+<p>In this version of the code I have checked option &quot;Ice&quot; instead of &quot;Stir&quot; when the form 1st loads as I was informed that James Bond defaults to &quot;Shaken&quot; not stirred. 🙂<p>

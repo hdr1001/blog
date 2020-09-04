@@ -1,0 +1,31 @@
+<h1>Web service, pt. III</h1>
+
+<p>To expose my web services on the Internet I first had to make a couple of changes to my Apache configuration and I therefore decided to log on to my Digital Ocean Droplet as root. Basically my aim was to (reverse) proxy all requests for resources in location /dnb so as to redirect those requests to my <a class="blog_prev" href="./prev" title="Previous blog post">Node.js web services</a>. Apache can be configured to proxy HTTP(S) requests but only after the relevant modules are enabled:</p>
+
+<script src="https://gist.github.com/hdr1001/4325b45173d562d3c7d34542f2485cf9.js" type="text/javascript"></script>
+
+<p>Previously I had implemented SSL <a href="#" title="SSL client authentication" onclick="navBlog.anchorAction(event, 'platform_pt4.xhtml')">client authentication</a> on location /dnb. As a result the end of file: <code>/etc/apache2/sites-enabled/default-ssl.conf</code> looked like this:</p>
+
+<p><img src="/dev/blog/imgs/ClntAuth_dnb.png" alt="Location /dnb, SSL client verification" /></p>
+
+<p>Now, to enable the proxying as described above, I added these lines to the configuration file immediately above the entry: <code>&lt;Location /dnb&gt;</code></p>
+
+<script src="https://gist.github.com/hdr1001/949e16b4c2708b486e65ff4c3b824771.js" type="text/javascript"></script>
+
+<p>Basically these settings (1) prevent Apache from acting as a <a href="http://httpd.apache.org/docs/current/mod/mod_proxy.html#forwardreverse" title="Forward and reverse proxies">forward proxy server</a> and, (2) for all proxied resources, do not enforce any specific access restrictions.</p>
+
+<p>The last remaining configuration step was to connect the Node.js web service, hosted on port 8081, to the location /dnb as managed by Apache. I accomplished this by adding the following two lines to the relevant section:</p>
+
+<script src="https://gist.github.com/hdr1001/36bd8d496deecbcc1830382ea5fdc3d9.js" type="text/javascript"></script>
+
+<p>The final result was that the end of configuration file: <code>/etc/apache2/sites-enabled/default-ssl.conf</code> now looked like this:</p>
+
+<p><img src="/dev/blog/imgs/ApacheLocDnbConf.png" alt="Apache configuration for location /dnb" /></p>
+
+<p>I restarted Apache to let the changes take effect: <code>apache2ctl restart</code></p>
+
+<p>Of course a live test can only be performed in case the Express web service is up-n-running. Please refer to my <a class="blog_prev" href="./prev" title="Previous blog post">previous blog post</a> for detailed instructions on how to achieve this. Anyway this what the end product looked like in my Firefox browser on my PC.</p>
+
+<p><img src="/dev/blog/imgs/ws_exposed.png" alt="Web service exposed" /></p>
+
+<p>JSON formatted courtesy of Firefox.</p>

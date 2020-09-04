@@ -1,0 +1,25 @@
+<h1>API Hub IDR code port</h1>
+
+<p>I never got around to porting my <a href="https://directplus.documentation.dnb.com/openAPI.html?apiID=IDRCleanseMatch" title="D&amp;B Direct+ IDR">IDentity Resolution</a> code to the <a href="http://bit.ly/2NBvdd6" title="GitHub api_hub_rpr">previous version</a> of the API Hub repository but, over the weekend, I ported it to the <a href="https://bit.ly/3fj3NnS" title="GitHub api_hub_rpr_v3x">most recent</a> one. What used to be <a href="http://hdr.is-a-geek.com/svn/dnb_dpl_v2/node/src/dnb_dpl_objs.js" title="dnb_dpl_objs.js">class DplIDR</a> in the old structure now is class DnbDplIdr and this class is defined in its own, completely <a href="https://github.com/hdr1001/api_hub_rpr_v3x/blob/master/node/src/ah_rpr_obj_idr.js" title="API Hub v3 IDR code">separate file</a>. I have made a couple of minor changes to the code but, for the most part, it has remained unchanged. I uploaded the code in two commits which, in case you're interested, are fully documented on GitHub (<a href="https://github.com/hdr1001/api_hub_rpr_v3x/commit/5d26fc7aec1cd300fe6357b13e794df5b610e08d" title="1st commit of D&amp;B D+ IDentity Resolution code">here</a> &amp; <a href="https://github.com/hdr1001/api_hub_rpr_v3x/commit/7138b756bab9cfce70713afec567697d433f9ead" title="IDR code developed for a prev version backported">here</a>).</p>
+
+<p>While porting the code I reread the blog posts I published previously about implementing D&amp;B Direct+ IDentity Resolution functionality. They provide a good insight into how things took shape;</p>
+
+<ol>
+   <li>in February 2018 I <a class="blog_anchor" href="express_ws.html" title="A skeletal Node.js web service">kicked things off,</a></li>
+   <li>shortly afterwards I experimented with a <a href="#" title="Synchronous IDR" onclick="navBlog.anchorAction(event, 'dont_do_this.xhtml')">synchronous version</a> of the IDR API call,</li>
+   <li>next I moved on to a more best practice <a href="#" title="Asynchronous IDR, 1st try" onclick="navBlog.anchorAction(event, 'async_idr_pt1.xhtml')">asynchronous HTTP transaction</a> using a traditional JavaScript function as a callback,</li>
+   <li>the following iteration of the code used an <a href="#" title="Asynchronous IDR, arrow functions" onclick="navBlog.anchorAction(event, 'async_idr_pt2.xhtml')">arrow function</a> as a callback and,</li>
+   <li>lastly, I switched over to <a href="#" title="Asynchronous IDR, JS promises" onclick="navBlog.anchorAction(event, 'async_idr_pt3.xhtml')">Promises</a> (I ❤️  <a href="https://www.ecma-international.org/ecma-262/#sec-promise-objects" title="ECMAScript 6">ES6</a>) &amp; implemented proper <a href="#" title="Asynchronous IDR, incl error handling" onclick="navBlog.anchorAction(event, 'async_idr_pt4.xhtml')">error handling</a>.</li>
+</ol>
+
+<p>In August 2018 I wrote a 2nd series of posts on the same subject;</p>
+
+<ol>
+   <li>the <a href="#" title="D&amp;B IDR JavaScript object code" onclick="navBlog.anchorAction(event, 'idr_ws_pt1.xhtml')">1st post</a> in this series explains in detail how class DplIDR wraps around the IDR Direct+ endpoint exposed by D&amp;B,</li>
+   <li>the subject of the 2nd post is <a href="#" title="D&amp;B IDR JavaScript object persistence" onclick="navBlog.anchorAction(event, 'idr_ws_pt2.xhtml')">object persistence</a> and,</li>
+   <li>finally, before moving on to my attempt to program a <a href="#" title="D&amp;B IDR user interface" onclick="navBlog.anchorAction(event, 'idr_ui_pt1.xhtml')">vanilla JavaScript</a> user interface, a couple of <a href="#" title="Custom D&amp;B IDR web services" onclick="navBlog.anchorAction(event, 'idr_ws_pt3.xhtml')">Express</a> related topics are covered.</li>
+</ol>
+
+<p>A quick note about the latest, custom API Hub endpoints, I switched, for path "/hub/idr", from a URL encoded to a JSON based POST body. This is just a better fit with React.</p>
+
+<p><img src="/dev/blog/imgs/idr_post_json.png" alt="POST now JSON" /></p>

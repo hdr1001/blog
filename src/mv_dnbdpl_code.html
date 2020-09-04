@@ -1,0 +1,32 @@
+<h1>Move the prototype code</h1>
+
+<p>I've been hosting my <a href="http://hdr.is-a-geek.com/dev/cheat/xhtml_css/basics.html" title="My cheat sheets">cheat sheets</a> in a <a href="http://hdr.is-a-geek.com/svn/cheat/" title="Cheat sheets SVN repository">public SVN repository</a> for years now. When I started work on my D&amp;B Direct+ prototype I took the easy route and just added a directory node.js to this repository. But now my plan is to expand the existing code base and add an entirely new Apache module. The time has therefore come to create a dedicated <a href="https://subversion.apache.org/" title="Apache Subversion">SVN</a> repository for the specific purpose of hosting my D&amp;B Direct+ prototype.</p>
+
+<p>Please note that all the necessary software to complete the steps below was already available on my server! For instructions on how to get to this point I would recommend reading <a href="https://help.ubuntu.com/community/Subversion" title="Setup SVN on Ubuntu">this Ubuntu community post</a>. Anyway, first order of business for me was the creation of the repository:</p>
+
+<script src="https://gist.github.com/hdr1001/2e2c30b837fa74da37b136faebe2205a.js" type="text/javascript"></script>
+
+<p>Next I mapped the repository to an Apache server location:</p>
+
+<script src="https://gist.github.com/hdr1001/2c0081dc576a32bdef51ef209f34525b.js" type="text/javascript"></script>
+
+<p>For the mapping I used the following parameters:</p>
+
+<script src="https://gist.github.com/hdr1001/e06ab0df823ad000160089cd3d82804f.js" type="text/javascript"></script>
+
+<p>These settings basically give everyone on the internet the ability to check out the code but (sorry &#x263a;) I'm the only person who can commit changes.</p>
+
+<p>Before using the repository it's necessary to recursively change the file ownership &amp; permission properties of the directory dnbdpl:</p>
+
+<script src="https://gist.github.com/hdr1001/7dcc6218f23b8fbb22a27ff6d3998590.js" type="text/javascript"></script>
+
+<p>As a last step I restarted the Apache web server to let all the changes take effect. My D&amp;B Direct+ prototype code can now be checked out with, for example, a tool like <a href="https://tortoisesvn.net/" title="TortoiseSVN is an Apache Subversion client">TortoiseSVN</a>:</p>
+
+<p><img src="/dev/blog/imgs/co_tortoise_svn.png" alt="Code check out using TortoiseSVN" /></p>
+
+<p>To add the existing <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/" title="Node.js code in the cheat repo">Node.js code</a> to the <a href="http://hdr.is-a-geek.com/svn/dnbdpl/" title="SVN repository dnbdpl">newly created repository</a> I checked out <a href="http://hdr.is-a-geek.com/svn/dnbdpl/?p=0" title="Repository dnbdpl at rev 0">revision 0</a> of the code base (which of course was completely empty) to my Ubuntu virtual server. I then created a subdirectory node.js and copied the relevant files to this location. Everything was ready for a first commit once I had put the JavaScript files and the license file under version control while, at the same time, explicitly ignoring other items.</p>
+
+<script src="https://gist.github.com/hdr1001/e2778a4eb67b9d6a70ef0b4d8c749531.js" type="text/javascript"></script>
+
+<p>I decided not to remove the Node.js code from my cheat repository but to <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_objs.js?p=107" title="User warning in js file">warn users</a> that the code is now maintained elsewhere.</p>
+

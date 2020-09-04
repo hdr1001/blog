@@ -1,0 +1,47 @@
+<h1>API Hub on a Raspberry Pi</h1>
+
+<p>As you might know I have been using <a href="https://www.digitalocean.com/" title="Digital Ocean, welcome to the dev cloud">Digital Ocean</a> as my main provider of Linux cloud instances for <a href="#" title="The platform, Digital Ocean Droplet" onclick="navBlog.anchorAction(event, 'platform_pt1.xhtml')">a long time</a>. I still love so-called Digital Ocean Droplets but because these virtual machines can be spun up so easily, this might be one of these rare products which is, at least for me, too easy to use. To be more precise, the marginal cost of creating an additional <abbr title="Virtual Machine">VM</abbr> is so low that, in practice, I tend to lose oversight over the instances I created and the reasons why I created them in the first place. So, at some point, I just decided to kill all my Droplets to make a fresh start. I decided to make a new beginning with a twist though. This time around my goal was to use a <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/" title="Raspberry Pi 3 Model B">Raspberry Pi (3B)</a>, which was collecting dust in my study, as my server.</p>
+
+<p>You can check out how things turned out for me (spoiler 🙂) in the video below before, in the remainder of this blog post, I go into detail regarding the individual steps I took to get to a fully functioning implementation of my <a href="https://bit.ly/3fj3NnS" title="API Hub - Request Persist Respond v3">API Hub</a> on a Raspberry Pi (3B).</p>
+
+<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/5hKlJ2i_jTc" width="448" height="252">
+   <param name="frameborder" value="0" />
+   <param name="allowfullscreen" value="true" />
+</object></p>
+
+<p>I started completely from scratch with the operating system install to get a good impression of what is needed to get the entire stack off the ground;</p>
+
+<ol>
+
+   <li>I always use <a href="https://www.raspberrypi.org/downloads/raspbian/" title="Raspbian">Raspbian</a> on my Pi(s). This time around I installed the <a href="https://downloads.raspberrypi.org/raspbian_full_latest" title="Raspbian latest version">full, February 2020, version</a>.</li>
+
+   <li><a href="https://www.balena.io/etcher/" title="belenaEtcher">belenaEtcher</a> is my preferred tool to create boot SD cards but, just for fun, I decided to give the <a href="https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/" title="Raspberry Pi imager">Raspberry Pi imager</a> on Ubuntu a try. My impression, simply 👍.</li>
+
+   <li>I still had the SD card in my desktop PC when I moved over the LCD screen <a href="https://en.m.wikipedia.org/wiki/Binary_large_object" title="binary blob">driver blob</a> &amp; the accompanying configuration files.</li>
+
+   <li>Now work could begin on the Raspberry Pi. First step, as always, is to physically install the SD card &amp; power up the device.</li>
+
+   <li>I completed the basic settings &amp; automatic software update once the single board computer had successfully booted.</li>
+
+   <li>Please note that, in the basic settings, I opted to boot the device to the command line interface (CLI) by default because I do not need a desktop interface where I'm going &amp; I enabled the <abbr title="Secure SHell">SSH</abbr> protocol so as to make it possible to remotely access the Pi.</li>
+
+   <li>Lastly, before the first reboot of the device, I fixed the Pi's IP address on my DHCP router.</li>
+
+   <li>The next item on the list actually was the most exciting one for me. Of course I have installed <a href="https://www.docker.com/" title="Package Software into Standardized Units">Docker</a> &amp; <a href="https://docs.docker.com/compose/" title="Defining &amp; running multi-container Docker apps">Docker Compose</a> before but never on a Raspberry Pi. Things went surprisingly smoothly though once I had found <a href="https://www.linkedin.com/in/alessandrosegala/" title="Alessandro Segala">Alessandro Segala's</a> blog post titled <a href="https://withblue.ink/2019/07/13/yes-you-can-run-docker-on-raspbian.html" title="Very simple steps for getting Docker and Docker Compose on Raspberry Pi">"Yes, you can run Docker on Raspbian"</a>. A ⭐⭐⭐⭐⭐ review from me for this blog post!</li>
+
+   <li>I came across this article on <a href="https://linuxize.com/post/how-to-install-git-on-raspberry-pi/" title="Git on Raspberry Pi">"How to Install Git on Raspberry Pi"</a> but it turns out that the full version of Raspbian includes Git straight out of the box.</li>
+
+   <li>The time had come to pull the API Hub (v3) repository from GitHub; <code>cd ~/</code><code>mkdir dev</code><code>git clone https://github.com/hdr1001/api_hub_rpr_v3x.git</code><code>cd api_hub_rpr_v3x</code></li>
+
+   <li>I thought it was kind of remarkable that the full version of Raspbian did not include my <a href="https://www.vim.org/" title="Vim - the ubiquitous text editor">favorite text editor</a>. This can easily be <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=8671" title="Install VIm on Pi">remedied</a> though.</li>
+
+   <li>Of course the D&amp;B APIs need valid credentials to function properly; <code>cp dotenv .env</code><code>vim .env</code></li>
+
+   <li>I added my user account to the docker group before issuing the build command; <code>sudo usermod -aG docker $USER</code></li>
+
+   <li>The big moment had arrived, would it be possible to produce the containers?<code>sudo docker-compose build</code><img src="/dev/blog/imgs/docker_compose_build.png" alt="docker-compose build" /></li>
+
+   <li>With the containers successfully built the application could be started; <code>sudo docker-compose up -d</code></li>
+
+</ol>
+

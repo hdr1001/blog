@@ -1,0 +1,17 @@
+<h1>Blog reboot, part II</h1>
+
+<p>In my <a class="blog_prev" href="./prev" title="Previous blog post">previous blog post</a> I already mentioned that I have been hard at work even though it might have been quiet on my blog for some time. One of the things that has kept me busy over the past couple of months is the work that I have done on a <a href="https://github.com/hdr1001/api_hub_rpr" title="API Hub - Request Persist Respond">new code repository</a> on <a href="https://github.com/" title="GitHub is a code hosting platform for version control and collaboration">GitHub</a>. Being just one of the more than 100 million repositories hosted on this site is a bit of a change for me because, up until now, I have hosted all my <a href="https://subversion.apache.org/" title="Subversion is an open source version control system">Subversion</a> repositories myself. I think it is important to point out that the repositories which predate my newly created GitHub repository can still be accessed and, looking back, it is interesting to see the evolution of the code.</p>
+
+<p>In hindsight I would qualify the very <a href="http://hdr.is-a-geek.com/svn/dnbdpl/" title="Subversion repository of my 1st Node.js API prototypes">first project</a> I <a href="https://hdr.is-a-geek.com/blog?content=idr_ui_pt5.xhtml" title="Last blog post on 1st project">blogged</a> about as a collection of Node.js API prototypes. The <a href="http://hdr.is-a-geek.com/svn/dnb_dpl_v2/" title="Subversion repository of my Docker (Compose) project">successor project</a> was primarily aimed at <a href="https://hdr.is-a-geek.com/blog?content=dkr_compose_pt5.xhtml" title="Last blog post on Docker Compose">Dockerizing</a> the application’s platform. In the new GitHub repo this is all brought together with major code improvements to boot.</p>
+
+<p>GitHub repository <a href="https://github.com/hdr1001/api_hub_rpr" title="API Hub - Request Persist Respond">api_hub_rpr</a> contains the code to construct a fully Dockerized software stack to;</p>
+<ol><li>make requests to external APIs in response to incoming HTTP(S) requests,</li><li>persist the JSON or XML contained in the external API's response and</li><li>provide a response to the initial request either from the connected database or by simply passing on the external API's response.</li></ol>
+
+<p>Please refer to the project’s <a href="https://github.com/hdr1001/api_hub_rpr/blob/master/README.md" title="Project readme file">README.md</a> file for an up-to-date listing of the supported APIs &amp; data packets.</p>
+
+<p>At this moment the application has no user interface but, provided the required SSL certificates are installed, a browser can be used to request information from the hub.</p>
+
+<p><img src="/dev/blog/imgs/blog_reboot_ptII.gif" alt="Firefox API hub requests" style="margin:1em auto" /></p>
+
+<p>I have designed the hub code in such a way that adding additional APIs and/or data packets is easy. I am currently considering the implementation of either the <a href="https://www.kvk.nl/producten-bestellen/koppeling-handelsregister/kvk-api/" title="Een directe koppeling met data uit het Handelsregister">KvK API</a> or <a href="https://www.gleif.org/en/lei-data/gleif-lei-look-up-api/access-the-api" title="Access the LEI data API">LEI API</a>. Make sure to stay tuned for more!</p>
+

@@ -1,0 +1,32 @@
+<h1>Web service, pt. IV</h1>
+
+<p>Today I would like to kick-off my blog on a personal note. When I began this journey my first waypoint actually was the functionality as is outlined in the second part of this post. I am therefore very happy that I have made it this far. In all honesty, for the most part, sailing has been smooth &amp; enjoyable. A couple of things really helped in this regard:</p>
+
+<ul>
+   <li>Nowadays my primary stack consisting of <a href="#" title="Ubuntu, my favourite Linux distro" onclick="navBlog.anchorAction(event, 'ubuntu.xhtml')">Linux</a>, <a href="#" title="Apache, my preferred HTTP server" onclick="navBlog.anchorAction(event, 'apache_httpd.xhtml')">Apache</a> and <a href="#" title="PostgreSQL, my RDBMS of choice" onclick="navBlog.anchorAction(event, 'postgresql_rdbms.xhtml')">PostgreSQL</a> never fails me and just keeps on running.</li>
+
+   <li><a href="#" title="Node.js, JavaScript on the server" onclick="navBlog.anchorAction(event, 'node_js.xhtml')">Node.js</a> has proven itself to be a great addition to my primary stack making it possible to:
+
+   <ol>
+      <li>use JavaScript on the server, </li>
+      <li>leverage high quality code libraries (<a href="#" title="1st run, run the (test) code!" onclick="navBlog.anchorAction(event, 'first_run_pt2.xhtml')">pg, limiter</a> &amp; <a href="#" title="Web service, test code Express library" onclick="navBlog.anchorAction(event, 'ws_run_pt2.xhtml')">express</a>) freely available on the Net and </li>
+      <li>let Apache remain in its role as publicly available web server but now <a href="#" title="Web service, expose the API" onclick="navBlog.anchorAction(event, 'ws_run_pt3.xhtml')">connected</a> to a Node.js HTTP server securely hosted <a href="#" title="The platform, configure the firewall" onclick="navBlog.anchorAction(event, 'platform_pt7.xhtml')">within the confines of the firewall</a>.</li>
+   </ol></li>
+
+   <li>The concept which I wanted to test, the <a href="#" title="Unleash JSON in PostgreSQL" onclick="navBlog.anchorAction(event, 'l_halliday_blog.xhtml')">PostgreSQL JSONB data type</a>, basically worked straight out-of-the-box without hardly any complications.</li>
+</ul>
+
+<p>So what was realised in version one of the prototype (besides a simple <a href="#" title="1st run, run the (test) code!" onclick="navBlog.anchorAction(event, 'first_run_pt2.xhtml')">test application</a>)?</p>
+
+<ol>
+   <li>The web service prototype consists of two JavaScript code files. The file which contains the most lines of code is <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_objs.js?p=106" title="v1.0 D&amp;B Direct+ object code">dnb_dpl_objs.js</a>. Object DplAuthToken, defined in this file, takes care of everything related to <a href="https://directplus.documentation.dnb.com/docs/apis/authentication/versions/1" title="D&amp;B Direct+ authentication overview">D&amp;B Direct+ authorisation tokens</a>. This authorisation functionality is actually part of the web service application but this is all taken care of behind the scenes.</li>
+
+   <li>Another object defined in file dnb_dpl_objs.js is object DplProduct. Based on the standard object interface it's possible to retrieve a <a href="https://directplus.documentation.dnb.com/docs/apis/data-products-company-profile/versions/1/resources/company-profile-linkage-and-executives-cmpelk-v1" title="Company profile including executives &amp; linkages">CMPELK</a> product online or from the PostgreSQL database. The database is accessed first in an effort to obtain the product from this source but, in case the DUNS specified can not be located on the table products, the Direct+ API will be used to retrieve the CMPELK product online. All JSON data products retrieved in this way will (automatically) be written to the database.</li>
+
+   <li>The file <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_ws.js?p=106" title="v1.0 D&amp;B Direct+ custom web service">dnb_dpl_ws.js</a> contains all the code necessary to expose the object functionality described above as a web service. A JSON data product associated with a particular legal entity can be retrieved by specifying a DUNS at the end of the custom web service endpoint. In reponse either a product retrieved from the database or a new product (i.e. retrieved online) will be returned. Just specify query string parameter forceNew(=true) in order to access the D&amp;B Direct+ API no matter what.</li>
+</ol>
+
+<p>Below an animation is shown to illustrate how this looks in practice. The top pane provides a view on the server and shows the Node.js application logging debug messages. The bottom pane is a recording of an end-user using an ordinary browser to interact with the application. First a new DUNS is requested (this request results in an online transaction with D&amp;B), next the browser is refreshed (this results in the delivery of a data product from the database) and, lastly, the product is requested again but this time with the forceNew query string parameter specified (consequently an online transaction with D&amp;B is initiated for a second time).</p>
+
+<p><img src="/dev/blog/imgs/milestone1_e2e.gif" alt="Milestone one end-to-end" /></p>
+

@@ -1,0 +1,38 @@
+<h1>Web service, pt. II</h1>
+
+<p>While developing my D&amp;B Direct+ prototype I initially developed JavaScript object code to encapsulate API calls. I don't remember exactly when &amp; how but, at some point, I came across a Node.js package named <a href="https://expressjs.com/" title="A Node.js web framework">Express</a>. Express is the fast, unopinionated and minimalist web framework for Node.js. Working with this library I was amazed at the ease &amp; speed with which I was able to develop my <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_ws.js" title="API on top of an API">own, customised API</a> on top of D&amp;B Direct+. The <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_ws.js?p=106" title="1st version released">first version of this customised API</a> implemented two REST endpoints in less than fifty lines of code. I am very much aware that this feat can only be accomplished because a lot of the heavy lifting is done by the Express library and the objects contained in the file <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_objs.js" title="Core of D&amp;B Direct+ implementation on Node.js">dnb_dpl_objs.js</a> but, no matter how you look at it, a great achievement nevertheless!</p>
+
+<p>At an <a href="#" title="1st run, check out the code" onclick="navBlog.anchorAction(event, 'first_run_pt1.xhtml')">earlier date</a> I had downloaded the relevant JavaScript code on my Digital Ocean Droplet. As before, on security grounds, I logged on as user dnb_dpl. For reasons explained in my <a class="blog_prev" href="./prev" title="Previous blog post">previous post</a> I started screenrc: <code>screen</code>
+
+Next I made the directory containing the JavaScript code the active directory: <code>cd ~/dev/cheat/node.js</code>
+
+As can be expected the application will only run in case the Express package is installed: <code>npm install express --save</code>
+
+With Express installed I was able to start the web services code: <code>nodejs dnb_dpl_ws.js</code>
+
+</p>
+
+<p><img src="/dev/blog/imgs/ws_startup.png" alt="Start of the web services application" /></p>
+
+<p>I now detached from the screen session using the key combination <a href="http://www.pixelbeat.org/lkdb/screen.html" title="Screen(rc) key combo's">ctrl+a, d</a>.</p>
+
+<p>Needless to say I was very curious whether the API would perform as I expected. However, because of my <a href="#" title="The platform, configure the firewall" onclick="navBlog.anchorAction(event, 'platform_pt7.xhtml')">strict firewall settings</a>, the REST endpoints could only be reached from within the firewall. My trick to get around this was to use <a href="https://curl.haxx.se/docs/httpscripting.html#GET" title="Command line tool for transferring data with URLs">curl</a>:</p>
+
+<script src="https://gist.github.com/hdr1001/a54195a344d241dfb636a41a47193fc7.js" type="text/javascript"></script>
+
+<p>Hit a homerun! see below:</p>
+
+<p><img src="/dev/blog/imgs/curl_localhost_test.gif" alt="Web services banner return" /></p>
+
+<p>Next I re-attached to my screen session: <code>screen -r</code>
+
+The DUNS requests were logged:
+
+</p>
+
+<p><img src="/dev/blog/imgs/ws_logging.png" alt="" /></p>
+
+<p>As can be gathered from the screenshot above one DUNS was delivered from the database, the other could not be located on the database and was retrieved online.</p>
+
+<p>I use the keyboard combo <a href="https://en.wikipedia.org/wiki/Signal_(IPC)#SIGINT" title="SIGINT signal">ctrl+c</a> to terminate nodejs processes. To quit a screen session I just type <kbd>exit</kbd> at the command prompt.</p>
+

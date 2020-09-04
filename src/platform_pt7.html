@@ -1,0 +1,27 @@
+<h1>Constructing the platform, pt. VII</h1>
+
+<p>Before going any further it's probably a good idea to close some IP ports on my Droplet. I'm in no way a networking expert but luckily, on Digital Ocean's Ubuntu Droplets, <acronym title="Uncomplicated FireWall">UFW</acronym> comes pre-installed. The goal of UFW is to make firewall management easy. Just start by checking if UFW is available out-of-the-box:
+
+<code>ufw status verbose</code>
+
+The status returned will probably be inactive but that's okay. In case UFW is not pre-installed my advise is to read Digital Ocean's excellent <a href="https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server" title="How To Setup a Firewall with UFW">community write-up</a> on this topic.</p>
+
+<p>UFW should be configured to work with both IPv4 and IPv6. This can be checked in the main configuration file:
+
+<code>vim /etc/default/ufw</code>
+
+The relevant setting should look like this:</p>
+
+<p class="img_caption"><img src="/dev/blog/imgs/UfwIPv6yes.png" alt="UFW should support IPv6" /></p>
+
+<p>The firewall configuration can be accomplished in just a couple of simple steps: (1) disable UFW, (2) by default deny all incoming traffic and allow all outgoing traffic, (3) allow the following protocols: SSH, HTTP &amp; HTTPS and (4) re-enable UFW.</p>
+
+<script src="https://gist.github.com/hdr1001/10b0bee4192b717e9f795f19614a20f0.js" type="text/javascript"></script>
+
+<p>Now reboot the Droplet to effectuate the new configuration:
+
+<code>shutdown -r now</code>
+
+</p>
+
+

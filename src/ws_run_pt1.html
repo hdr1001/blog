@@ -1,0 +1,18 @@
+<h1>Web service, pt. I</h1>
+
+<p>In the <a class="blog_prev" href="./prev" title="Previous blog post">previous post</a> I ran a simple example application from the Linux command line to test the objects defined in the file <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_objs.js" title="D&amp;B Direct+ objects">dnb_dpl_objs.js</a>. This example application has a well-defined beginning &amp; end and therefore, upon completion, it's possible to close the shell session used for hosting the application or use it for something else entirely. This is different in case of my Node.js web service implementation of my D&amp;B Direct+ prototype. I've had this process up-n-running for weeks on end. Having an active shell session running for all this time is just not practical. Enter <a href="https://www.gnu.org/software/screen/" title="">GNU screen</a>. GNU screen makes it possible for programs to continue to run even when a whole screen session is detached from the user's terminal. Then, at a later time and maybe even from a different location, it's possible to re-attach to the screen session in order to, for example, view the debug messages logged by the application.</p>
+
+<p>There are a lot of good GNU screen manuals and instruction videos available on the Internet. My personal favourite, when it comes to the basics, is this YouTube video:</p>
+ 
+<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/I4xVn6Io5Nw" width="448" height="252">
+   <param name="frameborder" value="0" />
+   <param name="allowfullscreen" value="true" />
+</object></p>
+
+<p>The same channel also has a video specifically explaining "How to keep processes running over SSH without being connected":</p>
+
+<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/3S3I9lT6eKE" width="448" height="252">
+   <param name="frameborder" value="0" />
+   <param name="allowfullscreen" value="true" />
+</object></p>
+

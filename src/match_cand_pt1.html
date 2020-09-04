@@ -1,0 +1,18 @@
+<h1>D&amp;B IDentity Resolution candidates</h1>
+
+<p>In my <a class="blog_prev" href="./prev" title="Previous blog post">previous post</a> I explained the form logic of my D&amp;B <a href="https://bit.ly/3gAhuzq" title="D&amp; Direct+ IDR">Direct+ IDentity Resolution</a> application without listing any match candidates. I'm happy to report that this functionality is now available in my <a href="https://github.com/hdr1001/api_hub_rpr_ui/commit/79297a2e7adadd1cb345c85b1d4910ece465b110" title="Added criteria submit &amp; match candidate UI">code</a> as well. Currently the UI looks like this in a test environment;</p>
+
+<p><img src="/dev/blog/imgs/mcs_v1.gif" alt="D&amp;B Direct match candidates" /></p>
+
+<p>I tried to make the form as easy to work with as possible. To accomplish this my aim was to (1) make the specification &amp; submission of the search criteria frictionless and (2) to present the available match candidate information in a simple but comprehensive way. I therefore limited the number of match candidates listed to five and used, for trade-style names, the mail address and the CEO name, icons which, when hovered, display the relevant information.</p>
+
+<p>For this last functionality I use React's <a href="https://reactjs.org/docs/conditional-rendering.html" title="Conditional rendering">conditional rendering</a> capabilities;</p>
+
+<p><img src="/dev/blog/imgs/react_cond_render.png" alt="React conditional render" /></p>
+
+<p>In order to render multiple match candidates I also use React's concept of <a href="https://reactjs.org/docs/lists-and-keys.html" title="Lists and Keys">lists &amp; keys</a>;</p>
+
+<p><img src="/dev/blog/imgs/react_lists_keys.png" alt="React lists &amp; keys" /></p>
+
+<p>This means that I have now implemented all of React's <a href="https://reactjs.org/docs/getting-started.html" title="React main concepts">main concepts</a> in my API HUB user interface code (for a listing of the other examples click <a href="#" title="IDR React UI, search criteria form" onclick="navBlog.anchorAction(event, 'whitsun_idr_pt2.xhtml')">here</a>). Moreover, I have already used more advanced concepts like <a href="https://reactjs.org/docs/refs-and-the-dom.html" title="Refs and the DOM">references</a> and <a href="https://reactjs.org/docs/hooks-state.html" title="Using the State Hook">useState</a> as well. I guess I can say I'm getting the hang of React and I must say I like it!</p>
+

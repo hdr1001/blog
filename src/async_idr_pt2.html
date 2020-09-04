@@ -1,0 +1,11 @@
+<h1>An async HTTP transaction, part 2</h1>
+
+<p>In my <a class="blog_prev" href="#" title="Previous blog post">previous post</a> my aim was to make the anatomy of an asynchronous call as clear as possible. For that reason I split off the callback function into a completely separate block of code. In this post I will rewrite the <a href="https://gist.github.com/hdr1001/b49d50d2d0fba9cc46dbbb7662b8f14b" title="Asynchronous Node.js D&amp;B Direct+ identity resolution request v1">first version</a> of the code using <a href="https://www.vinta.com.br/blog/2015/javascript-lambda-and-arrow-functions/" title="JavaScript's Lambda and Arrow Functions">arrow functions</a> to, in the end, achieve the exact same result as before.</p>
+
+<p>First-class functions are fully supported in JavaScript and therefore functions can be passed as arguments to other functions. In practice this is quite common actually. The following is, for example, the definition of the <a href="https://nodejs.org/api/https.html#https_https_request_options_callback" title="Method for making a request to a secure web server">request method</a> on object https: <code>https.request(options[, callback])</code> The type of the second parameter of this method is function. In the first version of the HTTP transaction code a reference to a completely separate block of code defined elsewhere in the file (i.e. function cb) was passed into this parameter: <code>https.request(httpAttr.reqOpts, callbck).end():</code> In the second version of the code a so-called arrow function is defined where the function parameter is expected: <code>https.request(httpAttr.reqOpts, resp => { ...</code> This last implementation pattern is much more common nowadays.</p>
+
+<script src="https://gist.github.com/hdr1001/7026649857cba2f943ffe8495b79cbff.js" type="text/javascript"></script>
+
+<p>Please note that in the code above all callback functions are now defined as arrow functions.</p>
+
+<p>I would like to refer you to <a href="https://gist.github.com/hdr1001/76a8d42d69d7259e18c55557d4e462f7/revisions?diff=split" title="Overview of revision to revision code changes">this page</a> on GitHub for more insight into my incremental code changes.</p>

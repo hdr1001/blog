@@ -1,0 +1,31 @@
+<h1>Blog reboot, part IV</h1>
+
+<p>In a <a href="#" title="Blog reboot, part III" onclick="navBlog.anchorAction(event, 'blog_reboot_pt3.xhtml')">previous blog post</a> I mentioned that I moved "<i> … a lot of function code out of classes so as to share it between classes … </i>". Of course this will only work if the function code is then invoked using the <a href="https://mzl.la/2ETH68S" title="Function.prototype.call()">call</a> method with the appropriate "this" reference specified. In my opinion the "this" reference in JavaScript is one of the most challenging concepts of the language. This is especially true in ECMAScript 6 because there is the additional complication that the object the "this" keyword refers to differs between traditional functions and the newly introduced arrow functions.</p>
+
+<p>Luckily a lot of excellent documentation on the topic of "this" is publicly available. For me the "this" reference is, through the concept of an execution context and the execution context stack, closely related to the JavaScript runtime. How the JavaScript runtime functions in a wider environment, for example a browser or Node.js, is perfectly explained in the video below.</p>
+
+<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/8aGhZQkoFbQ" width="448" height="252">
+   <param name="frameborder" value="0" />
+   <param name="allowfullscreen" value="true" />
+</object></p>
+
+<p>Maybe I should just consider it a testimony of JavaScript's immense popularity nowadays but, for me, it is mind-boggling that <a href="https://twitter.com/philip_roberts" title="Philip Roberts on Twitter">Philip Roberts</a> was able to garner more than one million views on a video about such an esoteric subject. However that may be, it inspired me to do some <a href="https://jsfiddle.net/user/hdr1001/fiddles/" title="My JavaScript playground">JSFiddle</a> experiments;</p>
+<ol>
+   <li>with a <a href="http://bit.ly/2rNFtqt" title="Defer until the stack is clear">zero delay timeout</a> and</li>
+   <li>purposely <a href="http://bit.ly/2Qk2x9Q" title="blocking code">blocking the main thread</a> of a JavaScript application.</li>
+</ol>
+
+<p>Rather than zooming out to focus on the wider environment in which the runtime engine is embedded, <a href="http://dmitrysoshnikov.com/" title="Dmitry Soshnikov's blog">Dmitry Soshnikov</a>, in his article <a href="http://bit.ly/2L9yfDB" title="JavaScript. The Core">JavaScript. The Core (v2)</a>, chooses to zoom in &amp; this allows him to treat the runtime's core components in more detail. For me these seven components are the most interesting;
+</p>
+<ol>
+   <li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/#object" title="Object">Object</a> (fiddle <a href="http://bit.ly/2MSxS0Y" title="Object &amp; prototype">1</a>)</li>
+   <li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/#prototype" title="Prototype">Prototype</a> (fiddle <a href="http://bit.ly/2MSxS0Y" title="Object &amp; prototype">1</a>)</li>
+   <li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/#class" title="Class">Class</a> (fiddle <a href="http://bit.ly/2ZOvP3o" title="Classes &amp; function constructors">2</a>)</li>
+   <li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/#execution-context" title="Execution context">Execution context</a> (fiddles <a href="http://bit.ly/35myZfT" title="Execution context &amp; lexical environment">3</a> &amp; <a href="http://bit.ly/2SOmib5" title="Execution context stack &amp; identifier resolution">4</a>)</li>
+   <li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/#environment" title="Environment">Environment</a> (fiddles <a href="http://bit.ly/35myZfT" title="Execution context &amp; lexical environment">3</a> &amp; <a href="http://bit.ly/2SOmib5" title="Execution context stack &amp; identifier resolution">4</a>)</li>
+   <li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/#closure" title="Closure">Closure</a> (fiddles <a href="http://bit.ly/36o9ex1" title="Closure">5</a> &amp; <a href="http://bit.ly/2ZLUdma" title="Static scope">6</a>)</li>
+   <li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/#this" title="this">The "this" keyword</a> (fiddles <a href="http://bit.ly/2sMB7jR" title="This pt. I">7</a> &amp; <a href="http://bit.ly/2sAGp1U" title="This pt. II">8</a> &amp; <a href="http://bit.ly/2FjTejU" title="This pt. III">9</a>)</li>
+</ol>
+
+<p>The fiddles mentioned after the individual sections refer to the JavaScript test code I created to help me really understand the article's content. Please be aware that the information density of the article is high and I must confess that, at times, digesting the information was a bit of a struggle. However, at the end of the day, I am glad that I put in the effort and I am convinced that the quality of my code will be better as a result of it.</p>
+

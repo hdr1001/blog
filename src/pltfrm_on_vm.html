@@ -1,0 +1,13 @@
+<h1>Hosting the web services on a VM</h1>
+
+<p>I've been busy over the last couple of weeks and therefore there hasn't been much time to add content to my blog. My next project is to add D&amp;B <a href="https://directplus.documentation.dnb.com/" title="D&amp;B Direct+ developer portal">Direct+</a> <a href="https://directplus.documentation.dnb.com/docs/apis/identity-resolution/versions/1" title="D&amp;B Direct+ IDR">identity resolution</a> functionality to my custom web services. First order of business was the creation of a development platform because I pulled the plug on my <a href="#" title="I love Digital Ocean" onclick="navBlog.anchorAction(event, 'digital_ocean.xhtml')">Digital Ocean</a> <a href="#" title="Constructing the platform, pt. I" onclick="navBlog.anchorAction(event, 'platform_pt1.xhtml')">prototype</a> some time ago. This time around I wanted to set up a Ubuntu server <a href="https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine" title="Kernel-based Virtual Machine">virtual machine</a> to host my Node.js web services. So, over the last couple of weeks, whenever time allowed, I've been busy with the construction of a new (virtual) development environment. For this purpose I use my Ubuntu desktop machine. It already had the necessary virtualisation software installed. At the time, if memory serves me well, I think I used <a href="https://www.howtogeek.com/117635/how-to-install-kvm-and-create-virtual-machines-on-ubuntu/" title="How to Install KVM and Create Virtual Machines on Ubuntu">this article</a> on How-to Geek as an installation &amp; get started guide. Once I had my virtual Ubuntu server (<a href="https://www.ubuntu.com/download/server" title="Download Ubuntu Server">v16.04</a>) up-n-running I just followed the instructions in my own blog, <a href="#" title="Constructing the platform, pt. II" onclick="navBlog.anchorAction(event, 'platform_pt2.xhtml')">starting here</a>, to get to the same point as where I left off my initial, cloud based prototype. I'm glad that I can report there were no surprises and, as a result, the port to the new environment went very smoothly.</p>
+
+<p><img src="/dev/blog/imgs/express_ws_kvm.png" alt="Virtual machine hosted platform" /></p>
+
+<p>Of course I made a snapshot of my new point of departure. For instructions on how to create such a snapshot please refer to the <a href="https://youtu.be/nqQ8ksHffOA" title="Using Snapshots in Virtual Machine Manager">YouTube</a> video below.</p>
+
+<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/nqQ8ksHffOA" width="448" height="252">
+<param name="frameborder" value="0" />
+<param name="allowfullscreen" value="true" />
+</object></p>
+

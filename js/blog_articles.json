@@ -17,6 +17,12 @@
       "firstPub": "2017-06-14",
       "lastChange": "2020-09-04",
       "file": "digital_ocean.html"
+   },{
+      "title": "Ubuntu",
+      "desc": "Ubuntu, my favourite Linux distro",
+      "firstPub": "2017-06-23",
+      "lastChange": "2020-09-04",
+      "file": "ubuntu.html"
    },
    {"title": "IDR endpoint", "desc": "Skeletal Node.js web service", "file": "express_ws.html"},
    {"title": "IDR back-end", "desc": "Integrate IDR code into API Hub (v3)", "file": "idr_backend.html"}

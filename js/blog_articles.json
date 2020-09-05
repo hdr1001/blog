@@ -35,5 +35,11 @@
       "firstPub": "2017-08-20",
       "lastChange": "2020-09-05",
       "file": "postgresql_rdbms.html"
+   },{
+      "title": "Node.js",
+      "desc": "Node.js, JavaScript on the server",
+      "firstPub": "2017-08-24",
+      "lastChange": "2020-09-05",
+      "file": "node_js.html"
    }
 ]}

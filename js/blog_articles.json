@@ -23,7 +23,17 @@
       "firstPub": "2017-06-23",
       "lastChange": "2020-09-04",
       "file": "ubuntu.html"
-   },
-   {"title": "IDR endpoint", "desc": "Skeletal Node.js web service", "file": "express_ws.html"},
-   {"title": "IDR back-end", "desc": "Integrate IDR code into API Hub (v3)", "file": "idr_backend.html"}
+   },{
+      "title": "Apache",
+      "desc": "Apache, my preferred HTTP server",
+      "firstPub": "2017-06-30",
+      "lastChange": "2020-09-05",
+      "file": "apache_httpd.html"
+   },{
+      "title": "PostgreSQL",
+      "desc": "PostgreSQL, my RDBMS of choice",
+      "firstPub": "2017-08-20",
+      "lastChange": "2020-09-05",
+      "file": "postgresql_rdbms.html"
+   }
 ]}

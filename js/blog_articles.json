@@ -41,5 +41,23 @@
       "firstPub": "2017-08-24",
       "lastChange": "2020-09-05",
       "file": "node_js.html"
+   },{
+      "title": "Fix back, pt. 1",
+      "desc": "Don't break the back button, replaceState",
+      "firstPub": "2017-11-26",
+      "lastChange": "2020-09-06",
+      "file": "fix_back_btn_pt1.html"
+   },{
+      "title": "Fix back, pt. 2",
+      "desc": "Don't break the back button, pushState",
+      "firstPub": "2017-12-26",
+      "lastChange": "2020-09-06",
+      "file": "fix_back_btn_pt2.html"
+   },{
+      "title": "Fix back, pt. 3",
+      "desc": "Don't break the back button, on popstate",
+      "firstPub": "2017-11-28",
+      "lastChange": "2020-09-06",
+      "file": "fix_back_btn_pt3.html"
    }
 ]}

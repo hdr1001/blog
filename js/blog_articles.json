@@ -42,6 +42,12 @@
       "lastChange": "2020-09-05",
       "file": "node_js.html"
    },{
+      "title": "Platform, pt. 1",
+      "desc": "Constructing the platform, Digital Ocean Droplet",
+      "firstPub": "2017-08-27",
+      "lastChange": "2020-09-13",
+      "file": "platform_pt1.html"
+   },{
       "title": "Fix back, pt. 1",
       "desc": "Don't break the back button, replaceState",
       "firstPub": "2017-11-26",

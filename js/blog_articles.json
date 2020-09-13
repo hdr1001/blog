@@ -48,6 +48,18 @@
       "lastChange": "2020-09-13",
       "file": "platform_pt1.html"
    },{
+      "title": "Platform, pt. 2",
+      "desc": "Constructing the platform, install Apache",
+      "firstPub": "2017-09-03",
+      "lastChange": "2020-09-13",
+      "file": "platform_pt2.html"
+   },{
+      "title": "Platform, pt. 3",
+      "desc": "Constructing the platform, implement SSL",
+      "firstPub": "2017-09-10",
+      "lastChange": "2020-09-13",
+      "file": "platform_pt3.html"
+   },{
       "title": "Fix back, pt. 1",
       "desc": "Don't break the back button, replaceState",
       "firstPub": "2017-11-26",

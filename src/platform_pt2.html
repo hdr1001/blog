@@ -1,6 +1,6 @@
 <h1>Constructing the platform, pt. II</h1>
 
-<p>In <a class="blog_prev" href="./prev" title="Previous blog post">part I</a> of this series an Ubuntu powered Digital Ocean Droplet was created. With this foundation in place installing <a href="#" title="Apache, my preferred HTTP server" onclick="navBlog.anchorAction(event, 'apache_httpd.xhtml')">Apache</a> is easy. As super user (alternatively use sudo) I just executed:
+<p>In <a class="blog_prev" href="./prev" title="Previous blog post">part I</a> of this series an Ubuntu powered Digital Ocean Droplet was created. With this foundation in place installing  <a class="blog_anchor" href="apache_httpd.html" title="Apache, my preferred HTTP server">Apache</a> is easy. As super user (alternatively use sudo) I just executed:
 
    <code>apt-get install apache2</code>
 
@@ -14,16 +14,16 @@ and then adding the following directive to the end of the file:
 
 After executing these steps I was able to make a client request for the Apache default page.</p>
 
-<p><img src="/dev/blog/imgs/ApacheDefPage.png" alt="Apache up-n-running" /></p>
+<p><img src="./assets/imgs/ApacheDefPage.png" alt="Apache up-n-running"></p>
 
 <p>Please be aware that, for me, the steps above were just a repeat of the implementation work I had done a couple months earlier while developing the D&amp;B Direct+ prototype. My main goal was to make sure that I was accurate in my description of the essentials of constructing the platform. I therefore worked under the assumption that, at some point, I would pull the plug on the Droplet and, as a result, non-essentials had no priority. Below just a quick mention of two examples of what, for the purposes of this blog, I considered to be non-essentials but which, for some readers, might be good tips nevertheless:</p>
 
 <ul>
 
-<li>In the screenshot above you can see that the Apache default page was requested based on the server's IP address. Of course it's preferable to link a web site to a domain name. For this purpose I normally use <a href="https://dyn.com/dns/" title="World-leading Managed DNS and Email Delivery services">Dyn DNS</a>. This company (dynamically) manages the connections between (1) the Intel NUC situated immediately besides my home fuse box &amp; <a href="http://hdr.is-a-geek.com/" title="BubbleBoy">hdr.is-a-geek.com</a> and (2) my more permanent Digital Ocean Droplet &amp; <a href="http://hdr.office-on-the.net" title="Digital Ocean cloud server">hdr.office-on-the.net</a>.</li>
+<li>In the screenshot above you can see that the Apache default page was requested based on the server's IP address. Of course it's preferable to link a web site to a domain name. For this purpose I normally use <a href="https://dyn.com/dns/" title="World-leading Managed DNS and Email Delivery services">Dyn DNS</a>. This company (dynamically) manages the connections between (1) the Intel NUC situated immediately besides my home fuse box &amp; <a href="https://hdr.is-a-geek.com/" title="BubbleBoy">hdr.is-a-geek.com</a> and (2) my more permanent Digital Ocean Droplet &amp; <a href="https://hdr.office-on-the.net" title="Digital Ocean cloud server">hdr.office-on-the.net</a>.</li>
 
 <li>Speaking of more permanent installs, it's quite natural that, at some point, the need arises to get more insight into visitor statistics. <a href="https://goaccess.io/" title="GoAccess is an open source real-time web log analyzer">GoAccess</a> is my favourite tool to gather and visualise this kind of data. It's an extremely lightweight tool but it parses the information contained in the Apache log files at the speed of light and presents the relevant statistics in an orderly fashion.</li>
 
 </ul>
 
-<p><img src="https://goaccess.io/images/goaccess-dash-term.png" alt="GoAccess terminal dashboard" /></p>
+<p><img src="https://goaccess.io/images/goaccess-dash-term.png" alt="GoAccess terminal dashboard"></p>

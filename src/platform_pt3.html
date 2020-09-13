@@ -2,62 +2,62 @@
 
 <p>With <a class="blog_prev" href="./prev" title="Previous blog post">Apache up-n-running</a>, it was time to implement <a href="https://www.globalsign.com/en/ssl-information-center/what-is-ssl/" title="What is SSL?">SSL</a>. I use SSL, or should I say <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security" title="Transport Layer Security">TLS</a>, not only to encrypt communication between the client &amp; the server but also for client authentication purposes. This blog post deals with the encryption part, my <a class="blog_next" href="./next" title="Next blog post">next blog post</a> outlines the steps involved in client authentication. Of course the professional thing to do at this juncture would be to purchase a SSL Server Certificate from a bona fide certificate authority. However, in this case, I opted for so-called self-signed certificates mainly because the project under consideration is prototyping pure &amp; simple but also because,  and this should not be underestimated, I am a penny pinching Dutchman.</p>
 
-<p>In the spirit of proper attribution I think it's only fair to recognize that this blog is based on a <a href="http://theheat.dk/blog/?p=1023" title="Create a CA and issue certificates">blog</a> written by Peter Lorenzen.</p>
+<p>In the spirit of proper attribution I think it's only fair to recognize that this blog is based on a <a href="https://theheat.dk/blog/?p=1023" title="Create a CA and issue certificates">blog</a> written by Peter Lorenzen.</p>
 
 <p>To kick things off it's always a good idea to first check the version of the <a href="https://www.openssl.org/" title="OpenSSL">OpenSSL</a> software available on the development platform:</p>
 
-<script src="https://gist.github.com/hdr1001/d828915b3b625c5a9569f0bae5e10bc6.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="d828915b3b625c5a9569f0bae5e10bc6"></div>
 
 <p>My Ubuntu Digital Ocean Droplet came with OpenSSL version 1.0.2g pre-installed. Before generating the certificates I created a work environment in my home directory:</p>
 
-<script src="https://gist.github.com/hdr1001/21fe7cdc6d82e4c69e50a0a1df7b9f40.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="21fe7cdc6d82e4c69e50a0a1df7b9f40"></div>
 
 <p>Just one change in the OpenSSL configuration file was needed to get all the settings right:</p>
 
-<script src="https://gist.github.com/hdr1001/3803d3a0523a31cecd813838eed11c5c.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="3803d3a0523a31cecd813838eed11c5c"></div>
 
 <p>In the section CA_default I updated the dir entry to: <code>dir = ./</code> Please note that, as a result of this setting, the scripts below should always be executed from the directory ~/OpenSSL!</p>
 
 <p>Now, with everything configuration related out-of-the-way, the actual work could begin. First order of business was the creation of the certificate of my very own SSL Certification Authority (<abbr title="Certification Authority">CA</abbr>):</p>
 
-<script src="https://gist.github.com/hdr1001/1626635fd7a2bc68ac7e15cd41e6dc3b.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="1626635fd7a2bc68ac7e15cd41e6dc3b"></div>
 
 <p>Using my CA authority I could self-sign my server certificate:</p>
 
-<script src="https://gist.github.com/hdr1001/9b5ebbffa7388b7e0d81bcafd20b3817.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="9b5ebbffa7388b7e0d81bcafd20b3817"></div>
 
 <p>I also used my CA authority to self-sign a client certificate. This certificate is not really relevant in the context of this blog post but will, in the <a class="blog_next" href="./next" title="Next blog post">next blog post</a>, be used for client authentication:</p>
 
-<script src="https://gist.github.com/hdr1001/86b93a9c1dd334e88cc5d9b264d818bb.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="86b93a9c1dd334e88cc5d9b264d818bb"></div>
 
 <p>As a next step I copied the server's private key &amp; certificate files to the locations where Apache expects to find these files:</p>
 
-<script src="https://gist.github.com/hdr1001/f65595217e647ea0adac61b42e5857d5.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="f65595217e647ea0adac61b42e5857d5"></div>
 
 <p>Subsequently I created a directory specifically for the content delivered over HTTPS and made Apache (www-data) the owner:</p>
 
-<script src="https://gist.github.com/hdr1001/aaa45dee9cfd48c99aa52e78ac75364a.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="aaa45dee9cfd48c99aa52e78ac75364a"></div>
 
-<p>I already confessed <a href="#" title="Apache, my preferred HTTP server" onclick="navBlog.anchorAction(event, 'apache_httpd.xhtml')">my love for Apache</a> and explained that Apache's modular nature plays a big part in this. The two commands below are tangible proof of the modularity of my favourite HTTP deamon. The first command enables Apache's standard SSL module, the second command sets up the HTTPS site:</p>
+<p>I already confessed <a class="blog_anchor" href="apache_httpd.html" title="Apache, my preferred HTTP server">my love for Apache</a> and explained that Apache's modular nature plays a big part in this. The two commands below are tangible proof of the modularity of my favourite HTTP deamon. The first command enables Apache's standard SSL module, the second command sets up the HTTPS site:</p>
 
-<script src="https://gist.github.com/hdr1001/74c3a62a7480a980aca940266fe6c857.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="74c3a62a7480a980aca940266fe6c857"></div>
 
 <p>Of course a few minor tweaks to the SSL configuration file were needed to ensure the prototype functioned properly:</p>
 
-<script src="https://gist.github.com/hdr1001/79b03d80f53d44ea75d2d995edddc618.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="79b03d80f53d44ea75d2d995edddc618"></div>
 
 <p>In my prototype's configuration it's sufficient to change the DocumentRoot, SSLCertificateFile &amp; SSLCertificateKeyFile entries to:</p>
 
-<script src="https://gist.github.com/hdr1001/a234323088449e566ed37a30229e4061.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="a234323088449e566ed37a30229e4061"></div>
 
 <p>Finally I added a bit of content and restarted the HTTP deamon:</p>
  
-<script src="https://gist.github.com/hdr1001/256cf51ebda89b9254aa6fdc5fde78b4.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="256cf51ebda89b9254aa6fdc5fde78b4"></div>
 
 <p>I tested the prototype's URL (<a href="https://146.185.167.134/" title="SSL encrypted prototype">https://146.185.167.134/</a>) in Firefox. The browser returned a warning letting me know that my connection was not private. This behaviour is to be expected and a consequence of using self-signed certificates. To resolve this I imported the CA certificate in Firefox.</p>
 
-<p><img src="/dev/blog/imgs/ff_ca_cert.png" alt="Import the CA certificate in Firefox" /></p>
+<p><img src="./assets/imgs/ff_ca_cert.png" alt="Import the CA certificate in Firefox"></p>
 
 <p>Now everything worked just fine. Even the lock symbol in the top left corner was reassuringly green.</p>
 
-<p><img src="/dev/blog/imgs/ff_ssl.png" alt="SSL encryption implemented" /></p>
+<p><img src="./assets/imgs/ff_ssl.png" alt="SSL encryption implemented"></p>

@@ -123,6 +123,25 @@ BlogNav.prototype.addEvnts = function(elemTree) {
    });
 }
 
+//Add dynamic content to the blog post
+BlogNav.prototype.addDynamicContent = function(elemTree) {
+   elemTree.querySelectorAll('.ghgist').forEach(elemDiv => {
+      console.log('Located placeholder for GitHub Gist');
+
+      //For this to work a GitHub Gist ID must be specified
+      let sGistID = elemDiv.getAttribute('data-ghgistid');
+
+      if(sGistID) {
+         console.log('About to add Gist with ID ' + sGistID + ' to the page');
+
+         addGistToPage(elemDiv, sGistID);
+      }
+      else {
+         console.log('Gist ID evaluates to false');
+      }
+   });
+}
+
 //BlogNav member function to change the article displayed in DOM node blog_post
 BlogNav.prototype.switchBlogPost = function(newIdx) {
    //Get a reference to the article node
@@ -192,6 +211,9 @@ BlogNav.prototype.switchBlogPost = function(newIdx) {
 
          //Make sure the required events are defined
          this.addEvnts(this.elemArticle); //Add the blog event handlers for the article
+
+         //Add dynamically loaded content
+         this.addDynamicContent(this.elemArticle);
 
          this.elemArticle.appendChild(this.elemIconNavMenu
                                        ? this.elemIconNavMenu

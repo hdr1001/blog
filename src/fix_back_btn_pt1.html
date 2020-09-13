@@ -4,7 +4,7 @@
 
 <p>An HTTP GET request for a particular blog post is initially picked up by Apache and, via a handler, routed to an <a href="https://hdr.is-a-geek.com/dev/blog/c/a2blog_main.c" title="My Apache blog module">Apache module</a> written in C. This module assembles the framework &amp; content and returns a (X)HTML page to the client. The head section of the page contains a reference to the JavaScript code in file <a href="https://hdr.is-a-geek.com/dev/blog/js/a2blog_main.js" title="Blog JavaScript code">a2blog_main.js</a>. <code>&lt;script src="/dev/blog/js/a2blog_main.js" type="text/javascript"&gt;&lt;/script&gt;</code> As a result, upon page load, an object named navBlog is instantiated: <code>var navBlog = new NavBlog();</code> Object instantiation, in turn, triggers the execution of the following code:</p>
 
-<script src="https://gist.github.com/hdr1001/676ca9603f931893c9e5d692c156fc90.js"></script>
+<div class="ghgist" data-ghgistid="676ca9603f931893c9e5d692c156fc90"></div>
 
 <p>The code above launches an asynchronous jQuery AJAX call in order to retrieve the most recent information about my blog's content in <a href="https://hdr.is-a-geek.com/blog/idx" title="Content of my blog">JSON format</a>. This data is then assigned to navBlog's private object property blogJSON for easy access. Next the value of query string parameter "content" is determined. Query string parameter "content" controls the content which is loaded when the HTML page is first delivered. Variable currIdx is then set to the index value of array blogJSON for which the property "file" matches the loaded content.</p>
 

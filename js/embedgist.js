@@ -39,7 +39,6 @@ function addGistToPage(elem, sGistID) {
 
       let gistTopDiv = document.createElement('div');
       gistTopDiv.setAttribute('class', 'gist');
-      gistTopDiv.setAttribute('style', 'max-width:480px;');
 
       let gistFileDiv = document.createElement('div');
       gistFileDiv.setAttribute('class', 'gist-file');

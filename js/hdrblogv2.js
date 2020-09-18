@@ -46,6 +46,12 @@ function BlogNav() {
       contentQryParam: 'content',
       articleList: 'blog_articles.json',
 
+      history: {
+         doPush: 0,
+         doReplace: 1,
+         doNothing: 2
+      },
+
       getBlogArticleUrl: function() {
          return this.protocol + this.domain + this.path + this.contentPath;
       },
@@ -89,7 +95,7 @@ function BlogNav() {
          //The article list can be accessed via arrArticles
          this.arrArticles = xhr.response.hdr_blog_idx;
 
-         this.switchBlogPost(this.blog.initialArticle);
+         this.switchBlogPost(this.blog.initialArticle, this.blog.history.doReplace);
       }
    };
 
@@ -143,7 +149,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
 }
 
 //BlogNav member function to change the article displayed in DOM node blog_post
-BlogNav.prototype.switchBlogPost = function(newIdx) {
+BlogNav.prototype.switchBlogPost = function(newIdx, blogHistory) {
    //Get a reference to the article node
    if(!this.elemArticle) {
       this.elemArticle = document.getElementById('blog_post');
@@ -215,12 +221,30 @@ BlogNav.prototype.switchBlogPost = function(newIdx) {
          //Add dynamically loaded content
          this.addDynamicContent(this.elemArticle);
 
+         //Update the current index
+         this.blogCurrIdx = newIdx;
+
+         //Keep track of the browsing history by default
+         if(typeof blogHistory === 'undefined') {blogHistory = this.blog.history.doPush}
+
+         //Don't break the back button
+         switch(blogHistory) {
+            case this.blog.history.doPush:
+               console.log('Pushing state, ID ' + newIdx);
+               history.pushState({histIdx: newIdx}, this.arrArticles[newIdx].desc);
+               break;
+            case this.blog.history.doReplace:
+               console.log('Replacing state, ID ' + newIdx);
+               history.replaceState({histIdx: newIdx}, this.arrArticles[newIdx].desc);
+               break;
+            default:
+               console.log('Navigation not added to history stack');
+         }
+
+         //Add the navigation menu to the end of the article
          this.elemArticle.appendChild(this.elemIconNavMenu
                                        ? this.elemIconNavMenu
                                        : this.elemIconNavMenu = this.createIconNavMenu());
-
-         //Update the current index
-         this.blogCurrIdx = newIdx;
       }
    };
 
@@ -346,11 +370,22 @@ BlogNav.prototype.createIconNavMenu = function() {
 }
 
 //Further initialize the HTML page when the DOM is loaded
-document.addEventListener('DOMContentLoaded', event => {
+document.addEventListener('DOMContentLoaded', () => {
    console.log('DOM content loaded, hosted on URL ' + window.location.pathname);
 
    //Instantiate a new navigation object
    let blogNav = new BlogNav;
 
    blogNav.addEvnts(document); //Add the blog event handlers
+
+   window.addEventListener('popstate', psEvnt => {
+      if(psEvnt && psEvnt.state
+            && (psEvnt.state.histIdx || psEvnt.state.histIdx === 0)) {
+
+         blogNav.switchBlogPost(psEvnt.state.histIdx, blogNav.blog.history.doNothing);
+      }
+      else {
+         console.log('Unable to restore previous page HdR blog')
+      }
+   });
 });

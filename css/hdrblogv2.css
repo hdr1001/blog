@@ -11,6 +11,7 @@
 
 code {
    display: inline-block;
+   text-indent: 0;
    width: 100%;
-   margin: 1em 0;
+   margin: 1.2em 2.8em;
 }

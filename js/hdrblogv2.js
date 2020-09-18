@@ -74,7 +74,16 @@ function BlogNav() {
       this.blog.initialArticle = iniContent;
    }
    else {
-      this.blog.initialArticle = this.blog.defaultArticle;
+      //Possibly using the back button to return from a visit to an external page
+      if(history.state &&
+            (typeof history.state.histIdx !== "undefined" || history.state.histIdx === 0)) {
+
+         this.blog.initialArticle = history.state.histIdx;
+      }
+      else {
+         //Last resort, use default
+         this.blog.initialArticle = this.blog.defaultArticle;
+      }
    }
 
    //HTTP request to retrieve the article array
@@ -231,11 +240,11 @@ BlogNav.prototype.switchBlogPost = function(newIdx, blogHistory) {
          switch(blogHistory) {
             case this.blog.history.doPush:
                console.log('Pushing state, ID ' + newIdx);
-               history.pushState({histIdx: newIdx}, this.arrArticles[newIdx].desc);
+               history.pushState({histIdx: newIdx}, this.arrArticles[newIdx].desc), '';
                break;
             case this.blog.history.doReplace:
                console.log('Replacing state, ID ' + newIdx);
-               history.replaceState({histIdx: newIdx}, this.arrArticles[newIdx].desc);
+               history.replaceState({histIdx: newIdx}, this.arrArticles[newIdx].desc, '');
                break;
             default:
                console.log('Navigation not added to history stack');

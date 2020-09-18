@@ -37,9 +37,9 @@ function getUrlQryStrParamVal(qryStrParam) {
 function BlogNav() {
    //Object containing & exposing (global) blog parameters
    this.blog = {
-      protocol: 'https://',
-      domain: 'hdr1001.github.io/',
-      path: 'blog/',
+      protocol: window.location.protocol,
+      host: window.location.host,
+      path: window.location.pathname,
       contentPath: 'src/',
       javaScript: 'js/',
       defaultArticle: 'first_post.html',
@@ -53,11 +53,11 @@ function BlogNav() {
       },
 
       getBlogArticleUrl: function() {
-         return this.protocol + this.domain + this.path + this.contentPath;
+         return this.protocol + '//' + this.host + this.path + this.contentPath;
       },
 
       getBlogArticleListUrl: function() {
-         return this.protocol + this.domain + this.path + this.javaScript + this.articleList;
+         return this.protocol + '//' + this.host + this.path + this.javaScript + this.articleList;
       }
    };
 
@@ -243,7 +243,7 @@ BlogNav.prototype.switchBlogPost = function(newIdx, blogHistory) {
                history.pushState(
                         {histIdx: newIdx},
                         this.arrArticles[newIdx].desc,
-                        '/' + this.blog.path
+                        this.blog.path
                );
                break;
             case this.blog.history.doReplace:
@@ -251,7 +251,7 @@ BlogNav.prototype.switchBlogPost = function(newIdx, blogHistory) {
                history.replaceState(
                         {histIdx: newIdx},
                         this.arrArticles[newIdx].desc,
-                        '/' + this.blog.path
+                        this.blog.path
                );
                break;
             default:

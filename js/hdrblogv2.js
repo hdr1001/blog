@@ -240,11 +240,19 @@ BlogNav.prototype.switchBlogPost = function(newIdx, blogHistory) {
          switch(blogHistory) {
             case this.blog.history.doPush:
                console.log('Pushing state, ID ' + newIdx);
-               history.pushState({histIdx: newIdx}, this.arrArticles[newIdx].desc), '/blog';
+               history.pushState(
+                        {histIdx: newIdx},
+                        this.arrArticles[newIdx].desc,
+                        '/' + this.blog.path
+               );
                break;
             case this.blog.history.doReplace:
                console.log('Replacing state, ID ' + newIdx);
-               history.replaceState({histIdx: newIdx}, this.arrArticles[newIdx].desc, '/blog');
+               history.replaceState(
+                        {histIdx: newIdx},
+                        this.arrArticles[newIdx].desc,
+                        '/' + this.blog.path
+               );
                break;
             default:
                console.log('Navigation not added to history stack');

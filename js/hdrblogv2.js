@@ -42,9 +42,10 @@ function BlogNav() {
       path: window.location.pathname,
       contentPath: 'src/',
       javaScript: 'js/',
-      defaultArticle: 'first_post.html',
       contentQryParam: 'content',
       articleList: 'blog_articles.json',
+      defaultArticle: 'first_post.html',
+      blogIndex: 'blog_index.html',
 
       history: {
          doPush: 0,
@@ -121,6 +122,10 @@ BlogNav.prototype.addEvnts = function(elemTree) {
       elem.addEventListener('click', this.home.bind(this));
    });
 
+   elemTree.querySelectorAll('.blog_index').forEach(elem => {
+      elem.addEventListener('click', this.index.bind(this));
+   });
+
    elemTree.querySelectorAll('.blog_prev').forEach(elem => {
       elem.addEventListener('click', this.prev.bind(this));
    });
@@ -154,6 +159,10 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       else {
          console.log('Gist ID evaluates to false');
       }
+   });
+
+   elemTree.querySelectorAll('tbody.blog_idx').forEach(elemDiv => {
+      console.log('Located placeholder for blog post listing');
    });
 }
 
@@ -279,6 +288,13 @@ BlogNav.prototype.home = function(evnt) {
    evnt.preventDefault();
 }
 
+//Navigate to the blog index page
+BlogNav.prototype.index = function(evnt) {
+   this.switchBlogPost(this.blog.blogIndex)
+
+   evnt.preventDefault();
+}
+
 //Navigate to the next blog post
 BlogNav.prototype.next = function(evnt) {
    if(this.arrArticles[this.blogCurrIdx + 1]) {
@@ -351,9 +367,9 @@ BlogNav.prototype.anchor = function(evnt) {
 //Create the icon navigation menu
 BlogNav.prototype.createIconNavMenu = function() {
    const icons = [
-      {class: 'blog_home', title: 'Home', clickHandler: this.prev,
+      {class: 'blog_home', title: 'Home', clickHandler: this.home,
          file: 'home.svg', alt: 'Click to go to home page'},
-      {class: 'blog_index', title: 'Blog index', clickHandler: this.prev,
+      {class: 'blog_index', title: 'Blog index', clickHandler: this.index,
          file: 'index.svg', alt: 'Click to go to blog index'},
       {class: 'blog_prev', title: 'Previous blog post', clickHandler: this.prev,
          file: 'prev.svg', alt: 'Click to go to previous post'},

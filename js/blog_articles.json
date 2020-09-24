@@ -1,5 +1,11 @@
 {"hdr_blog_idx": [
    {
+      "title": "Blog index",
+      "desc": "Blog post listing",
+      "firstPub": "2017-05-01",
+      "lastChange": "2017-05-01",
+      "file": "blog_index.html"
+   },{
       "title": "First blog post",
       "desc": "First post on hdr.is-a-geek.com",
       "firstPub": "2017-06-01",

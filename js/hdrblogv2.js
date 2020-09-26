@@ -183,6 +183,8 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
 
          td = tr.appendChild(document.createElement('td'));
          td.appendChild(document.createTextNode(this.arrArticles[i].desc));
+
+         tblBody.appendChild(tr);
       }
    });
 }

@@ -15,3 +15,29 @@ code {
    width: 100%;
    margin: 1.2em 2.8em;
 }
+
+table {
+   margin-top: 1.2em;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #cccccc;
+}
+
+th {
+   text-align: center;
+}
+
+td {
+   padding: 3px 6px;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #cccccc;
+   text-align: justify;
+   line-height: 1.3em;
+}
+
+td[headers="trh"] {
+   text-align: center;
+   font-style: italic;
+   vertical-align: middle;
+}

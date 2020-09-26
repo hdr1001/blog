@@ -214,11 +214,11 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
                title: 'Add articles',
                desc: 'Add more articles to this index',
                file: ''
-            }, addRowsToIdx.bind(this));
+            }, addRowsToIdx.call(this));
          }
       }
 
-      addRowsToIdx.bind(this);
+      addRowsToIdx.call(this);
 
       numRowsToAdd = addNumRows;
    });

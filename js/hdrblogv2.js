@@ -203,7 +203,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
                currRow > 0 && rowsAdded <= numRowsToAdd;
                currRow--, rowsAdded++) {
    
-            addRowToIdx(this.arrArticles[i], this.anchor.bind(this));
+            addRowToIdx(this.arrArticles[currRow], this.anchor.bind(this));
          }
 
          console.log(sMsg + (currRow + 1) + ' to the index');

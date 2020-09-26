@@ -193,18 +193,32 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       function addRowsToIdx() {
          let sMsg = 'Added articles ' + currRow + ', ';
 
+         //If applicable remove the "Add articles" row
+         if(tblBody.childNodes && tblBody.childNodes.length) {
+            tblBody.childNodes[tblBody.childNodes.length - 1].remove();
+         }
+
          //Create the index table rows
          for(let rowsAdded = 0; 
                currRow > 0 && rowsAdded <= numRowsToAdd;
                currRow--, rowsAdded++) {
    
-            addRowToIdx(this.arrArticles[i], this.anchor.bind(this))
+            addRowToIdx(this.arrArticles[i], this.anchor.bind(this));
          }
 
          console.log(sMsg + (currRow + 1) + ' to the index');
+
+         //Add the "Add atrticles" row (if applicable)
+         if(currRow > 0) {
+            addRowToIdx({
+               title: 'Add articles',
+               desc: 'Add more articles to this index',
+               file: ''
+            }, addRowsToIdx.bind(this));
+         }
       }
 
-      addRowsToIdx();
+      addRowsToIdx.bind(this);
 
       numRowsToAdd = addNumRows;
    });

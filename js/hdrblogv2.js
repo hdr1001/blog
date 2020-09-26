@@ -161,8 +161,29 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       }
    });
 
-   elemTree.querySelectorAll('tbody.blog_idx').forEach(elemDiv => {
+   elemTree.querySelectorAll('tbody.blog_idx').forEach(tblBody => {
       console.log('Located placeholder for blog post listing');
+
+      const maxRows = 25;
+      let tr, td, anchor;
+
+      //Create the index table rows
+      for(let i = this.arrArticles.length - 1, numRows = 0; 
+            i > 0 && numRows <= maxRows;
+            i--, numRows++) {
+
+         tr = document.createElement('tr');
+         td = tr.appendChild(document.createElement('td'));
+
+         anchor = td.appendChild(document.createElement('a'));
+         anchor.setAttribute('href', this.arrArticles[i].file);
+         anchor.appendChild(document.createTextNode(this.arrArticles[i].title));
+
+         anchor.addEventListener('click', this.anchor.bind(this));
+
+         td = tr.appendChild(document.createElement('td'));
+         td.appendChild(document.createTextNode(this.arrArticles[i].desc));
+      }
    });
 }
 

@@ -164,28 +164,49 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
    elemTree.querySelectorAll('tbody.blog_idx').forEach(tblBody => {
       console.log('Located placeholder for blog post listing');
 
-      const maxRows = 25;
-      let tr, td, anchor;
+      const iniNumRows = 10; //The number of rows initially in the index
+      const addNumRows = 5; //Incremental number of rows to add
 
-      //Create the index table rows
-      for(let i = this.arrArticles.length - 1, numRows = 0; 
-            i > 0 && numRows <= maxRows;
-            i--, numRows++) {
+      //initialize the current row to the last in the array
+      let currRow = this.arrArticles.length - 1;
+      let numRowsToAdd = iniNumRows;
+
+      function addRowToIdx(oRow, fOnClickHandler) {
+         let tr, td, anchor;
 
          tr = document.createElement('tr');
          td = tr.appendChild(document.createElement('td'));
 
          anchor = td.appendChild(document.createElement('a'));
-         anchor.setAttribute('href', this.arrArticles[i].file);
-         anchor.appendChild(document.createTextNode(this.arrArticles[i].title));
+         anchor.setAttribute('href', oRow.file);
+         anchor.appendChild(document.createTextNode(oRow.title));
 
-         anchor.addEventListener('click', this.anchor.bind(this));
+         anchor.addEventListener('click', fOnClickHandler);
 
          td = tr.appendChild(document.createElement('td'));
-         td.appendChild(document.createTextNode(this.arrArticles[i].desc));
+         td.appendChild(document.createTextNode(oRow.desc));
 
          tblBody.appendChild(tr);
       }
+
+      //Add article rows to the index table
+      function addRowsToIdx() {
+         let sMsg = 'Added articles ' + currRow + ', ';
+
+         //Create the index table rows
+         for(let rowsAdded = 0; 
+               currRow > 0 && rowsAdded <= numRowsToAdd;
+               currRow--, rowsAdded++) {
+   
+            addRowToIdx(this.arrArticles[i], this.anchor.bind(this))
+         }
+
+         console.log(sMsg + (currRow + 1) + ' to the index');
+      }
+
+      addRowsToIdx();
+
+      numRowsToAdd = addNumRows;
    });
 }
 

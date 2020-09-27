@@ -164,8 +164,8 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
    elemTree.querySelectorAll('tbody.blog_idx').forEach(tblBody => {
       console.log('Located placeholder for blog post listing');
 
-      const iniNumRows = 10; //The number of rows initially in the index
-      const addNumRows = 5; //Incremental number of rows to add
+      const iniNumRows = 20; //The number of rows initially in the index
+      const addNumRows = 10; //Incremental number of rows to add
 
       //initialize the current row to the last in the array
       let currRow = this.arrArticles.length - 1;

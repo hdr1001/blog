@@ -1,22 +1,21 @@
 <h1>Constructing the platform, pt. V</h1>
 
-<p>The <a href="https://www.postgresql.org/" title="PostgreSQL a powerful, open source object-relational database">PostgreSQL</a> <acronym title="Relational Database Management System">RDBMS</acronym> is available on <a href="#" title="Why I love Ubuntu" onclick="navBlog.anchorAction(event, 'ubuntu.xhtml')">Ubuntu</a> from the standard repositories. Ubuntu version 16.04 comes with PostgreSQL version 9.5. Because the database is part of the standard repositories downloading and installing the software, including the "contrib" package which adds some additional utilities and functionality, can be accomplished by executing the following commands:</p>
+<p>The <a href="https://www.postgresql.org/" title="PostgreSQL a powerful, open source object-relational database">PostgreSQL</a> <abbr title="Relational Database Management System">RDBMS</abbr> is available on <a class="blog_anchor" title="Why I love Ubuntu" href="ubuntu.html">Ubuntu</a> from the standard repositories. Ubuntu version 16.04 comes with PostgreSQL version 9.5. Because the database is part of the standard repositories downloading and installing the software, including the "contrib" package which adds some additional utilities and functionality, can be accomplished by executing the following commands:</p>
 
-<script src="https://gist.github.com/hdr1001/4283bc253f52e7becc17a3d38f596d30.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="4283bc253f52e7becc17a3d38f596d30"></div>
 
-<p>It's good practice to change the administrator password immediately after installing PostgreSQL. While logged in as administrator I also added a user and a database for the purpose of building and running my D&amp;B Direct+ prototype. The precise code for the CREATE USER and CREATE DATABASE statements can be found <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_objs.js" title="CREATE USER and DATABASE statements">here</a>. Search for "CREATE USER" to locate the relevant code. In the code listed below just replace the CREATE statements with the relevant statements as can be found in my code repository. Don't forget to fill in a user password instead of the password placeholder:</p>
+<p>It's good practice to change the administrator password immediately after installing PostgreSQL. While logged in as administrator I also added a user and a database for the purpose of building and running my D&amp;B Direct+ prototype. The precise code for the CREATE USER and CREATE DATABASE statements can be found <a href="https://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_objs.js" title="CREATE USER and DATABASE statements">here</a>. Search for "CREATE USER" to locate the relevant code. In the code listed below just replace the CREATE statements with the relevant statements as can be found in my code repository. Don't forget to fill in a user password instead of the password placeholder:</p>
 
-<script src="https://gist.github.com/hdr1001/569b433ea864a6cc3b956ac1cb027d15.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="569b433ea864a6cc3b956ac1cb027d15"></div>
 
 <p>The script which contains the CREATE USER &amp; DATABASE statements also contains SQL statements to create the basic database structure required for the proper functioning of my D&amp;B Direct+ prototype. To implement this structure I first created an Ubuntu user "dnb_dpl" and switched over to this user using a simulated initial login. Next I copied the lines below the CREATE DATABASE statement with the exception of the last line ("*/", which closes the JavaScript comment section) and, in my home directory, created a file named "create.sql" containing these statements. I then executed the script using psql.</p>
 
-<script src="https://gist.github.com/hdr1001/97b6e074c48f0219b52ac9b6fdf2d1d3.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="97b6e074c48f0219b52ac9b6fdf2d1d3"></div>
 
-<p>Please note the data type of column cmpelk. You could say this was the <a href="#" title="The platform, implement SSH" onclick="navBlog.anchorAction(event, 'l_halliday_blog.xhtml')">initial reason</a> for constructing the prototype:</p>
+<p>Please note the data type of column cmpelk. You could say this was the <a class="blog_anchor" title="The platform, implement SSH" href="l_halliday_blog.html">initial reason</a> for constructing the prototype:</p>
 
-<script src="https://gist.github.com/hdr1001/21d12f3a30c9fc5c296029dfc053693a.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="21d12f3a30c9fc5c296029dfc053693a"></div>
 
 <p>The table "tokens" now contained one record because of the INSERT at the bottom of the script:</p>
 
-<p class="img_caption"><img src="/dev/blog/imgs/pSqlSelectTokens.png" alt="Table tokens now contains now one record" /></p>
-
+<p class="img_caption"><img src="./assets/imgs/pSqlSelectTokens.png" alt="Table tokens now contains now one record"></p>

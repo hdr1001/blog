@@ -66,6 +66,30 @@
       "lastChange": "2020-09-13",
       "file": "platform_pt3.html"
    },{
+      "title": "Platform, pt. 4",
+      "desc": "Constructing the platform, client authentication",
+      "firstPub": "2017-09-16",
+      "lastChange": "2020-09-27",
+      "file": "platform_pt4.html"
+   },{
+      "title": "Platform, pt. 5",
+      "desc": "Constructing the platform, install PostgreSQL",
+      "firstPub": "2017-09-30",
+      "lastChange": "2020-09-27",
+      "file": "platform_pt5.html"
+   },{
+      "title": "Platform, pt. 6",
+      "desc": "Constructing the platform, install Node.js",
+      "firstPub": "2017-10-01",
+      "lastChange": "2020-09-27",
+      "file": "platform_pt6.html"
+   },{
+      "title": "Platform, pt. 7",
+      "desc": "Constructing the platform, configure the firewall",
+      "firstPub": "2017-10-03",
+      "lastChange": "2020-09-27",
+      "file": "platform_pt7.html"
+   },{
       "title": "Fix back, pt. 1",
       "desc": "Don't break the back button, replaceState",
       "firstPub": "2017-11-26",

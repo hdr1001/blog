@@ -190,7 +190,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       }
 
       //Add article rows to the index table
-      function addRowsToIdx() {
+      function addRowsToIdx(evnt) {
          let sMsg = 'Added articles ' + currRow + ', ';
 
          //If applicable remove the "Add articles" row
@@ -216,9 +216,14 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
                file: ''
             }, addRowsToIdx.bind(this));
          }
+
+         //Prevent, if applicable, the click event from bubbling up
+         if(evnt) {
+            evnt.preventDefault();
+         }
       }
 
-      addRowsToIdx.call(this);
+      addRowsToIdx.call(this, null);
 
       numRowsToAdd = addNumRows;
    });

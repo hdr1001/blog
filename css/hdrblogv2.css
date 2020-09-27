@@ -21,7 +21,7 @@ code {
 }
 
 table {
-   margin-top: 1.2em, auto, 1.4em;
+   margin: 1.2em, auto, 1.4em;
    border-style: solid;
    border-width: 1px;
    border-color: #cccccc;

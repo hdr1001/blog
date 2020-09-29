@@ -8,27 +8,26 @@
 
 <p>As mentioned before I think it is extremely important to run an application as a regular user. I therefore, before proceeding with the actual test, chose to log off as root and log back in as user dnb_dpl.</p>
 
-<p>As a next step I installed, in the directory which contains the <a href="#" title="1st run, check out the code" onclick="navBlog.anchorAction(event, 'first_run_pt1.xhtml')">JavaScript test code</a>, the following packages: (1) <a href="https://www.npmjs.com/package/pg" title="Non-blocking PostgreSQL client">pg</a>, a non-blocking PostgreSQL client and (2) <a href="https://www.npmjs.com/package/limiter" title="Generic rate limiter">limiter</a>, a generic rate limiter to avoid running into the <acronym title="transactions per second">TPS</acronym> restrictions on my D&amp;B Direct+ account: </p>
+<p>As a next step I installed, in the directory which contains the <a class="blog_anchor" title="1st run, check out the code" href="first_run_pt1.html">JavaScript test code</a>, the following packages: (1) <a href="https://www.npmjs.com/package/pg" title="Non-blocking PostgreSQL client">pg</a>, a non-blocking PostgreSQL client and (2) <a href="https://www.npmjs.com/package/limiter" title="Generic rate limiter">limiter</a>, a generic rate limiter to avoid running into the <abbr title="transactions per second">TPS</abbr> restrictions on my D&amp;B Direct+ account: </p>
 
-<script src="https://gist.github.com/hdr1001/64ae4a206119394932e8a2de97579c45.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="64ae4a206119394932e8a2de97579c45"></div>
 
 <p>Before I could run the test application I had to create two configuration files: (1) pg_conn.json, which contains the settings related to the PostgreSQL client and (2) credentials.json, a JSON file dedicated solely to the D&amp;B Direct+ credentials.</p>
 
 <p>Of course I used my favourite editor Vim to create the file containing the PostgreSQL client settings: <code>vim ~/dev/cheat/node.js/pg_conn.json</code> and made sure I filled out the correct values for the individual parameters:</p>
 
-<script src="https://gist.github.com/hdr1001/b63555ce9257dd29e21c4b79d794d981.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="b63555ce9257dd29e21c4b79d794d981"></div>
 
 <p>The same procedure applied for the D&amp;B Direct+ credentials: <code>vim ~/dev/cheat/node.js/credentials.json</code> D&amp;B is the only source from which Direct+ credentials can be obtained.</p>
 
-<script src="https://gist.github.com/hdr1001/8d8ed3b43c34d8ffb26865dea4f998c1.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="8d8ed3b43c34d8ffb26865dea4f998c1"></div>
 
-<p>Everything was now ready for a first run of the <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_test.js" title="Code test application">prototype's test application</a>. In this application the objects defined in the file <a href="http://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_objs.js" title="Direct+ prototype object file">dnb_dpl_objs.js</a> actually do the heavy lifting. In the test application an array of DUNS numbers is created and each DUNS in this array is requested one-by-one. In this process the limiter assures that the number of transactions against the API does not exceed two per second. Because the database is empty when the application is executed for the first time, the DUNS cannot be located in the database table products and the D&amp;B Direct+ API is called to retrieve the data product online. The product returned is then stored in the JSONB column cmpelk and a reference to the product is kept in the object oDUNS as well.</p>
+<p>Everything was now ready for a first run of the <a href="https://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_test.js" title="Code test application">prototype's test application</a>. In this application the objects defined in the file <a href="https://hdr.is-a-geek.com/svn/cheat/node.js/dnb_dpl_objs.js" title="Direct+ prototype object file">dnb_dpl_objs.js</a> actually do the heavy lifting. In the test application an array of DUNS numbers is created and each DUNS in this array is requested one-by-one. In this process the limiter assures that the number of transactions against the API does not exceed two per second. Because the database is empty when the application is executed for the first time, the DUNS cannot be located in the database table products and the D&amp;B Direct+ API is called to retrieve the data product online. The product returned is then stored in the JSONB column cmpelk and a reference to the product is kept in the object oDUNS as well.</p>
 
 <p>From the directory node.js the test application can be started by executing the following command: <code>nodejs dnb_dpl_test.js</code> if all goes well the result should look something like this:</p>
 
-<p class="img_caption"><img src="/dev/blog/imgs/DnbDplTest.gif" alt="Running the test application (edited)" /></p>
+<p class="img_caption"><img src="./assets/imgs/DnbDplTest.gif" alt="Running the test application (edited)"></p>
 
-<p><a href="#" title="My initial inspiration for this blog" onclick="navBlog.anchorAction(event, 'l_halliday_blog.xhtml')">Harking back</a> to Leigh Halliday's article <a href="https://blog.codeship.com/unleash-the-power-of-storing-json-in-postgres" title="Storing JSON in PostgreSQL">Unleash the Power of Storing JSON in Postgres</a> it's easy to see that, in the test run above, data from an external service (i.e. Direct+) is stored in the same structure and format (i.e. JSON) as it was delivered in as part of the API response. The PostgreSQL JSONB column cmpelk in table products can now be <a href="https://hackernoon.com/how-to-query-jsonb-beginner-sheet-cheat-4da3aa5082a3" title="How to query JSONB cheat sheet">queried</a> in order to retrieve the information initially provided by the API:</p>
+<p><a class="blog_anchor" title="My initial inspiration for this blog" href="l_halliday_blog.html">Harking back</a> to Leigh Halliday's article <a href="https://blog.codeship.com/unleash-the-power-of-storing-json-in-postgres" title="Storing JSON in PostgreSQL">Unleash the Power of Storing JSON in Postgres</a> it's easy to see that, in the test run above, data from an external service (i.e. Direct+) is stored in the same structure and format (i.e. JSON) as it was delivered in as part of the API response. The PostgreSQL JSONB column cmpelk in table products can now be <a href="https://hackernoon.com/how-to-query-jsonb-beginner-sheet-cheat-4da3aa5082a3" title="How to query JSONB cheat sheet">queried</a> in order to retrieve the information initially provided by the API:</p>
 
-<p class="img_caption"><img src="/dev/blog/imgs/JsonPsql.png" alt="Querying table products" /></p>
-
+<p class="img_caption"><img src="./assets/imgs/JsonPsql.png" alt="Querying table products"></p>

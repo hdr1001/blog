@@ -90,6 +90,18 @@
       "lastChange": "2020-09-27",
       "file": "platform_pt7.html"
    },{
+      "title": "1st run, pt. 1",
+      "desc": "First run, check out the code",
+      "firstPub": "2017-10-03",
+      "lastChange": "2020-09-29",
+      "file": "first_run_pt1.html"
+   },{
+      "title": "1st run, pt. 2",
+      "desc": "First run, run the (test) code!",
+      "firstPub": "2017-10-10",
+      "lastChange": "2020-09-29",
+      "file": "first_run_pt2.html"
+   },{
       "title": "Fix back, pt. 1",
       "desc": "Don't break the back button, replaceState",
       "firstPub": "2017-11-26",

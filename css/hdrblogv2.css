@@ -9,6 +9,13 @@
    text-align: center;
 }
 
+.ytv_iframe {
+   width: 448px;
+   height: 252px;
+   margin: 1.2em auto 1.4em;
+   border: none;
+}
+
 #icon_menu {
    margin-top: 1.4em;
 }

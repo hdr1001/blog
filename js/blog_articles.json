@@ -102,6 +102,12 @@
       "lastChange": "2020-09-29",
       "file": "first_run_pt2.html"
    },{
+      "title": "Web service, pt. 1",
+      "desc": "Web service, the importance of using screen",
+      "firstPub": "2017-10-15",
+      "lastChange": "2020-09-30",
+      "file": "ws_run_pt1.html"
+   },{
       "title": "Fix back, pt. 1",
       "desc": "Don't break the back button, replaceState",
       "firstPub": "2017-11-26",

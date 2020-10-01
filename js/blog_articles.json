@@ -108,6 +108,24 @@
       "lastChange": "2020-09-30",
       "file": "ws_run_pt1.html"
    },{
+      "title": "Web service, pt. 2",
+      "desc": "Web service, test code Express library",
+      "firstPub": "2017-10-22",
+      "lastChange": "2020-10-01",
+      "file": "ws_run_pt2.html"
+   },{
+      "title": "Web service, pt. 3",
+      "desc": "Web service, expose the API on the Internet",
+      "firstPub": "2017-10-29",
+      "lastChange": "2020-10-01",
+      "file": "ws_run_pt3.html"
+   },{
+      "title": "Web service, pt. 4",
+      "desc": "Web service, final release v1.0!",
+      "firstPub": "2017-11-12",
+      "lastChange": "2020-10-01",
+      "file": "ws_run_pt4.html"
+   },{
       "title": "Fix back, pt. 1",
       "desc": "Don't break the back button, replaceState",
       "firstPub": "2017-11-26",

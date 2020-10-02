@@ -40,6 +40,10 @@ article p {
     text-indent: 1.2em;
 }
 
+article p.no-indent {
+    text-indent: 0;
+}
+
 #page_header_quote p {
     font-size: 0.8em;
 }

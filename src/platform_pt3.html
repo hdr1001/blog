@@ -8,49 +8,49 @@
 
 <div class="ghgist" data-ghgistid="d828915b3b625c5a9569f0bae5e10bc6"></div>
 
-<p>My Ubuntu Digital Ocean Droplet came with OpenSSL version 1.0.2g pre-installed. Before generating the certificates I created a work environment in my home directory:</p>
+<p class="no-indent">My Ubuntu Digital Ocean Droplet came with OpenSSL version 1.0.2g pre-installed. Before generating the certificates I created a work environment in my home directory:</p>
 
 <div class="ghgist" data-ghgistid="21fe7cdc6d82e4c69e50a0a1df7b9f40"></div>
 
-<p>Just one change in the OpenSSL configuration file was needed to get all the settings right:</p>
+<p class="no-indent">Just one change in the OpenSSL configuration file was needed to get all the settings right:</p>
 
 <div class="ghgist" data-ghgistid="3803d3a0523a31cecd813838eed11c5c"></div>
 
-<p>In the section CA_default I updated the dir entry to: <code>dir = ./</code> Please note that, as a result of this setting, the scripts below should always be executed from the directory ~/OpenSSL!</p>
+<p class="no-indent">In the section CA_default I updated the dir entry to: <code>dir = ./</code> Please note that, as a result of this setting, the scripts below should always be executed from the directory ~/OpenSSL!</p>
 
 <p>Now, with everything configuration related out-of-the-way, the actual work could begin. First order of business was the creation of the certificate of my very own SSL Certification Authority (<abbr title="Certification Authority">CA</abbr>):</p>
 
 <div class="ghgist" data-ghgistid="1626635fd7a2bc68ac7e15cd41e6dc3b"></div>
 
-<p>Using my CA authority I could self-sign my server certificate:</p>
+<p class="no-indent">Using my CA authority I could self-sign my server certificate:</p>
 
 <div class="ghgist" data-ghgistid="9b5ebbffa7388b7e0d81bcafd20b3817"></div>
 
-<p>I also used my CA authority to self-sign a client certificate. This certificate is not really relevant in the context of this blog post but will, in the <a class="blog_next" href="./next" title="Next blog post">next blog post</a>, be used for client authentication:</p>
+<p class="no-indent">I also used my CA authority to self-sign a client certificate. This certificate is not really relevant in the context of this blog post but will, in the <a class="blog_next" href="./next" title="Next blog post">next blog post</a>, be used for client authentication:</p>
 
 <div class="ghgist" data-ghgistid="86b93a9c1dd334e88cc5d9b264d818bb"></div>
 
-<p>As a next step I copied the server's private key &amp; certificate files to the locations where Apache expects to find these files:</p>
+<p class="no-indent">As a next step I copied the server's private key &amp; certificate files to the locations where Apache expects to find these files:</p>
 
 <div class="ghgist" data-ghgistid="f65595217e647ea0adac61b42e5857d5"></div>
 
-<p>Subsequently I created a directory specifically for the content delivered over HTTPS and made Apache (www-data) the owner:</p>
+<p class="no-indent">Subsequently I created a directory specifically for the content delivered over HTTPS and made Apache (www-data) the owner:</p>
 
 <div class="ghgist" data-ghgistid="aaa45dee9cfd48c99aa52e78ac75364a"></div>
 
-<p>I already confessed <a class="blog_anchor" href="apache_httpd.html" title="Apache, my preferred HTTP server">my love for Apache</a> and explained that Apache's modular nature plays a big part in this. The two commands below are tangible proof of the modularity of my favourite HTTP deamon. The first command enables Apache's standard SSL module, the second command sets up the HTTPS site:</p>
+<p class="no-indent">I already confessed <a class="blog_anchor" href="apache_httpd.html" title="Apache, my preferred HTTP server">my love for Apache</a> and explained that Apache's modular nature plays a big part in this. The two commands below are tangible proof of the modularity of my favourite HTTP deamon. The first command enables Apache's standard SSL module, the second command sets up the HTTPS site:</p>
 
 <div class="ghgist" data-ghgistid="74c3a62a7480a980aca940266fe6c857"></div>
 
-<p>Of course a few minor tweaks to the SSL configuration file were needed to ensure the prototype functioned properly:</p>
+<p class="no-indent">Of course a few minor tweaks to the SSL configuration file were needed to ensure the prototype functioned properly:</p>
 
 <div class="ghgist" data-ghgistid="79b03d80f53d44ea75d2d995edddc618"></div>
 
-<p>In my prototype's configuration it's sufficient to change the DocumentRoot, SSLCertificateFile &amp; SSLCertificateKeyFile entries to:</p>
+<p class="no-indent">In my prototype's configuration it's sufficient to change the DocumentRoot, SSLCertificateFile &amp; SSLCertificateKeyFile entries to:</p>
 
 <div class="ghgist" data-ghgistid="a234323088449e566ed37a30229e4061"></div>
 
-<p>Finally I added a bit of content and restarted the HTTP deamon:</p>
+<p class="no-indent">Finally I added a bit of content and restarted the HTTP deamon:</p>
  
 <div class="ghgist" data-ghgistid="256cf51ebda89b9254aa6fdc5fde78b4"></div>
 
@@ -58,6 +58,6 @@
 
 <p><img src="./assets/imgs/ff_ca_cert.png" alt="Import the CA certificate in Firefox"></p>
 
-<p>Now everything worked just fine. Even the lock symbol in the top left corner was reassuringly green.</p>
+<p class="no-indent">Now everything worked just fine. Even the lock symbol in the top left corner was reassuringly green.</p>
 
 <p><img src="./assets/imgs/ff_ssl.png" alt="SSL encryption implemented"></p>

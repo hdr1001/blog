@@ -10,29 +10,18 @@ As can be expected the application will only run in case the Express package is 
 
 With Express installed I was able to start the web services code: <code>nodejs dnb_dpl_ws.js</code>
 
-</p>
+<img src="./assets/imgs/ws_startup.png" alt="Start of the web services application">
 
-<p><img src="./assets/imgs/ws_startup.png" alt="Start of the web services application"></p>
-
-<p>I now detached from the screen session using the key combination <a href="https://www.pixelbeat.org/lkdb/screen.html" title="Screen(rc) key combo's">ctrl+a, d</a>.</p>
+I now detached from the screen session using the key combination <a href="https://www.pixelbeat.org/lkdb/screen.html" title="Screen(rc) key combo's">ctrl+a, d</a>.</p>
 
 <p>Needless to say I was very curious whether the API would perform as I expected. However, because of my <a class="blog_anchor" title="The platform, configure the firewall" href="platform_pt7.html">strict firewall settings</a>, the REST endpoints could only be reached from within the firewall. My trick to get around this was to use <a href="https://curl.haxx.se/docs/httpscripting.html#GET" title="Command line tool for transferring data with URLs">curl</a>:</p>
 
 <script  class="ghgist" data-ghgistid="a54195a344d241dfb636a41a47193fc7"></script>
 
-<p>Hit a homerun! see below:</p>
+<p>Hit a homerun! see below: <img src="./assets/imgs/curl_localhost_test.gif" alt="Web services banner return"></p>
 
-<p><img src="./assets/imgs/curl_localhost_test.gif" alt="Web services banner return"></p>
+<p>Next I re-attached to my screen session: <code>screen -r</code> The DUNS requests were logged: <img src="./assets/imgs/ws_logging.png" alt="">
 
-<p>Next I re-attached to my screen session: <code>screen -r</code>
-
-The DUNS requests were logged:
-
-</p>
-
-<p><img src="./assets/imgs/ws_logging.png" alt=""></p>
-
-<p>As can be gathered from the screenshot above one DUNS was delivered from the database, the other could not be located on the database and was retrieved online.</p>
+As can be gathered from the screenshot above one DUNS was delivered from the database, the other could not be located on the database and was retrieved online.</p>
 
 <p>I use the keyboard combo <a href="https://en.wikipedia.org/wiki/Signal_(IPC)#SIGINT" title="SIGINT signal">ctrl+c</a> to terminate nodejs processes. To quit a screen session I just type <kbd>exit</kbd> at the command prompt.</p>
-

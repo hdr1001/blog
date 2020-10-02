@@ -4,11 +4,13 @@
 
 <script  class="ghgist" data-ghgistid="4325b45173d562d3c7d34542f2485cf9"></script>
 
-<p>Previously I had implemented SSL <a class="blog_anchor" title="SSL client authentication" href="platform_pt4.html">client authentication</a> on location /dnb. As a result the end of file: <code>/etc/apache2/sites-enabled/default-ssl.conf</code> looked like this:</p>
+<p>Previously I had implemented SSL <a class="blog_anchor" title="SSL client authentication" href="platform_pt4.html">client authentication</a> on location /dnb. As a result the end of file: <code>/etc/apache2/sites-enabled/default-ssl.conf</code> looked like this:
 
-<p><img src="./assets/imgs/ClntAuth_dnb.png" alt="Location /dnb, SSL client verification"></p>
+<img src="./assets/imgs/ClntAuth_dnb.png" alt="Location /dnb, SSL client verification">
 
-<p>Now, to enable the proxying as described above, I added these lines to the configuration file immediately above the entry: <code>&lt;Location /dnb&gt;</code></p>
+Now, to enable the proxying as described above, I added these lines to the configuration file immediately above the entry: <code>&lt;Location /dnb&gt;</code>
+
+</p>
 
 <script class="ghgist" data-ghgistid="949e16b4c2708b486e65ff4c3b824771"></script>
 
@@ -18,14 +20,14 @@
 
 <script class="ghgist" data-ghgistid="36bd8d496deecbcc1830382ea5fdc3d9"></script>
 
-<p>The final result was that the end of configuration file: <code>/etc/apache2/sites-enabled/default-ssl.conf</code> now looked like this:</p>
+<p>The final result was that the end of configuration file: <code>/etc/apache2/sites-enabled/default-ssl.conf</code> now looked like this:
 
-<p><img src="./assets/imgs/ApacheLocDnbConf.png" alt="Apache configuration for location /dnb"></p>
+<img src="./assets/imgs/ApacheLocDnbConf.png" alt="Apache configuration for location /dnb">
 
-<p>I restarted Apache to let the changes take effect: <code>apache2ctl restart</code></p>
+I restarted Apache to let the changes take effect: <code>apache2ctl restart</code>
 
-<p>Of course a live test can only be performed in case the Express web service is up-n-running. Please refer to my <a class="blog_prev" href="./prev" title="Previous blog post">previous blog post</a> for detailed instructions on how to achieve this. Anyway this what the end product looked like in my Firefox browser on my PC.</p>
+Of course a live test can only be performed in case the Express web service is up-n-running. Please refer to my <a class="blog_prev" href="./prev" title="Previous blog post">previous blog post</a> for detailed instructions on how to achieve this. Anyway this what the end product looked like in my Firefox browser on my PC.
 
-<p><img src="./assets/imgs/ws_exposed.png" alt="Web service exposed"></p>
+<img src="./assets/imgs/ws_exposed.png" alt="Web service exposed">
 
-<p>JSON formatted courtesy of Firefox.</p>
+JSON formatted courtesy of Firefox.</p>

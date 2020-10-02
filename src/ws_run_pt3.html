@@ -20,11 +20,13 @@ Now, to enable the proxying as described above, I added these lines to the confi
 
 <script class="ghgist" data-ghgistid="36bd8d496deecbcc1830382ea5fdc3d9"></script>
 
-<p>The final result was that the end of configuration file: <code>/etc/apache2/sites-enabled/default-ssl.conf</code> now looked like this:
+<p class="no-indent">The final result was that the end of configuration file: <code>/etc/apache2/sites-enabled/default-ssl.conf</code> now looked like this:
 
 <img src="./assets/imgs/ApacheLocDnbConf.png" alt="Apache configuration for location /dnb">
 
-I restarted Apache to let the changes take effect: <code>apache2ctl restart</code>
+</p>
+
+<p class="no-indent">I restarted Apache to let the changes take effect: <code>apache2ctl restart</code>
 
 Of course a live test can only be performed in case the Express web service is up-n-running. Please refer to my <a class="blog_prev" href="./prev" title="Previous blog post">previous blog post</a> for detailed instructions on how to achieve this. Anyway this what the end product looked like in my Firefox browser on my PC.
 

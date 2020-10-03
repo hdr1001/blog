@@ -1,13 +1,15 @@
 # My blog hosted on GitHub Pages
 
 ## Table of contents
-[License](#license)
-[Why](#why)
-[High level concepts](#high-level-concepts)
+1. [License](#license)
+2. [Why](#why)
+3. [High level concepts](#high-level-concepts)
 
 ## License
 ©Hans de Rooij, 2020
+
 JavaScript file hdrblogv2.js contained in this repository is licensed under the [Apache License Version 2.0](https://raw.githubusercontent.com/hdr1001/blog/master/js/LICENSE-2.0.txt)
+
 The blog posts contained in this repository are licensed under the [Creative Commons Attribution 4.0 Int'l License](https://creativecommons.org/licenses/by/4.0/)
 
 ## Why

@@ -18,7 +18,7 @@ The blog posts contained in this repository are licensed under the [Creative Com
 
 - Intel NUC for hardware
 
-![What a Trooper!](https://github.com/hdr1001/blog/raw/master/assets/imgs/BubbleBoyII.png "My Intel NUC marches on (& on)")
+![What a Trooper!](https://github.com/hdr1001/blog/raw/master/assets/imgs/BubbleBoyII.jpg "My Intel NUC marches on (& on)")
 
 - [Ubuntu](https://hdr1001.github.io/blog/?content=ubuntu.html "I ❤ Ubuntu") as OS
 - [Apache](https://hdr1001.github.io/blog/?content=apache_httpd.html "I ❤ Apache") as Web server (incl SVN integration) 

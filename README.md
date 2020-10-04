@@ -16,25 +16,22 @@ The blog posts contained in this repository are licensed under the [Creative Com
 
  Previously I hosted my blog on [hdr.is-a-geek.com](https://hdr.is-a-geek.com "HdR is a geek"). The following technology stack underpinned this site;
 
-- Intel NUC for hardware
-
-![What a Trooper!](https://github.com/hdr1001/blog/raw/master/assets/imgs/BubbleBoyII.jpg "My Intel NUC marches on (& on)")
-
-- [Ubuntu](https://hdr1001.github.io/blog/?content=ubuntu.html "I ❤ Ubuntu") as OS
-- [Apache](https://hdr1001.github.io/blog/?content=apache_httpd.html "I ❤ Apache") as Web server (incl SVN integration) 
+- Intel NUC for hardware ![What a Trooper!](https://github.com/hdr1001/blog/raw/master/assets/imgs/BubbleBoyII.jpg "My Intel NUC marches on (& on)")
+- [Ubuntu](https://hdr1001.github.io/blog/?content=ubuntu.html "I ❤ Ubuntu") as operating system
+- [Apache](https://hdr1001.github.io/blog/?content=apache_httpd.html "I ❤ Apache") as Web server (incl [SVN](https://subversion.apache.org/ "Apache Subversion") for version control) 
 - [XHTML](https://bit.ly/3ngTG7h, "XHTML Markup Validation Service") as markup language
-- [JavaScript](https://hdr.is-a-geek.com/svn/blog/js/a2blog_main.js "In hindsight, jQuery code is ugly") for client-side code (incl. jQuery) 
+- [JavaScript](https://hdr.is-a-geek.com/svn/blog/js/a2blog_main.js "In hindsight, jQuery code is ugly") for client-side code (incl. [jQuery](https://jquery.com/ "A fast, small, and feature-rich JavaScript library")) 
 
 When I learned about [GitHub Pages](https://pages.github.com/ "GitHub Pages") I just knew I had to port my blog's content over to this delivery platform. I'm expecting; 
 
-1. Unrivalled simplicity while, at the same time, meeting the kinds of service levels associated with professional providers in this space (even though the uptime of my amateur stack wasn't bad at all),
+1. Unrivalled simplicity while, at the same time, meeting service levels associated with professional hosting providers (even though the uptime of my amateur stack wasn't bad at all),
 2. A completely serverless experience with;
    - no more worries about catastrophic SSD or Intel NUC failure and
    - no more [C code](https://hdr.is-a-geek.com/svn/blog/c/a2blog_main.c "Apache module code") 🤓,
-3. Higher [SEO](https://marketbusinessnews.com/financial-glossary/search-engine-optimization-seo/ "Search Engine Optimization") scores because the domain *github.io* is more reputable than *is-a-geek.com* (even though my [reputation](https://talosintelligence.com/reputation_center/lookup?search=https%3A%2F%2Fhdr.is-a-geek.com "Talos intelligence") wasn't too shabby),
+3. Higher [SEO](https://marketbusinessnews.com/financial-glossary/search-engine-optimization-seo/ "Search Engine Optimization") scores because the domain *github.io* is more reputable than *is-a-geek.com* (even though my [reputation](https://talosintelligence.com/reputation_center/lookup?search=https%3A%2F%2Fhdr.is-a-geek.com "Talos intelligence") isn't too shabby),
 4. An excellent opportunity to;
-   - migrate XHTML to HTML5 (semantic elements already implemented, a responsive webdesign noted as a to-do) and
-   - switch from [SVN](https://subversion.apache.org/ "Apache Subversion") version control to [Git](https://git-scm.com/ "A free and open source distributed version control system")
+   - migrate from XHTML to HTML5 (semantic elements already implemented, a responsive webdesign noted as a to-do) and
+   - switch from [SVN](https://hdr.is-a-geek.com/svn/blog/ "Previous blog code") version control to [Git(Hub)](https://github.com/hdr1001/blog "Latest version of my blog code") and
    - loose the [jQuery](http://youmightnotneedjquery.com/ "Do you actually need jQuery?") code in my client-side scripts.
 
 After porting nearly all of the functionality of my blog and more than twenty blog posts, I think I can safely say that the investment of my time thus far has been well worth it and [the result](https://hdr1001.github.io/blog/ "Blog Hans de Rooij") speaks for itself!

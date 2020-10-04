@@ -140,8 +140,14 @@
    },{
       "title": "Fix back, pt. 3",
       "desc": "Don't break the back button, on popstate",
-      "firstPub": "2017-11-28",
+      "firstPub": "2017-12-28",
       "lastChange": "2020-09-06",
       "file": "fix_back_btn_pt3.html"
-   }
+      },{
+         "title": "Migrate blog, pt. 1",
+         "desc": "Why migrate my blog to GitHub pages?",
+         "firstPub": "2020-10-04",
+         "lastChange": "2020-10-04",
+         "file": "blog_ghp_pt1.html"
+      }
 ]}

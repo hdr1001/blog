@@ -143,11 +143,29 @@
       "firstPub": "2017-12-28",
       "lastChange": "2020-09-06",
       "file": "fix_back_btn_pt3.html"
-      },{
-         "title": "Migrate blog, pt. 1",
-         "desc": "Why migrate my blog to GitHub pages?",
-         "firstPub": "2020-10-04",
-         "lastChange": "2020-10-04",
-         "file": "blog_ghp_pt1.html"
-      }
+   },{
+      "title": "Switch to VM",
+      "desc": "Hosting the web services on a VM",
+      "firstPub": "2018-01-21",
+      "lastChange": "2020-10-05",
+      "file": "pltfrm_on_vm.html"
+   },{
+      "title": "Move code",
+      "desc": "Move the D&B Direct+ prototype code",
+      "firstPub": "2018-01-28",
+      "lastChange": "2020-10-06",
+      "file": "mv_dnbdpl_code.html"
+   },{
+      "title": "IDR endpoint",
+      "desc": "Skeletal Node.js web service",
+      "firstPub": "2018-02-03",
+      "lastChange": "2020-10-06",
+      "file": "express_ws.html"
+   },{
+      "title": "Migrate blog, pt. 1",
+      "desc": "Why migrate my blog to GitHub pages?",
+      "firstPub": "2020-10-04",
+      "lastChange": "2020-10-04",
+      "file": "blog_ghp_pt1.html"
+   }
 ]}

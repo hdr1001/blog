@@ -266,7 +266,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
 
          elemParagraph.appendChild(document.createElement('br'));
 
-         elemParagraph.insertAdjacentHTML(beforeend, newsItem.htmlNews);
+         elemParagraph.insertAdjacentHTML('beforeend', newsItem.htmlNews);
       });
    }
 }

@@ -230,7 +230,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       numRowsToAdd = addNumRows;
    };
 
-   let hdrNews = elemTree.getElementById('news_header');
+   let hdrNews = elemTree.querySelector('#news_header');
 
    if(hdrNews) {
       console.log('Adding news items');
@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let divAnnc = document.querySelector('div#announce');
 
       if(divAnnc) {
-         BlogNav.addDynamicContent(divAnnc);
+         blogNav.addDynamicContent(divAnnc);
       }
    });
    

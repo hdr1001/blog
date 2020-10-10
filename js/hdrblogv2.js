@@ -145,6 +145,7 @@ BlogNav.prototype.addEvnts = function(elemTree) {
 
 //Add dynamic content to the blog post
 BlogNav.prototype.addDynamicContent = function(elemTree) {
+   //GitHub Gists
    elemTree.querySelectorAll('.ghgist').forEach(elemDiv => {
       console.log('Located placeholder for GitHub Gist');
 
@@ -161,6 +162,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       }
    });
 
+   //Blog index page
    let tblBody = elemTree.querySelector('tbody#blog_idx');
 
    if(tblBody) {
@@ -230,6 +232,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       numRowsToAdd = addNumRows;
    };
 
+   //Blog news section (div announce)
    let hnNews = elemTree.querySelector('#news_header');
 
    if(hnNews) {
@@ -248,8 +251,23 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       }
 
       //Now add the news items
-      let p = hnNews.parentNode.appendChild(document.createElement('p'));
-      p.appendChild(document.createTextNode('👍'));
+      let arrNews = [
+         {sDate: '26th of September \'20', htmlNews: 'Now hosted on <a href="https://github.com/hdr1001/blog" title="My blog repository">GitHub</a> <a href="https://hdr1001.github.com/blog" title="You\'ve made your way here!">Pages</a>'},
+         {sDate: '4th of October \'20', htmlNews: 'Now available, why did I move my blog to <a class="blog_anchor" href="blog_ghp_pt1.html" title="Why GitHub pages?">GitHub Pages</a>?'}
+      ];
+
+      let elemParagraph, elemStrong;
+
+      arrNews.forEach(newsItem => {
+         elemParagraph = hnNews.parentNode.appendChild(document.createElement('p'));
+
+         elemStrong = elemParagraph.appendChild(document.createElement('strong'))
+         elemStrong.appendChild(document.createTextNode(newsItem.sDate));
+
+         elemParagraph.appendChild(document.createElement('br'));
+
+         elemParagraph.insertAdjacentHTML(newsItem.htmlNews);
+      });
    }
 }
 

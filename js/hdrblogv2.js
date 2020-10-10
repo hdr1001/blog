@@ -229,6 +229,20 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
 
       numRowsToAdd = addNumRows;
    };
+
+   let hdrNews = elemTree.getElementById('news_header');
+
+   if(hdrNews) {
+      console.log('Adding news items');
+
+      //First delete the current content though
+      while(hdrNews.firstChild) {
+         hdrNews.removeChild(hdrNews.lastChild);
+      }
+
+      let p = hdrNews.appendChild(document.createElement('p'));
+      p.appendChild(document.createTextNode('👍'));
+   }
 }
 
 //BlogNav member function to change the article displayed in DOM node blog_post
@@ -476,8 +490,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
    blogNav.addEvnts(document); //Add the blog event handlers
 
-   document.addEventListener('load', () => {
+   window.addEventListener('load', () => {
       console.log('Blog completely loaded');
+
+      let divAnnc = document.querySelector('div#announce');
+
+      if(divAnnc) {
+         BlogNav.addDynamicContent(divAnnc);
+      }
    });
    
    window.addEventListener('popstate', psEvnt => {

@@ -161,7 +161,9 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       }
    });
 
-   elemTree.querySelectorAll('tbody.blog_idx').forEach(tblBody => {
+   let tblBody = elemTree.querySelector('tbody#blog_idx');
+   
+   if(tblBody) {
       console.log('Located placeholder for blog post listing');
 
       const iniNumRows = 20; //The number of rows initially in the index
@@ -474,6 +476,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
    blogNav.addEvnts(document); //Add the blog event handlers
 
+   document.addEventListener('load', () => {
+      console.log('Blog completely loaded');
+   });
+   
    window.addEventListener('popstate', psEvnt => {
       if(psEvnt && psEvnt.state
             && (psEvnt.state.histIdx || psEvnt.state.histIdx === 0)) {

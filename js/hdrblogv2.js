@@ -230,17 +230,25 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       numRowsToAdd = addNumRows;
    };
 
-   let hdrNews = elemTree.querySelector('#news_header');
+   let hnNews = elemTree.querySelector('#news_header');
 
-   if(hdrNews) {
+   if(hnNews) {
       console.log('Adding news items');
 
-      //First delete the current content though
-      while(hdrNews.firstChild) {
-         hdrNews.removeChild(hdrNews.lastChild);
+      //First delete, if applicable, the current content though
+      let i = 0;
+
+      while(i < hnNews.parentNode.childNodes.length) {
+         if(hnNews.parentNode.childNodes[i] !== hnNews) {
+            hnNews.parentNode.childNodes[i].remove();
+         }
+         else {
+            i++;
+         }
       }
 
-      let p = hdrNews.appendChild(document.createElement('p'));
+      //Now add the news items
+      let p = hnNews.parentNode.appendChild(document.createElement('p'));
       p.appendChild(document.createTextNode('👍'));
    }
 }

@@ -162,7 +162,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
    });
 
    let tblBody = elemTree.querySelector('tbody#blog_idx');
-   
+
    if(tblBody) {
       console.log('Located placeholder for blog post listing');
 
@@ -228,7 +228,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       addRowsToIdx.call(this, null);
 
       numRowsToAdd = addNumRows;
-   });
+   };
 }
 
 //BlogNav member function to change the article displayed in DOM node blog_post

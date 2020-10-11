@@ -50,7 +50,19 @@ In my [GitHub repository](https://github.com/hdr1001/blog "GitHub repository blo
 
 ![Directory src](https://github.com/hdr1001/blog/raw/master/assets/imgs/posts_on_gh.png "The blog posts as available in directory src")
 
-The ordering of the blog posts is done in file [blog_articles.json](https://raw.githubusercontent.com/hdr1001/blog/master/js/blog_articles.json "The articles are ordered in a JSON array"). This file can be found in directory [js](https://github.com/hdr1001/blog/tree/master/js "Directory js of the blog repository") of the blog repository. It's important to note that the first post (i.e. array element 0) in this array must always be reserved for the blog's [index page](https://hdr1001.github.io/blog/?content=blog_index.html "Blog index"). When the blog is loaded the array is read and one entry in the array is set as the current index. The blog post associated with the current index will be displayed.
+Blog posts are regular HTML files.
+
+![Blog post example](https://github.com/hdr1001/blog/raw/master/assets/imgs/blog_post_html.png "Blog posts are HTML files")
+
+The ordering of the blog posts is done in file [blog_articles.json](https://raw.githubusercontent.com/hdr1001/blog/master/js/blog_articles.json "The articles are ordered in a JSON array"). This file can be found in directory [js](https://github.com/hdr1001/blog/tree/master/js "Directory js of the blog repository") of the blog's repository. When the blog is loaded the array defined in the JSON file is read and a reference stored in the navigation object.
+
+![Reference to the article array](https://github.com/hdr1001/blog/raw/master/assets/imgs/artcl_arr_ref.png "Set the article array reference")
+
+One entry in the array is set as the current index. The blog post associated with the current index will be displayed.
+
+![The blog's current index](https://github.com/hdr1001/blog/raw/master/assets/imgs/blog_curr_idx.png "Set the current index")
+
+Please note that the first post (i.e. element 0) in the array must always be reserved for the blog's [index](https://hdr1001.github.io/blog/?content=blog_index.html "Blog index").
 
 ### The HTML framework
 

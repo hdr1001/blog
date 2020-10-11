@@ -38,4 +38,22 @@ After porting nearly all of the functionality of my blog and more than twenty bl
 
 ## High level concepts
 
+The three most important concepts behind my blog are;
+
+1. My blog is [an ordered collection](#an-ordered-collection-of-posts) of blog posts,
+2. The blog posts are displayed in an [HTML framework](#the-html-framework),
+3. [JavaScript code](#the-javascript-code) makes end-user navigation possible.
+
+### An ordered collection of posts
+
+In my [GitHub repository](https://github.com/hdr1001/blog "GitHub repository blog") all available blog posts are stored in directory [src](https://github.com/hdr1001/blog/tree/master/src "All blog posts are stored in directory src").
+
+![Directory src](https://github.com/hdr1001/blog/raw/master/assets/imgs/posts_on_gh.png "The blog posts as available in directory src")
+
+The ordering of the blog posts is done in file [blog_articles.json](https://raw.githubusercontent.com/hdr1001/blog/master/js/blog_articles.json "The articles are ordered in a JSON array"). This file can be found in directory [js](https://github.com/hdr1001/blog/tree/master/js "Directory js of the blog repository") of the blog repository. It's important to note that the first post (i.e. array element 0) in this array must always be reserved for the blog's [index page](https://hdr1001.github.io/blog/?content=blog_index.html "Blog index"). When the blog is loaded the array is read and one entry in the array is set as the current index. The blog post associated with the current index will be displayed.
+
+### The HTML framework
+
+### The JavaScript code
+
 To do

@@ -44,6 +44,7 @@ function BlogNav() {
       javaScript: 'js/',
       contentQryParam: 'content',
       articleList: 'blog_articles.json',
+      newsList: 'blog_news.json',
       defaultArticle: 'first_post.html',
       blogIndex: 'blog_index.html',
 
@@ -59,6 +60,10 @@ function BlogNav() {
 
       getBlogArticleListUrl: function() {
          return this.protocol + '//' + this.host + this.path + this.javaScript + this.articleList;
+      },
+
+      getBlogNewsListUrl: function() {
+         return this.protocol + '//' + this.host + this.path + this.javaScript + this.newsList;
       }
    };
 
@@ -238,7 +243,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
    if(hnNews) {
       console.log('Adding news items');
 
-      //First delete, if applicable, the current content though
+      //First delete, if applicable, the current content
       let i = 0;
 
       while(i < hnNews.parentNode.childNodes.length) {
@@ -250,24 +255,47 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
          }
       }
 
-      //Now add the news items
-      let arrNews = [
-         {sDate: '26th of September \'20', htmlNews: 'Now hosted on <a href="https://github.com/hdr1001/blog" title="My blog repository">GitHub</a> <a href="https://hdr1001.github.com/blog" title="You\'ve made your way here!">Pages</a>'},
-         {sDate: '4th of October \'20', htmlNews: 'Now available, why did I move my blog to <a class="blog_anchor" href="blog_ghp_pt1.html" title="Why GitHub pages?">GitHub Pages</a>?'}
-      ];
+      //HTTP request to retrieve the blog news array
+      const xhr = new XMLHttpRequest();
 
-      let elemParagraph, elemStrong;
+      //Format of the content retrieved is JSON
+      xhr.responseType = 'json';
 
-      arrNews.forEach(newsItem => {
-         elemParagraph = hnNews.parentNode.appendChild(document.createElement('p'));
+      xhr.open('GET', this.blog.getBlogNewsListUrl()); //Fetch the data
 
-         elemStrong = elemParagraph.appendChild(document.createElement('strong'))
-         elemStrong.appendChild(document.createTextNode(newsItem.sDate));
+      xhr.onload = () => {
+         if (xhr.status != 200) { //Record HTTP (exception) status
+            console.log(`Error rerieving blog news: HTTP status ${xhr.status}, ${xhr.statusText}`);
+         }
+         else { //Success
+            console.log('Successfully loaded the blog news array');
 
-         elemParagraph.appendChild(document.createElement('br'));
+            //The news array can be accessed via property arrBlogNews
+            let arrNews = xhr.response.arrBlogNews;
 
-         elemParagraph.insertAdjacentHTML('beforeend', newsItem.htmlNews);
-      });
+            const maxNewsItems = 5;
+            let idxStart = arrNews.length - maxNewsItems;
+
+            let elemParagraph, elemStrong;
+
+            for(i = ((idxStart >= 0) ? idxStart : 0); i < arrNews.length; i++) {
+               elemParagraph = hnNews.parentNode.appendChild(document.createElement('p'));
+
+               elemStrong = elemParagraph.appendChild(document.createElement('strong'))
+               elemStrong.appendChild(document.createTextNode(arrNews[i].sDate));
+      
+               elemParagraph.appendChild(document.createElement('br'));
+      
+               elemParagraph.insertAdjacentHTML('beforeend', arrNews[i].htmlNews);
+            }
+         }
+      };
+
+      xhr.onerror = () => { //Technical network error
+         console.log('Technical network error occured while retrieving article list');
+      };
+   
+      xhr.send();
    }
 }
 

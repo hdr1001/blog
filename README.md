@@ -46,9 +46,17 @@ The three most important concepts behind my blog are;
 
 ### An ordered collection of posts
 
-In code the ordered collection of blog posts is implemented as a [JSON array](https://hdr1001.github.io/blog/js/blog_articles.json "JSON array blog articles") of article objects. The article object at [array index 0](https://hdr1001.github.io/blog/?content=0 "Blog index") references the blog index.
+In code the ordered collection of blog posts is implemented as a [JSON array](https://hdr1001.github.io/blog/js/blog_articles.json "JSON array blog articles") of article objects. The article object at [index 0](https://hdr1001.github.io/blog/?content=0 "Blog index") references the blog index. New blog posts can simply be added to the end of the array.
 
 ![JSON array blog articles](https://github.com/hdr1001/blog/raw/master/assets/imgs/blog_articles.png "Blog articles ordered in a JSON array")
+
+Event [DOMContentLoaded](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event "Document event DOMContentLoaded") is triggered when the blog is loaded. In the associated event handler a new navigation object is instantiated.
+
+![Blog navigation object instantiation](https://github.com/hdr1001/blog/raw/master/assets/imgs/dom_content_loaded.png "Event handler DOMContentLoaded")
+
+In the navigation object's constructor the articles array defined in the JSON file is read and a reference to the array is stored in property arrArticles.
+
+![Reference to the article array](https://github.com/hdr1001/blog/raw/master/assets/imgs/artcl_arr_ref.png "Set the article array reference")
 
 In my [GitHub repository](https://github.com/hdr1001/blog "GitHub repository blog") all available blog posts are stored in directory [src](https://github.com/hdr1001/blog/tree/master/src "All blog posts are stored in directory src").
 
@@ -60,7 +68,6 @@ Blog posts are regular HTML files.
 
 The ordering of the blog posts is done in file [blog_articles.json](https://raw.githubusercontent.com/hdr1001/blog/master/js/blog_articles.json "The articles are ordered in a JSON array"). This file can be found in directory [js](https://github.com/hdr1001/blog/tree/master/js "Directory js of the blog repository") of the blog's repository. When the blog is loaded the array defined in the JSON file is read and a reference stored in the navigation object.
 
-![Reference to the article array](https://github.com/hdr1001/blog/raw/master/assets/imgs/artcl_arr_ref.png "Set the article array reference")
 
 One entry in the array is set as the current index. The blog post associated with the current index will be displayed.
 

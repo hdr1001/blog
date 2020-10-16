@@ -46,7 +46,7 @@ The three most important concepts behind my blog are;
 
 ### An ordered collection of posts
 
-In code the ordered collection op posts is implemented as a [JSON array](https://hdr1001.github.io/blog/js/blog_articles.json "JSON array blog articles").
+In code the ordered collection of blog posts is implemented as a [JSON array](https://hdr1001.github.io/blog/js/blog_articles.json "JSON array blog articles") of article objects. The article object at [array index 0](https://hdr1001.github.io/blog/?content=0 "Blog index") references the blog index.
 
 ![JSON array blog articles](https://github.com/hdr1001/blog/raw/master/assets/imgs/blog_articles.png "Blog articles ordered in a JSON array")
 

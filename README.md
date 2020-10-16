@@ -46,6 +46,10 @@ The three most important concepts behind my blog are;
 
 ### An ordered collection of posts
 
+In code the ordered collection op posts is implemented as a [JSON array](https://hdr1001.github.io/blog/js/blog_articles.json "JSON array blog articles").
+
+![JSON array blog articles](https://github.com/hdr1001/blog/raw/master/assets/imgs/blog_articles.png "Blog articles ordered in a JSON array")
+
 In my [GitHub repository](https://github.com/hdr1001/blog "GitHub repository blog") all available blog posts are stored in directory [src](https://github.com/hdr1001/blog/tree/master/src "All blog posts are stored in directory src").
 
 ![Directory src](https://github.com/hdr1001/blog/raw/master/assets/imgs/posts_on_gh.png "The blog posts as available in directory src")

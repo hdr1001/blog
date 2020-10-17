@@ -4,7 +4,7 @@
 
 <p>First-class functions are fully supported in JavaScript and therefore functions can be passed as arguments to other functions. In practice this is quite common actually. The following is, for example, the definition of the <a href="https://nodejs.org/api/https.html#https_https_request_options_callback" title="Method for making a request to a secure web server">request method</a> on object https: <code>https.request(options[, callback])</code> The type of the second parameter of this method is function. In the first version of the HTTP transaction code a reference to a completely separate block of code defined elsewhere in the file (i.e. function cb) was passed into this parameter: <code>https.request(httpAttr.reqOpts, callbck).end():</code> In the second version of the code a so-called arrow function is defined where the function parameter is expected: <code>https.request(httpAttr.reqOpts, resp => { ...</code> This last implementation pattern is much more common nowadays.</p>
 
-<script src="https://gist.github.com/hdr1001/7026649857cba2f943ffe8495b79cbff.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="7026649857cba2f943ffe8495b79cbff"></div>
 
 <p>Please note that in the code above all callback functions are now defined as arrow functions.</p>
 

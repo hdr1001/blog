@@ -168,6 +168,18 @@
       "lastChange": "2020-10-17",
       "file": "dont_do_this.html"
    },{
+      "title": "Async IDR, pt. 1",
+      "desc": "An asynchronous HTTP transaction, 1st try",
+      "firstPub": "2018-02-11",
+      "lastChange": "2020-10-17",
+      "file": "async_idr_pt1.html"
+   },{
+      "title": "Async IDR, pt. 2",
+      "desc": "An async HTTP transaction, arrow functions",
+      "firstPub": "2018-02-16",
+      "lastChange": "2020-10-17",
+      "file": "async_idr_pt2.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

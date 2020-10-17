@@ -66,7 +66,7 @@ The file property of an article object should match up to an actual file in subd
 
 ![Directory src](https://github.com/hdr1001/blog/raw/master/assets/imgs/posts_on_gh.png "The blog posts as available in directory src")
 
-Individual blog posts are regular HTML files.
+The [individual blog posts](https://github.com/hdr1001/blog/blob/master/src/blog_ghp_pt1.html "Example blog post") listed in subdirectory [src](https://github.com/hdr1001/blog/tree/master/src "All blog posts are stored in directory src") are regular (albeit partial) HTML files.
 
 ![Blog post example](https://github.com/hdr1001/blog/raw/master/assets/imgs/blog_post_html.png "Blog posts are HTML files")
 

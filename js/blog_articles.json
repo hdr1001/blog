@@ -162,6 +162,12 @@
       "lastChange": "2020-10-06",
       "file": "express_ws.html"
    },{
+      "title": "Synchronous IDR",
+      "desc": "Don't try this @ work",
+      "firstPub": "2018-02-09",
+      "lastChange": "2020-10-17",
+      "file": "dont_do_this.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

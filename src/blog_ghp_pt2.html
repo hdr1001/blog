@@ -1,0 +1,35 @@
+<h1>Key concepts powering my blog</h1>
+
+<p>The three most important concepts behind my blog are;</p>
+
+<ol>
+   <li>My blog is an ordered collection of blog posts,</li>
+   <li>The blog posts are displayed in an HTML framework and</li>
+   <li>JavaScript code makes end-user navigation possible.</li>
+</ol>
+
+<p>This blog post is all about why my blog is an ordered collection of posts. Separate articles about the HTML(5) framework &amp; JavaScript interactivity will follow.</p>
+
+<p>In code the ordered collection of blog posts is implemented as a <a href="https://hdr1001.github.io/blog/js/blog_articles.json" title="JSON array blog articles">JSON array</a> of article objects. The article object at <a href="https://hdr1001.github.io/blog/?content=0" title="Blog index">index 0</a> references the blog index page. New blog posts can simply be added to the end of the array.</p>
+
+<p><img src="./assets/imgs/blog_articles.png" alt="JSON array blog articles" title="Blog articles ordered in a JSON array"></p>
+
+<p class="no-indent">Event <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event" title="Document event DOMContentLoaded">DOMContentLoaded</a> is triggered when the blog is loaded.</p>
+
+<p class="img_caption"><img src="./assets/imgs/dom_content_loaded.png" alt="Blog navigation object instantiation" title="Event handler DOMContentLoaded"> In the <a href="https://hdr1001.github.io/blog/js/hdrblogv2.js" title="Arrow function for handling the DOMContentLoaded event">DOMContentLoaded event handler</a> a new navigation object is instantiated</p>
+
+<p class="no-indent">In the navigation object&#39;s <a href="https://github.com/hdr1001/blog/blob/master/js/hdrblogv2.js" title="Constructor function of the BlogNav object">constructor</a> the articles array defined in the JSON file is read.</p>
+
+<p class="img_caption"><img src="./assets/imgs/artcl_arr_ref.png" alt="Reference to the article array" title="Set the article array reference">A reference to the array is stored in property arrArticles</p>
+
+<p class="no-indent">The navigation object also has a property for keeping track of which blog post is currently displayed, blogCurrIdx. This property can be used as an index value for array arrArticles to retrieve the article object associated with the currently active post.</p>
+
+<p class="img_caption"><img src="./assets/imgs/blog_curr_idx.png" alt="The blog&#39;s current index" title="Set the current index">Property blogCurrIdx keeps track of the currently displayed blog post</p>
+
+<p class="no-indent">The file property of an article object should match up to an actual file in subdirectory <a href="https://github.com/hdr1001/blog/tree/master/src" title="All blog posts are stored in directory src">src</a> of the <a href="https://github.com/hdr1001/blog" title="GitHub repository blog">GitHub repository</a>.</p>
+
+<p class="img_caption"><img src="./assets/imgs/posts_on_gh.png" alt="Directory src" title="The blog posts as available in directory src">The blog post files are stored in directory <a href="https://github.com/hdr1001/blog/tree/master/src" title="All blog posts are stored in directory src">src</a></p>
+
+<p class="no-indent">The <a href="https://github.com/hdr1001/blog/blob/master/src/blog_ghp_pt1.html" title="Example blog post">individual blog posts</a> listed in subdirectory <a href="https://github.com/hdr1001/blog/tree/master/src" title="All blog posts are stored in directory src">src</a> are regular (albeit partial) HTML files.</p>
+
+<p class="img_caption"><img src="./assets/imgs/blog_post_html.png" alt="Blog post example" title="Blog posts are HTML files">Just plain old HTML(5)</p>

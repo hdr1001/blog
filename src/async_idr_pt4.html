@@ -1,18 +1,19 @@
 <h1>An async HTTP transaction, part 4</h1>
 
-<p>This fourth and last post in the series of blog posts about asynchronous D&amp;B Direct+ identity resolution was a bit of a wait. Luckily I have a couple of good excuses for my tardiness. First of all: </p>
+<p>This fourth and last post in the series of blog posts about asynchronous D&amp;B Direct+ identity resolution was a bit of a wait. Luckily I have a couple of good excuses for my tardiness.</p>
 
-<p><img src="https://goo.gl/UU5prP" alt="Chillin in Peisey-Vallandry"></p>
-
-<p>Secondly, I've been busy reworking my Node.js D&amp;B Direct+ <a href="https://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_objs.js" title="D&amp;B Direct+ prototype">prototype</a>. This work will be the topic of my next blog posts so stay tuned!</p>
+<ol>
+   <li><img src="./assets/imgs/img_3686.jpg" alt="Chillin in Peisey-Vallandry" style="vertical-align:text-top"></li>
+   <li>I've been busy reworking my Node.js D&amp;B Direct+ <a href="https://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_objs.js" title="D&amp;B Direct+ prototype">prototype</a>. This work will be the topic of my next blog posts so stay tuned!</li>
+</ol>
 
 <p>In my previous post I already explained the ease of working with <a href="https://www.promisejs.org/" title="Promises by Forbes Lindesay">Promises</a> in general and the .then method in particular. The implementation of this method is really straightforward and gives you immediate access to the end result as passed back by the fulfilled Promise. Of course that begs the question what to do in case a Promise is rejected? In these cases the .catch method is applicable. In my <a href="https://gist.github.com/hdr1001/76a8d42d69d7259e18c55557d4e462f7" title="Asynchronous Node.js D&amp;B Direct+ identity resolution request">final version</a> of the (standalone) identity resolution code I have implemented additional error handling and a .catch clause to deal with Promise rejection.</p>
 
-<p>Code to trap errors highlighted by HTTP status codes:</p>
+<p class="no-indent">Code to trap errors highlighted by HTTP status codes:</p>
 
 <div class="ghgist" data-ghgistid="3eb96be0a248229e92e2a683a4f44c61"></div>
 
-<p>Function call returning a Promise including error handling:</p>
+<p class="no-indent">Function call returning a Promise including error handling:</p>
 
 <div class="ghgist" data-ghgistid="3f0621b485d3d1a227a9b21de1a24cab"></div>
 
@@ -20,8 +21,8 @@
 
 <p><img src="./assets/imgs/idr_async_req_v4.png" alt="Result asynchronous IDR request (incl error handling)"></p>
 
-<p>The screenshot above clearly illustrates that the response to the properly specified request: <code>Name = Agglo-Bouw Voorbeeld B.V.</code> is processed in the .then method of the Promise instance: <code>.then(res => console.log("Name = " + res))</code> Whereas the response to the improperly specified request: <code>Error: Request missing required element: countryISOAlpha2Code (20506)</code> is evidently handled in the .catch clause: <code>.catch(err => console.log("Error: " + err.message));</code></p>
+<p class="no-indent">The screenshot above clearly illustrates that the response to the properly specified request: <code>Name = Agglo-Bouw Voorbeeld B.V.</code> is processed in the .then method of the Promise instance: <code>.then(res => console.log("Name = " + res))</code> Whereas the response to the improperly specified request: <code>Error: Request missing required element: countryISOAlpha2Code (20506)</code> is evidently handled in the .catch clause: <code>.catch(err => console.log("Error: " + err.message));</code></p>
 
 <p>Funny point to note here is that the response to the 1st, properly specified, request is returned after the response to the 2nd request which misses the required country code. Welcome to the world of async programming!</p>
 
-<p>For more insight into the project's incremental code changes go to <a href="https://gist.github.com/hdr1001/76a8d42d69d7259e18c55557d4e462f7/revisions?diff=split" title="Incremental code changes">this page</a> on GitHib.</p>
+<p class="no-indent">For more insight into the project's incremental code changes go to <a href="https://gist.github.com/hdr1001/76a8d42d69d7259e18c55557d4e462f7/revisions?diff=split" title="Incremental code changes">this page</a> on GitHib.</p>

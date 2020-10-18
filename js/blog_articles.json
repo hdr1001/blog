@@ -183,13 +183,13 @@
       "title": "Async IDR, pt. 3",
       "desc": "An async HTTP transaction, promises",
       "firstPub": "2018-02-18",
-      "lastChange": "2020-10-17",
+      "lastChange": "2020-10-18",
       "file": "async_idr_pt3.html"
    },{
       "title": "Async IDR, pt. 4",
       "desc": "An async HTTP transaction, error handling",
       "firstPub": "2018-03-18",
-      "lastChange": "2020-10-17",
+      "lastChange": "2020-10-18",
       "file": "async_idr_pt4.html"
    },{
       "title": "Migrate blog, pt. 1",
@@ -197,5 +197,11 @@
       "firstPub": "2020-10-04",
       "lastChange": "2020-10-04",
       "file": "blog_ghp_pt1.html"
+   },{
+      "title": "Migrate blog, pt. 2",
+      "desc": "Key concepts powering my blog",
+      "firstPub": "2020-10-18",
+      "lastChange": "2020-10-18",
+      "file": "blog_ghp_pt2.html"
    }
 ]}

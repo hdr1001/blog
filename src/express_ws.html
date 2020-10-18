@@ -6,11 +6,19 @@
 
 <div class="ghgist" data-ghgistid="29a9053162bd190976314e163f76ca4b"></div>
 
-<p class="no-indent">With the input parameters parsed I could shift my attention to adding a new POST endpoint. Again, especially in skeletal form, extremely easy:</p>
+<p>With the input parameters parsed I could shift my attention to adding a new POST endpoint. Again, especially in skeletal form, extremely easy:</p>
 
 <div class="ghgist" data-ghgistid="0a905f134583567ab941a04f514d6760"></div>
 
-<p class="no-indent">Basically just (1) create a JavaScript object, (2) set an HTTP response header and (3) return the previously created object, in JSON format, in the HTTP response body. Please note that the returned object contains the values of two input parameters: req.body.name &amp; .countryISOAlpha2Code.</p>
+<p class="no-indent">Basically just;</p>
+
+<ol>
+   <li>create a JavaScript object,</li>
+   <li>set an HTTP response header and</li>
+   <li>return the previously created object, in JSON format, in the HTTP response body.</li>
+</ol>
+
+<p class="no-indent">Please note that the returned object contains the values of two input parameters: req.body.name &amp; .countryISOAlpha2Code.</p>
 
 <p class="no-indent">It was now time to run the code and test the web service: <code>nodejs dnb_dpl_ws.js</code></p>
 

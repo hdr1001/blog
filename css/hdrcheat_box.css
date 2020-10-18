@@ -151,16 +151,12 @@ blockquote {
    margin: 1em 40px;
 }
 
-h3+p {
-   margin: 0.7em 0;
+p + ol, p + ul, p + p.img_caption {
+   margin-top: -0.6em;
 }
 
-p+h3, ol+h3, ul+h3, table+h3 {
-   margin-top: 1.8em;
-}
-
-p+p.img_caption, p+p.gist {
-   margin-top: 0.4em;
+p + div.gist {
+   margin-top: -0.8em;
 }
 
 article p img, article ol li img {

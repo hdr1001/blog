@@ -192,6 +192,24 @@
       "lastChange": "2020-10-18",
       "file": "async_idr_pt4.html"
    },{
+      "title": "Toolkit, pt. 1",
+      "desc": "Toolkit Node.js object code",
+      "firstPub": "2018-04-15",
+      "lastChange": "2020-10-20",
+      "file": "ws_dit_pt1.html"
+   },{
+      "title": "Toolkit, pt. 2",
+      "desc": "Custom (composite) Toolkit/Direct+ product",
+      "firstPub": "2018-05-06",
+      "lastChange": "2020-10-20",
+      "file": "ws_dit_pt2.html"
+   },{
+      "title": "Google time zone",
+      "desc": "Custom product incl. Google time zone",
+      "firstPub": "2018-05-13",
+      "lastChange": "2020-10-20",
+      "file": "add_ggl_tmz.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

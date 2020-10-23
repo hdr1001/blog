@@ -169,17 +169,7 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
 
    //Tweets
    elemTree.querySelectorAll('blockquote.twitter-tweet').forEach(tweet => {
-      console.log('twitter property on window object ' + window.twttr ? '' : 'not yet ' + 'available');
-
-      const twttrScriptID = 'twitter-wjs';
-
-      if(!document.getElementById(twttrScriptID)) {
-         let elemTwttrScript = document.createElement('script');
-         elemTwttrScript.setAttribute('id', twttrScriptID);
-         elemTwttrScript.setAttribute('src', 'https://platform.twitter.com/widgets.js');
-
-         document.getElementsByTagName('head')[0].appendChild(elemTwttrScript);
-      }
+      console.log('Located a placeholder for a tweet');
 
       if(window.twttr) {
          window.twttr.load(tweet);
@@ -392,6 +382,9 @@ BlogNav.prototype.switchBlogPost = function(newIdx, blogHistory) {
 
          //Make sure the required events are defined
          this.addEvnts(this.elemArticle); //Add the blog event handlers for the article
+
+         //Scroll to the top of the page
+         window.scrollTo(0, 0);
 
          //Add dynamically loaded content
          this.addDynamicContent(this.elemArticle);

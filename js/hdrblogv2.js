@@ -167,6 +167,28 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
       }
    });
 
+   //Tweets
+   elemTree.querySelectorAll('blockquote.twitter-tweet').forEach(tweet => {
+      console.log('twitter property on window object ' + window.twttr ? '' : 'not yet ' + 'available');
+
+      const twttrScriptID = 'twitter-wjs';
+
+      if(!document.getElementById(twttrScriptID)) {
+         let elemTwttrScript = document.createElement('script');
+         elemTwttrScript.setAttribute('id', twttrScriptID);
+         elemTwttrScript.setAttribute('src', 'https://platform.twitter.com/widgets.js');
+
+         document.getElementsByTagName('head')[0].appendChild(elemTwttrScript);
+      }
+
+      if(window.twttr) {
+         window.twttr.load(tweet);
+      }
+      else {
+         console.log('Why is there no twttr property on the window object? 🤔');
+      }
+   });
+
    //Blog index page
    let tblBody = elemTree.querySelector('tbody#blog_idx');
 

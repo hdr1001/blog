@@ -12,7 +12,7 @@
 
 <p>Toolkit support does introduce an additional external dependency though. Package <a href="https://www.npmjs.com/package/xmldom" title="JavaScript implementation of W3C DOM">xmldom</a> is required in order to support <a href="https://www.w3.org/TR/WD-DOM/introduction.html" title="What is the Document Object Model?">Document Object Model</a> interactions like this:</p>
 
-<p><img src="./assets/imgs/dit_obj_dom.png" alt="Toolkit object DOM call"></p>
+<p class="img_caption"><img src="./assets/imgs/dit_obj_dom.png" alt="Toolkit object DOM call"></p>
 
 <p>The package can easily be deployed using the JavaScript package manager: <code>npm install xmldom</code></p>
 
@@ -20,20 +20,20 @@
 
 <p>Having the object wrapper at your disposal greatly facilitates web service implementation using the <a href="https://expressjs.com/" title="Fast, unopinionated, minimalist web framework for Node.js">Express framework</a>. A function to instantiate Toolkit objects is exported near the end of the JavaScript object code file:</p>
 
-<p><img src="./assets/imgs/exp_get_gdp_prod.png" alt="module export getGdpProduct"></p>
+<p class="img_caption"><img src="./assets/imgs/exp_get_gdp_prod.png" alt="module export getGdpProduct"></p>
 
 <p>Implementing a new endpoint is now as easy as:</p>
 
-<p><img src="./assets/imgs/exprss_dit_endpt.png" alt="Implementing a Toolkit endpoint using Express"></p>
+<p class="img_caption"><img src="./assets/imgs/exprss_dit_endpt.png" alt="Implementing a Toolkit endpoint using Express"></p>
 
 <p>Invoking an HTTP GET like this:</p>
 
-<p><img src="./assets/imgs/get_dit_prod.png" alt="HTTP GET to retrieve a Toolkit product"></p>
+<p class="img_caption"><img src="./assets/imgs/get_dit_prod.png" alt="HTTP GET to retrieve a Toolkit product"></p>
 
 <p>will trigger the code above and the Toolkit object code:</p>
 
-<p><img src="./assets/imgs/dit_prod_fulfilled.png" alt="HTTP GET fulfilled"></p>
+<p class="img_caption"><img src="./assets/imgs/dit_prod_fulfilled.png" alt="HTTP GET fulfilled"></p>
 
 <p>This all to deliver the XML data product:</p>
 
-<p><img src="./assets/imgs/xml_dit_delivered.png" alt="Toolkit XML as delivered in the browser"></p>
+<p class="img_caption"><img src="./assets/imgs/xml_dit_delivered.png" alt="Toolkit XML as delivered in the browser"></p>

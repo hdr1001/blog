@@ -17,28 +17,28 @@
 
 <p>Instantiation of a custom data product of class CstmProduct automatically results in the instantiation of (1) an object of class DplProduct and (2) an object of class GdpProduct. This, in turn, results in either an &#034;onLoad&#034; or an &#034;onError&#034; event being fired for each of both products. In the associated event handlers function _prodsAvailable is invoked once all the raw data is available. First order of business, when this function is executed, is to convert the Toolkit XML to JSON. Function parseString, as defined in <a href="https://www.npmjs.com/package/xml2js" title="Simple XML to JavaScript object converter">library xml2js</a>, is used for this purpose. If all goes well parameter rslt contains a reference to the Toolkit data in JSON format. Just a particular part of the Toolkit data packet is incorporated in the end result. Only node DATARS and its subnodes will be part of the final product.</p>
 
-<p><img src="./assets/imgs/cp_node_datars.png" alt="Copy node DATARS and its subnodes"></p>
+<p class="img_caption"><img src="./assets/imgs/cp_node_datars.png" alt="Copy node DATARS and its subnodes"></p>
 
 <p>The last remaining to-do, before firing the &#034;onLoad&#034; event, is to bolt together all the constituent parts of the custom product. ES6 method <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" title="Method Object.assign()">Object.assign()</a> makes fulfilling this task as easy as pie. All the objects passed into it will be merged into the first method parameter.</p>
 
-<p><img src="./assets/imgs/obj_assign.png" alt="ES6 method object.assign"></p>
+<p class="img_caption"><img src="./assets/imgs/obj_assign.png" alt="ES6 method object.assign"></p>
 
 <p>The &#034;onLoad&#034; event will only be fired in case the Direct+ <strong>and</strong> (= &amp;&amp;) the Toolkit product were successfully retrieved. All other scenarios result in an &#034;onError&#034; event.</p>
 
 <p>The <a href="https://www.npmjs.com/package/express" title="Fast, unopinionated, minimalist web framework for Node.js">Express</a> web service code which complements the object code should be familiar by now:</p>
 
-<p><img src="./assets/imgs/cstm_prod_ws.png" alt="Custom product web service endpoint"></p>
+<p class="img_caption"><img src="./assets/imgs/cstm_prod_ws.png" alt="Custom product web service endpoint"></p>
 
 <p>With everything in place, this is when I have my <q>Gentlemen, start your engines!</q> moment executing: <code>nodejs dnb_dpl_ws.js</code></p>
 
 <p>The web service is now up-n-running and can be tested with a simple HTTP GET.</p>
 
-<p><img src="./assets/imgs/cstm_prod_req.png" alt="Custom product request"></p>
+<p class="img_caption"><img src="./assets/imgs/cstm_prod_req.png" alt="Custom product request"></p>
 
 <p>In the request above the forceNew HTTP query parameter is set to true. Consequently, even though the relevant DUNS might already be available on the database, the application will call out to refresh the data from the source (i.e. D&amp;B) before returning the custom product.</p>
 
-<p><img src="./assets/imgs/express_cstm_prod.png" alt="Log of custom product web service request"></p>
+<p class="img_caption"><img src="./assets/imgs/express_cstm_prod.png" alt="Log of custom product web service request"></p>
 
 <p>In the test, as can be gathered from the application log, the raw data for the custom product was (successfully) obtained online. The screenshot below shows the part of the custom data product where the Direct+ and Toolkit data were stitched together. The &#034;DATARS&#034; property encapsulates all the Toolkit data-elements, everything above it originates from the Direct+ CMPELK data product.</p>
 
-<p><img src="./assets/imgs/cstm_product.png" alt="Custom JSON product"></p>
+<p class="img_caption"><img src="./assets/imgs/cstm_product.png" alt="Custom JSON product"></p>

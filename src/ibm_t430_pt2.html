@@ -1,16 +1,16 @@
 <h1>Installing Ubuntu 18.04</h1>
 
-<p>My <a href="http://bit.ly/2sX0XNU" title="Bought a second-hand Lenovo T430">Lenovo Thinkpad T430</a> was handed to me at approximately the same time the new Long Term Support version of Ubuntu, <a href="http://releases.ubuntu.com/18.04/" title="Ubuntu Bionic Beaver (18.04)">Bionic Beaver (18.04)</a>, was released. Usually I don't install the OS before the 1st <a href="https://wiki.ubuntu.com/BionicBeaver/ReleaseSchedule" title="18.04.01">point release</a> is made available but this time around I decided to live dangerously and opted to install the brand new version of the software.</p>
+<p>My <a class="blog_anchor" href="ibm_t430_pt1.html" title="Bought a second-hand Lenovo T430">Lenovo Thinkpad T430</a> was handed to me at approximately the same time the new Long Term Support version of Ubuntu, <a href="http://releases.ubuntu.com/18.04/" title="Ubuntu Bionic Beaver (18.04)">Bionic Beaver (18.04)</a>, was released. Usually I don't install the OS before the 1st <a href="https://wiki.ubuntu.com/BionicBeaver/ReleaseSchedule" title="18.04.01">point release</a> is made available but this time around I decided to live dangerously and opted to install the brand new version of the software.</p>
 
 <p>I always download Ubuntu images from the <a href="http://ftp.tudelft.nl/releases.ubuntu.com/18.04/ubuntu-18.04-desktop-amd64.iso" title="Mirror @ TU Delft">mirror</a> at the TU Delft but of course it's also possible to use the link on the operating system's official <a href="http://releases.ubuntu.com/18.04/ubuntu-18.04-desktop-amd64.iso">release page</a>. Nowadays I use <a href="https://etcher.io/" title="Flash OS images to SD cards &amp; USB drives">Etcher</a> to create bootable USB drives.</p>
 
 <p>To kick-off the actual install of Ubuntu Bionic Beaver I started my laptop with the USB drive plugged in and pressed the Enter key (&#8629;) during the <a href="https://en.wikipedia.org/wiki/Power-on_self-test" title="Power-On Self Test procedure">Power-On Self Test</a> procedure. On a Lenovo Thinkpad this will take you to the Startup Interrupt Menu. Next, using function key F12, I accessed the Boot menu and booted my laptop from the USB drive. From here on out the install which I performed was very similar to the one documented on the <a href="https://www.linuxtechi.com/ubuntu-18-04-lts-desktop-installation-guide-screenshots/" title="Ubuntu 18.04 LTS Desktop Installation Guide">LinuxTechi</a> site. The biggest difference definitely is the partition table which I created:</p>
 
-<p><img src="/dev/blog/imgs/fdisk-l.png" alt="Partition table" /></p>
+<p class="img_caption"><img src="./assets/imgs/fdisk-l.png" alt="Partition table"></p>
 
 <p>I mapped the partitions listed above to the Linux file system as follows:</p>
 
-<p><img src="/dev/blog/imgs/lsblk-o.png" alt="Mounting points for disk partitions" /></p>
+<p class="img_caption"><img src="./assets/imgs/lsblk-o.png" alt="Mounting points for disk partitions"></p>
 
 <p>Compared to the LinuxTechi Ubuntu 18.04 Installation Guide there are a couple of other, less important, differences as well:</p>
 
@@ -23,6 +23,6 @@
 <p>Upon completion of the installation I rebooted my laptop. I unplugged the bootable USB drive when I was prompted to do so and, in order to force a restart from the ground up, pressed CTRL+ALT+DEL.</p>
 
 <p>On reboot the PC's boot loader very neatly executed the Ubuntu Linux kernel (as deployed on my newly installed SSD) &amp; took me to the desktop's GUI. After logging in I connected to my home WiFi network. I don't think I was able to connect during installation but at this stage things went very smoothly. With a working connection to the Internet I updated my OS:
-<code>sudo apt-get update <br />
+<code>sudo apt-get update <br>
 sudo apt-get upgrade</code>
 To finish things up I configured Canonical's <a href="https://www.ubuntu.com/server/livepatch" title="Canonical Livepatch">Livepatch</a> service. This service promises to apply critical kernel patches without rebooting. For Ubuntu community members this service is free for up to three PCs. Thank you Canonical!</p>

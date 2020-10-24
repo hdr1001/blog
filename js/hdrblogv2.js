@@ -171,11 +171,11 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
    elemTree.querySelectorAll('blockquote.twitter-tweet').forEach(tweet => {
       console.log('Located a placeholder for a tweet');
 
-      if(window.twttr) {
-         window.twttr.load(tweet);
+      if(window.twttr && window.twttr.widgets) {
+         window.twttr.widgets.load(tweet);
       }
       else {
-         console.log('Why is there no twttr property on the window object? 🤔');
+         console.log('No twttr(.widgets) property on the window object? 🤔');
       }
    });
 

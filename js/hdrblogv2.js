@@ -171,35 +171,12 @@ BlogNav.prototype.addDynamicContent = function(elemTree) {
    elemTree.querySelectorAll('blockquote.twitter-tweet').forEach(tweet => {
       console.log('Located a placeholder for a tweet');
 
-      if(!window.twttr) {
-         window.twttr = (function() {
-            const twttrScriptID = 'twitter-wjs';
-
-            if(document.getElementById(twttrScriptID)) {
-               console.log('Script loaded but no twttr property? 🤔');
-               return null;
-            }
-
-            let elemTwttrScript = document.createElement('script');
-            elemTwttrScript.setAttribute('id', twttrScriptID);
-            elemTwttrScript.setAttribute('src', 'https://platform.twitter.com/widgets.js');
-   
-            document.getElementsByTagName('head')[0].appendChild(elemTwttrScript);
-
-            let oTwttr = {};
-
-            oTwttr._e = [];
-            oTwttr.ready = function(f) {
-               oTwttr._e.push(f);
-            };
-          
-            return oTwttr;          
-         }());
-      }
-
-      window.twttr.ready(function() {
+      if(window.twttr) {
          window.twttr.load(tweet);
-      });
+      }
+      else {
+         console.log('Why is there no twttr property on the window object? 🤔');
+      }
    });
 
    //Blog index page

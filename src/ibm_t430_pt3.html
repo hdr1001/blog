@@ -1,59 +1,47 @@
 <h1>Creating an Ubuntu 18.04 VM</h1>
 
-<p>Immediately upon conclusion of installing the <a href="#" title="Installing Ubuntu 18.04" onclick="navBlog.anchorAction(event, 'ibm_t430_pt2.xhtml')">Ubuntu Bionic Beaver desktop environment</a> I wanted to proceed and install the <a href="http://ftp.tudelft.nl/releases.ubuntu.com/xenial/ubuntu-16.04.4-server-amd64.iso" title="Ubuntu server image">server edition</a> of this OS as a virtual machine on my <a href="#" title="My new (second-hand) hardware" onclick="navBlog.anchorAction(event, 'ibm_t430_pt1.xhtml')">T430</a>. In fact this is a two-step process: (1) installing the virtualization software (including the VM manager user interface) and (2) implementing the server edition of Ubuntu 18.04 as a virtual machine. For the first step one of my aims was to validate whether <a href="https://www.howtogeek.com/117635/how-to-install-kvm-and-create-virtual-machines-on-ubuntu/" title="How to Install KVM and Create Virtual Machines on Ubuntu">this article</a> on <a href="https://www.howtogeek.com/" title="How-to geek">How-to Geek</a> is still valid when it comes to installing <a href="https://www.linux-kvm.org/page/Main_Page" title="Linux Kernel Virtual Machine">KVM</a> in the context of the latest release of my favourite Linux distribution. Although I'm quite sure it is, I can't confirm this with certainty because, in first instance, I made a bit of a mess of the installation. The reason for me botching a relatively straightforward task was that I forgot to enable the CPU's virtualization features in BIOS. A rookie mistake and, even worse, a mistake I've made before. Anyway, when installing virtualization on Ubuntu, my advice is to always start with checking whether this feature is enabled in BIOS. In my experience it's disabled by default. Once enabled you should be good to go if you follow the instructions on How-to Geek.</p>
+<p>Immediately upon conclusion of installing the <a class="blog_anchor" title="Installing Ubuntu 18.04" href="ibm_t430_pt2.html">Ubuntu Bionic Beaver desktop environment</a> I wanted to proceed and install the <a href="http://ftp.tudelft.nl/releases.ubuntu.com/xenial/ubuntu-16.04.4-server-amd64.iso" title="Ubuntu server image">server edition</a> of this OS as a virtual machine on my <a class="blog_anchor" title="My new (second-hand) hardware" href="ibm_t430_pt1.html">T430</a>. In fact this is a two-step process: (1) installing the virtualization software (including the VM manager user interface) and (2) implementing the server edition of Ubuntu 18.04 as a virtual machine. For the first step one of my aims was to validate whether <a href="https://www.howtogeek.com/117635/how-to-install-kvm-and-create-virtual-machines-on-ubuntu/" title="How to Install KVM and Create Virtual Machines on Ubuntu">this article</a> on <a href="https://www.howtogeek.com/" title="How-to geek">How-to Geek</a> is still valid when it comes to installing <a href="https://www.linux-kvm.org/page/Main_Page" title="Linux Kernel Virtual Machine">KVM</a> in the context of the latest release of my favourite Linux distribution. Although I'm quite sure it is, I can't confirm this with certainty because, in first instance, I made a bit of a mess of the installation. The reason for me botching a relatively straightforward task was that I forgot to enable the CPU's virtualization features in BIOS. A rookie mistake and, even worse, a mistake I've made before. Anyway, when installing virtualization on Ubuntu, my advice is to always start with checking whether this feature is enabled in BIOS. In my experience it's disabled by default. Once enabled you should be good to go if you follow the instructions on How-to Geek.</p>
 
 <p>As for the second part of the process, implementing the server edition of Ubuntu Bionic Beaver as a virtual machine, I've documented the steps I took to accomplish this part of the project below.</p>
 
-<p style="margin-bottom: -0.8em;">Step 1: Clicked the "Create a new VM" icon in VM manager</p>
-<p style="margin-bottom: 2.5em;"><img src="/dev/blog/imgs/vm_01_new.png" alt="VM manager, create new" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_01_new.png" alt="VM manager, create new">Step 1: Clicked the "Create a new VM" icon in VM manager</p>
 
-<p style="margin-bottom: -0.8em;">Step 2: Installed the OS using local media</p>
-<p style="margin-bottom: 2.5em;"><img src="/dev/blog/imgs/vm_02_local_media.png" alt="VM manager, local install" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_02_local_media.png" alt="VM manager, local install">Step 2: Installed the OS using local media</p>
 
-<p style="margin-bottom: -0.8em;">Step 3: Specified the path to the ISO &amp; OS version (18.04 not yet available!)</p>
-<p style="margin-bottom: 2.5em;"><img src="/dev/blog/imgs/vm_03_iso.png" alt="VM manager, use ISO" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_03_iso.png" alt="VM manager, use ISO">Step 3: Specified the path to the ISO &amp; OS version (18.04 not yet available!)</p>
 
-<p style="margin-bottom: -0.8em;">Step 4: Chose memory &amp; CPU settings</p>
-<p style="margin-bottom: 2.5em;"><img src="/dev/blog/imgs/vm_04_mem_cpu.png" alt="VM manager, VM memory &amp; CPU" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_04_mem_cpu.png" alt="VM manager, VM memory &amp; CPU">Step 4: Chose memory &amp; CPU settings</p>
 
-<p style="margin-bottom: -0.8em;">Step 5: Created a 10GB VM disk image</p>
-<p style="margin-bottom: 2.5em;"><img src="/dev/blog/imgs/vm_05_storage.png" alt="VM manager, disk image" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_05_storage.png" alt="VM manager, disk image">Step 5: Created a 10GB VM disk image</p>
 
-<p style="margin-bottom: -0.8em;">Step 6: Clicked finish (name should of course have been vm1804)</p>
-<p style="margin-bottom: 2.5em;"><img src="/dev/blog/imgs/vm_06_finish.png" alt="VM manager, ready to begin" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_06_finish.png" alt="VM manager, ready to begin">Step 6: Clicked finish (name should of course have been vm1804)</p>
 
-<p style="margin-bottom: -0.8em;">Step 7: Server install, installation procedure language</p>
-<p style="margin-bottom: 2.5em;"><img src="/dev/blog/imgs/vm_07_instl_lang.png" alt="VM install, language" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_07_instl_lang.png" alt="VM install, language">Step 7: Server install, installation procedure language</p>
 
-<p style="margin-bottom: -0.8em;">Step 8: Ubuntu Bionic Beaver server install</p>
-<p><img src="/dev/blog/imgs/vm_08_instl_svr.png" alt="VM install, confirm install" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_08_instl_svr.png" alt="VM install, confirm install">Step 8: Ubuntu Bionic Beaver server install</p>
 
-<p>Step 9: Selected English as the preferred language for my server</p>
+<p class="no-indent">Step 9: Selected English as the preferred language for my server</p>
 
-<p>Step 10: Chose UK (ext. with Windows keys) keyboard layout</p>
+<p class="no-indent">Step 10: Chose UK (ext. with Windows keys) keyboard layout</p>
 
-<p>Step 11: Confirmed (traditional) Ubuntu server install</p>
+<p class="no-indent">Step 11: Confirmed (traditional) Ubuntu server install</p>
 
-<p style="margin-bottom: -0.8em;">Step 12: Went with default network interface configuration</p>
-<p><img src="/dev/blog/imgs/vm_09_instl_intf.png" alt="VM install, network interface" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_09_instl_intf.png" alt="VM install, network interface">Step 12: Went with default network interface configuration</p>
 
-<p>Step 13: For me there was no need to specify proxy details</p>
+<p class="no-indent">Step 13: For me there was no need to specify proxy details</p>
 
-<p>Step 14: Set up the filesystem to use the entire disk</p>
+<p class="no-indent">Step 14: Set up the filesystem to use the entire disk</p>
 
-<p>Step 15: Installed to virtual device /dev/vda</p>
+<p class="no-indent">Step 15: Installed to virtual device /dev/vda</p>
 
-<p style="margin-bottom: -0.8em;">Step 16: Confirmed destructive action (sounds ominous but is okay)</p>
-<p><img src="/dev/blog/imgs/vm_10_instl_fs.png" alt="VM install, filesystem setup" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_10_instl_fs.png" alt="VM install, filesystem setup">Step 16: Confirmed destructive action (sounds ominous but is okay)</p>
 
-<p>Step 17: Filled out profile details with server name vm1804</p>
+<p class="no-indent">Step 17: Filled out profile details with server name vm1804</p>
 
-<p style="margin-bottom: -0.8em;">Step 18: Upon completion the finished install log was displayed</p>
-<p style="margin-bottom: 2.5em;"><img src="/dev/blog/imgs/vm_11_instl_log.png" alt="VM install, installation complete log" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_11_instl_log.png" alt="VM install, installation complete log">Step 18: Upon completion the finished install log was displayed</p>
 
-<p style="margin-bottom: -0.8em;">Step 19: Ubuntu server 18.04 welcome screen after reboot</p>
-<p style="margin-bottom: 2.5em;"><img src="/dev/blog/imgs/vm_12_vm_run.png" alt="VM install, 1st boot completed" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_12_vm_run.png" alt="VM install, 1st boot completed">Step 19: Ubuntu server 18.04 welcome screen after reboot</p>
 
 <p>Please note that I was annoyed that, in a brief moment of inattention, I had chosen the wrong name for the virtual machine. Unfortunately this is not a simple label that can easily be changed. However, I was sufficiently annoyed to clone the VM in order to give it its proper name: vm1804.</p>
 
-<p><img src="/dev/blog/imgs/vm_ui_1804.png" /></p>
+<p class="img_caption"><img src="./assets/imgs/vm_ui_1804.png" alt="User interface Ubuntu 18.04"></p>

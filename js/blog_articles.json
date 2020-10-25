@@ -228,6 +228,18 @@
       "lastChange": "2020-10-23",
       "file": "ibm_t430_pt3.html"
    },{
+      "title": "T430 pt. 4, code",
+      "desc": "Deployed my code on my new hardware",
+      "firstPub": "2018-06-23",
+      "lastChange": "2020-10-25",
+      "file": "ibm_t430_pt4.html"
+   },{
+      "title": "T430 pt. 5, tips",
+      "desc": "Ubuntu 18.04 desktop tips &amp; tricks",
+      "firstPub": "2018-07-01",
+      "lastChange": "2020-10-25",
+      "file": "ibm_t430_pt5.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

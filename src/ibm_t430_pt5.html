@@ -4,35 +4,35 @@
 
 <p>The first client-side tool I would like to mention is <a href="https://www.pgadmin.org/" title="pgAdmin, administration &amp; development platform for PostgreSQL">pgAdmin</a>. This is the most popular &amp; feature rich open source administration &amp; development platform for PostgreSQL. I would rate this tool as being indispensable.</p>
 
-<p><img src="dev/blog/imgs/pgadmin.png" alt="pgAdmin is the most popular &amp; feature rich Open Source admin and dev platform for PostgreSQL" /></p>
+<p class="img_caption"><img src="./assets/imgs/pgadmin.png" alt="pgAdmin is the most popular &amp; feature rich Open Source admin and dev platform for PostgreSQL"></p>
 
-<p>The second tool I would like to shine a light on is <a href="http://meldmerge.org/" title="Meld is a visual diff and merge tool">Meld</a>. Meld is a visual diff and merge tool. It has acquired a prominent place in my (software) toolbox in the many years I've been using it.</p>
+<p>The second tool I would like to shine a light on is <a href="https://meldmerge.org/" title="Meld is a visual diff and merge tool">Meld</a>. Meld is a visual diff and merge tool. It has acquired a prominent place in my (software) toolbox in the many years I've been using it.</p>
 
-<p><img src="dev/blog/imgs/meld.png" alt="Meld is a visual diff and merge tool" /></p>
+<p class="img_caption"><img src="./assets/imgs/meld.png" alt="Meld is a visual diff and merge tool"></p>
 
 <p>Because pgAdmin and Meld are such mature &amp; well adopted pieces of software they can both be installed straight out of the Ubuntu Software Center.</p>
 
 <p>Currently my favourite <a href="https://en.wikipedia.org/wiki/Integrated_development_environment" title="Integrated development environment">IDE</a> is <a href="" title="A free, open source and cross platform IDE">CodeLite</a>. CodeLite is a perfect fit with my preferred programming languages (C/C++ &amp; JavaScript) and the IDE excels when it comes to editing text files on a remote server using the SFTP protocol.</p>
 
-<p><img src="dev/blog/imgs/CodeLite.png" alt="CodeLite, an open source, free and cross platform IDE" /></p>
+<p class="img_caption"><img src="./assets/imgs/CodeLite.png" alt="CodeLite, an open source, free and cross platform IDE"></p>
 
 <p>Ubuntu Bionic Beaver comes standard with CodeLite version 10. However, using <a href="http://codelite.org/LiteEditor/Repositories#toc1" title="CodeLite PPA">these instructions</a> it's easy to install the latest stable version (i.e. v12 @ the time of this writing).</p>
 
 <p>Professionally I rely on <a href="https://smartbear.com/product/ready-api/overview/" title="deliver accurate, fast, safe web services on time">ReadyAPI</a> to test SOAP WSDLs and REST endpoints. Unfortunately I don't have a license for personal use. I therefore use a free Firefox add-on to test my custom REST endpoints.</p>
 
-<p><img src="dev/blog/imgs/ff_rest_clnt.png" alt="Firefox RESTClient, a debugger for RESTful web services" /></p>
+<p class="img_caption"><img src="./assets/imgs/ff_rest_clnt.png" alt="Firefox RESTClient, a debugger for RESTful web services"></p>
 
 <p>Installing the Firefox <a href="http://restclient.net/" title="RESTClient, developer's page">RESTClient</a> is as easy as clicking the "Add to Firefox" button on the <a href="https://addons.mozilla.org/en-US/firefox/addon/restclient/" title="RESTClient, a debugger for RESTful web services">add-on product page</a>.</p>
 
 <p>In closing just a few words on how I develop on my Thinkpad T430. I always execute the code I'm working on on my virtual machine using a dedicated (non sudo enabled) user account. For this purpose I create a directory "dev" in this user's home directory and share the content of this directory with other users who are also member of the "dev" group. To create such a set-up execute the following commands as a sudo enabled user:</p>
 
-<script src="https://gist.github.com/hdr1001/a14b00b9ce8f4aaccc9af3799a84f75f.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="a14b00b9ce8f4aaccc9af3799a84f75f"></div>
 
 <p>The first digit of chmod's 4-character permission (i.e. "2" in "2775") specifies the setgid mode. Now any files or subdirectories created in directory dev will inherit the parent directory's group id (i.e. group "dev" in this example). On the desktop, using CodeLite, I can now add a SSH account to access the code repository on the virtual server. The CodeLite screenshot above is an example of this direct access to a remote location in action.</p>
 
 <p>I'm a very lazy code committer. This means that I just want to go to the top directory of a SVN repository and execute the following commands:
    <code>
-      svn add * --force<br />
+      svn add * --force<br>
       svn commit -m "Short description here"
    </code>
 For this to work correctly it's necessary to have the ignore properties set properly. Edit the SVN ignore list for a particular directory with:
@@ -44,4 +44,3 @@ Just add the files which should be disregarded when the svn add is executed. Che
       svn status --no-ignore
    </code>
 </p>
-

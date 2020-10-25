@@ -19,7 +19,7 @@
 
 <p>The additional error handling deals with those cases in which the HTTP transaction, from a technical point of view, is successfully concluded but an <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" title="HTTP Status Code Definitions">HTTP status code</a> other than 200 is returned because, for instance, the request submitted is not in accordance with the <a href="https://directplus.documentation.dnb.com/openAPI.html?apiID=IdentityResolution" title="D&amp;B Direct+ IDR">API specification</a>. In the first example call both a company name and country are specified: <code>get_1st_mc_name_async({name: 'Agglo', countryISOAlpha2Code: 'NL'})</code> The D&amp;B Direct+ API will be able to generate match candidates based on these search criteria. In the second call however only a name is specified: <code>get_1st_mc_name_async({name: 'Agglo'})</code> Without a valid country code the API will reject the request as can be seen in the screenshot below:</p>
 
-<p><img src="./assets/imgs/idr_async_req_v4.png" alt="Result asynchronous IDR request (incl error handling)"></p>
+<p class="img_caption"><img src="./assets/imgs/idr_async_req_v4.png" alt="Result asynchronous IDR request (incl error handling)"></p>
 
 <p class="no-indent">The screenshot above clearly illustrates that the response to the properly specified request: <code>Name = Agglo-Bouw Voorbeeld B.V.</code> is processed in the .then method of the Promise instance: <code>.then(res => console.log("Name = " + res))</code> Whereas the response to the improperly specified request: <code>Error: Request missing required element: countryISOAlpha2Code (20506)</code> is evidently handled in the .catch clause: <code>.catch(err => console.log("Error: " + err.message));</code></p>
 

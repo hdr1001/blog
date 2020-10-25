@@ -155,6 +155,10 @@ p + ol, p + ul, p + p.img_caption {
    margin-top: -0.6em;
 }
 
+p.img_caption + p.img_caption {
+   margin: 1.8em 0 1.4em;
+}
+
 p + div.gist {
    margin-top: -0.8em;
 }

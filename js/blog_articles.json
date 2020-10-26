@@ -240,6 +240,18 @@
       "lastChange": "2020-10-25",
       "file": "ibm_t430_pt5.html"
    },{
+      "title": "IDR, 2nd attempt",
+      "desc": "D&amp;B IDentity Resolution object code",
+      "firstPub": "2018-08-07",
+      "lastChange": "2020-10-26",
+      "file": "idr_ws_pt1.html"
+   },{
+      "title": "IDR, persistence",
+      "desc": "D&amp;B IDentity Resolution object persistence",
+      "firstPub": "2018-08-14",
+      "lastChange": "2020-10-26",
+      "file": "idr_ws_pt2.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

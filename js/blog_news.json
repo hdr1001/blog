@@ -3,5 +3,6 @@
    {"sDate": "4th of October '20", "htmlNews": "Now available, why move to <a class=\"blog_anchor\" href=\"blog_ghp_pt1.html\" title=\"Why GitHub pages?\">GitHub</a>?"},
    {"sDate": "11th of October '20", "htmlNews": "Now available, high level <a class=\"blog_anchor\" href=\"blog_ghp_pt2.html\" title=\"High level concepts\">blog concepts</a>."},
    {"sDate": "18th of October '20", "htmlNews": "Ported my <a class=\"blog_anchor\" href=\"dont_do_this.html\" title=\"Asynchronous HTTP\">async HTTP transaction</a> posts."},
-   {"sDate": "20th of October '20", "htmlNews": "Added my D&B <a class=\"blog_anchor\" href=\"ws_dit_pt1.html\" title=\"D&B Toolkit\">Toolkit</a> posts."}
+   {"sDate": "20th of October '20", "htmlNews": "Added my D&B <a class=\"blog_anchor\" href=\"ws_dit_pt1.html\" title=\"D&B Toolkit\">Toolkit</a> posts."},
+   {"sDate": "25th of October '20", "htmlNews": "Ported my Thinkpad <a class=\"blog_anchor\" href=\"ibm_t430_pt1.html\" title=\"Garage sale T430\">T430</a> posts."}
 ]}

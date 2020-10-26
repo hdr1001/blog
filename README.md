@@ -72,6 +72,10 @@ The [individual blog posts](https://github.com/hdr1001/blog/blob/master/src/blog
 
 ### The HTML framework
 
+The starting point for the design of the framework of my previous blog, [hdr.is-a-geek.com](https://hdr.is-a-geek.com "my previous blog"), was the first version of [Andreas01](https://andreasviklund.com/files/demo/andreas01/ "A simple & clean multi-layout XHTML/CSS template") as developed by [Andreas Viklund](https://www.linkedin.com/in/viklundandreas/ "Andreas Viklund on LinkedIn"). I still like this design very much and I have invested a lot of time in tweaking it. I personally developed a (more or less) standard [HTML form](http://hdr.is-a-geek.com/dev/cheat/xhtml_css/form.html "XHTML form basics cheat sheet") to go along with the template and also [experimented](https://hdr.is-a-geek.com/dev/cheat/test/js_css.html "JavaScript CSS scripting") with dynamically switching certain CSS properties on and off. In short, even after all these years, I am still a big fan and I therefore decided to port the overall design to this version of my blog as well. One major to-do in this area definitely is that the template, as it stands now, predates the concept of a [responsive web design](https://web.dev/responsive-web-design-basics/ "Responsive web design basics"). This is on my radar for sure if only because Google [deducts points](https://webmasters.googleblog.com/2018/03/rolling-out-mobile-first-indexing.html "mobile-first indexing") for websites with a non-responsive design.
+
+![The Andreas01 inspired HTML framework](https://github.com/hdr1001/blog/raw/master/assets/imgs/html_blog_frmwk.png "Blog posts are displayed in a framework")
+
 ### The JavaScript code
 
 To do

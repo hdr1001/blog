@@ -4,7 +4,7 @@
 
 <p>At the time of writing this post, August 2018, the implementation of <a href="https://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_objs.js/?p10" title="JavaScript class for D&amp;B Direct+ IDentity resolution">class DplIDR</a> is still rudimentary. It basically encapsulates the functionality exposed by the <a href="https://directplus.documentation.dnb.com/openAPI.html?apiID=IdentityResolution" title="D&amp;B Direct+ Identity Resolution">D&amp;B Direct+ IDR</a> endpoint. I know this is not really earth-shattering (as a matter of fact I did the same thing <a class="blog_anchor" title="Custom product incl Google time zone" href="add_ggl_tmz.html">here</a>) but I love being able to code this:<code>let oIDR = dpl.getIDR({name:'Agglo', countryISOAlpha2Code:"NL"});</code>The instruction above instantiates an object of class DplIDR and, upon load, the object instance will contain data related to match candidates which fit the following search criteria: company name like "Agglo" and located in "NL" (i.e. <a href="https://goo.gl/maps/ZMZdwhJqfSN2" title="Nederland">The Netherlands</a>).</p>
 
-<p>This is what happens in code:</p>
+<p class="no-indent">This is what happens in code:</p>
 
 <p class="img_caption"><img src="./assets/imgs/idr_obj_code.png" alt="JavaScript object code to encapsulate Direct+ IDR"></p>
 

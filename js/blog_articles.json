@@ -241,16 +241,22 @@
       "file": "ibm_t430_pt5.html"
    },{
       "title": "IDR, 2nd attempt",
-      "desc": "D&amp;B IDentity Resolution object code",
+      "desc": "D&B IDentity Resolution object code",
       "firstPub": "2018-08-07",
       "lastChange": "2020-10-26",
       "file": "idr_ws_pt1.html"
    },{
       "title": "IDR, persistence",
-      "desc": "D&amp;B IDentity Resolution object persistence",
+      "desc": "D&B IDentity Resolution object persistence",
       "firstPub": "2018-08-14",
       "lastChange": "2020-10-26",
       "file": "idr_ws_pt2.html"
+   },{
+      "title": "IDR, web services",
+      "desc": "Custom D&B IDR web services",
+      "firstPub": "2018-08-19",
+      "lastChange": "2020-10-27",
+      "file": "idr_ws_pt3.html"
    },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",

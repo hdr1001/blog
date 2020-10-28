@@ -159,6 +159,14 @@ article li + li, li ol, li ul {
    margin: 1em 0;
 }
 
+article li ol.list_compact, article li ul.list_compact {
+   margin: 0.4em 0;
+}
+
+ul.list_compact li + li, ol.list_compact li + li {
+   margin: 0.4em 0;
+}
+
 p.img_caption + p.img_caption {
    margin: 1.8em 0 1.4em;
 }

@@ -14,7 +14,7 @@
 
 <p class="img_caption"><img src="./assets/imgs/dit_obj_dom.png" alt="Toolkit object DOM call"></p>
 
-<p>The package can easily be deployed using the JavaScript package manager: <code>npm install xmldom</code></p>
+<p class="no-indent">The package can easily be deployed using the JavaScript package manager: <code>npm install xmldom</code></p>
 
 <p>My <a href="https://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dit_objs.js" title="Node.js implementation of the D&amp;B Toolkit API">Toolkit Node.js object code</a> follows the same implementation pattern as that of the <a href="https://hdr.is-a-geek.com/svn/dnbdpl/node.js/dnb_dpl_objs.js" title="Node.js implementation of the D&amp;B Direct+ API">D&amp;B Direct+ object code</a>. In short, a JavaScript object is created to wrap the API. The object logic is that, whenever a data product for a certain DUNS is requested, a SQL query is launched to try and retrieve the product from the database. If the product is available on the database it will be returned immediately. An online call to the relevant API will be initiated in case the product is not yet available. The product retrieved online will not only be returned but stored on the database as well. Direct+ products are stored on the database as <a href="https://www.postgresql.org/docs/current/static/datatype-json.html" title="PostgreSQL JSON Types">JSONB values</a>, Toolkit products are stored as <a href="https://www.postgresql.org/docs/current/static/datatype-xml.html" title="PostgreSQL XML Type">XML values</a>.</p>
 
@@ -22,18 +22,18 @@
 
 <p class="img_caption"><img src="./assets/imgs/exp_get_gdp_prod.png" alt="module export getGdpProduct"></p>
 
-<p>Implementing a new endpoint is now as easy as:</p>
+<p class="no-indent">Implementing a new endpoint is now as easy as:</p>
 
 <p class="img_caption"><img src="./assets/imgs/exprss_dit_endpt.png" alt="Implementing a Toolkit endpoint using Express"></p>
 
-<p>Invoking an HTTP GET like this:</p>
+<p class="no-indent">Invoking an HTTP GET like this:</p>
 
 <p class="img_caption"><img src="./assets/imgs/get_dit_prod.png" alt="HTTP GET to retrieve a Toolkit product"></p>
 
-<p>will trigger the code above and the Toolkit object code:</p>
+<p class="no-indent">will trigger the code above and the Toolkit object code:</p>
 
 <p class="img_caption"><img src="./assets/imgs/dit_prod_fulfilled.png" alt="HTTP GET fulfilled"></p>
 
-<p>This all to deliver the XML data product:</p>
+<p class="no-indent">This all to deliver the XML data product:</p>
 
 <p class="img_caption"><img src="./assets/imgs/xml_dit_delivered.png" alt="Toolkit XML as delivered in the browser"></p>

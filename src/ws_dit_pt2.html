@@ -7,7 +7,7 @@
 <p class="img_caption"><img src="./assets/imgs/obj_composition_cstm_product.png" alt="Instantiation of objects wrapping D&amp;B data products">Instantiation of the component objects in the custom product constructor</p>
 
 <p>It is important to note what the custom product object code <strong>does not</strong> contain. For example there is:</p>
-<ul>
+<ul class="list_compact">
    <li>no JavaScript code related to the Direct+ authentication token,</li>
    <li>no HTTP calls to remote APIs (whether that be REST or SOAP) &amp;</li>
    <li>nothing related to JSON/XML persistence.</li>
@@ -25,13 +25,13 @@
 
 <p>The &#034;onLoad&#034; event will only be fired in case the Direct+ <strong>and</strong> (= &amp;&amp;) the Toolkit product were successfully retrieved. All other scenarios result in an &#034;onError&#034; event.</p>
 
-<p>The <a href="https://www.npmjs.com/package/express" title="Fast, unopinionated, minimalist web framework for Node.js">Express</a> web service code which complements the object code should be familiar by now:</p>
+<p class="no-indent">The <a href="https://www.npmjs.com/package/express" title="Fast, unopinionated, minimalist web framework for Node.js">Express</a> web service code which complements the object code should be familiar by now:</p>
 
 <p class="img_caption"><img src="./assets/imgs/cstm_prod_ws.png" alt="Custom product web service endpoint"></p>
 
 <p>With everything in place, this is when I have my <q>Gentlemen, start your engines!</q> moment executing: <code>nodejs dnb_dpl_ws.js</code></p>
 
-<p>The web service is now up-n-running and can be tested with a simple HTTP GET.</p>
+<p class="no-indent">The web service is now up-n-running and can be tested with a simple HTTP GET.</p>
 
 <p class="img_caption"><img src="./assets/imgs/cstm_prod_req.png" alt="Custom product request"></p>
 

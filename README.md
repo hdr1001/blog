@@ -72,11 +72,28 @@ The [individual blog posts](https://github.com/hdr1001/blog/blob/master/src/blog
 
 ### The HTML framework
 
-A couple of years ago my preferred approach for [building websites](https://hdr.is-a-geek.com/svn/blog/c/ "SVN repository of hdr.is-a-geek.com") was to develop [Apache modules](https://httpd.apache.org/docs/2.4/developer/modguide.html "Developing modules for Apache"). In 2020 I find it so much easier to either (1) take a serverless approach and push the application logic to the client or (2) use [Node.js](https://nodejs.org/en/ "Node.js is a JavaScript runtime"), [Express](https://expressjs.com/ "Express is a minimalist web framework") and [NGINX](https://www.nginx.com/ "NGINX is an HTTP & reverse proxy server") on the server and go a bit lighter on the client side. This GitHub based implementation of my blog is an example of the first approach, my [API HUB](https://github.com/hdr1001/api_hub_rpr_v3x "API Hub - Request Persist Respond v3x") project an example of the second. In its latest iteration my blog's HTML framework is completely statically defined in the [index.html](https://github.com/hdr1001/blog/blob/master/index.html "My blog's default page") file located in the root of the code repository.
+A couple of years ago my preferred approach for [building websites](https://hdr.is-a-geek.com/svn/blog/c/ "SVN repository of hdr.is-a-geek.com") was to develop [Apache modules](https://httpd.apache.org/docs/2.4/developer/modguide.html "Developing modules for Apache"). In 2020 I find it so much easier to either (1) take a serverless approach and push the application logic to the client or (2) use [Node.js](https://nodejs.org/en/ "Node.js is a JavaScript runtime"), [Express](https://expressjs.com/ "Express is a minimalist web framework") and [NGINX](https://www.nginx.com/ "NGINX is an HTTP & reverse proxy server") on the server and go a bit lighter on the client side. This GitHub based implementation of my blog is an example of the first approach, my [API Hub](https://github.com/hdr1001/api_hub_rpr_v3x "API Hub - Request Persist Respond v3x") project is an example of the second. In its latest iteration my blog's HTML framework is completely statically defined in the [index.html](https://github.com/hdr1001/blog/blob/master/index.html "My blog's default page") file located in the root of the code repository.
 
 The starting point for the design of the framework of my previous blog, [hdr.is-a-geek.com](https://hdr.is-a-geek.com "my previous blog"), was the first version of [Andreas01](https://andreasviklund.com/files/demo/andreas01/ "A simple & clean multi-layout XHTML/CSS template") as developed by [Andreas Viklund](https://www.linkedin.com/in/viklundandreas/ "Andreas Viklund on LinkedIn"). I still like this design very much and I have invested a lot of time in tweaking it. I personally developed a (more or less) standard [HTML form](http://hdr.is-a-geek.com/dev/cheat/xhtml_css/form.html "XHTML form basics cheat sheet") to go along with the template and also [experimented](https://hdr.is-a-geek.com/dev/cheat/test/js_css.html "JavaScript CSS scripting") with dynamically switching certain CSS properties on and off. In short, even after all these years, I am still a big fan and I therefore decided to port the overall design to this version of my blog as well. One major issue definitely is that the template predates the concept of a [responsive web design](https://web.dev/responsive-web-design-basics/ "Responsive web design basics"). This is a to-do which is on my radar for sure if only because Google [penalizes](https://webmasters.googleblog.com/2018/03/rolling-out-mobile-first-indexing.html "mobile-first indexing") websites with a non-responsive design.
 
 ![The Andreas01 inspired HTML framework](https://github.com/hdr1001/blog/raw/master/assets/imgs/html_blog_frmwk.png "Blog posts are displayed in a framework")
+
+[HTML5](https://html.spec.whatwg.org/ "HTML Living Standard") introduces the concept of [semantic elements](https://www.w3schools.com/html/html5_semantic_elements.asp "HTML Semantic Elements"). In my blog's framework I use the following semantic elements;
+
+- header, which contains the following div's;
+   1. URL
+   2. quote
+   3. banner
+- nav, which contains the menu div
+- article
+- footer, which contains the following div's;
+   1. contact
+   2. dedication
+   3. legal
+
+The article element is the node in the HTML framework where the [blog posts](https://github.com/hdr1001/blog/tree/master/src "Blog posts in the GitHub repo") will be displayed;
+
+![The article element in HTML](https://github.com/hdr1001/blog/raw/master/assets/imgs/article_tag.png "The article tag is where blog posts will be displayed")
 
 ### The JavaScript code
 

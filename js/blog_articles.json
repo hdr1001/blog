@@ -258,6 +258,12 @@
       "lastChange": "2020-10-27",
       "file": "idr_ws_pt3.html"
    },{
+      "title": "IDR UI, 1st try",
+      "desc": "Identity resolution user interface, 1st try",
+      "firstPub": "2018-09-02",
+      "lastChange": "2020-10-30",
+      "file": "idr_ui_pt1.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

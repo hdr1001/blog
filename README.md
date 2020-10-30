@@ -95,6 +95,14 @@ The article element is the node in the HTML framework where the [blog posts](htt
 
 ![The article element in HTML](https://github.com/hdr1001/blog/raw/master/assets/imgs/article_tag.png "The article tag is where blog posts will be displayed")
 
+Property elemArticle of the navigation object contains a permanent reference to this node;
+
+![Property elemArticle](https://github.com/hdr1001/blog/raw/master/assets/imgs/article_ref.png "Property elemArticle of my blog's navigation object")
+
+The article reference is used each time a different blog post is requested;
+
+![Switching articles](https://github.com/hdr1001/blog/raw/master/assets/imgs/article_ref.png "The article element is updated when another post is requested")
+
 ### The JavaScript code
 
 To do

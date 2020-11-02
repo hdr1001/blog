@@ -1,22 +1,21 @@
 <h1>IDR UI, match candidate list</h1>
 
-<p>This week's assignment for me was to include a list of <a href="https://directplus.documentation.dnb.com/" title="D&amp;B Direct+ Documentation Site">D&amp;B Direct+</a> <a href="https://directplus.documentation.dnb.com/html/guides/Identify/IdentityResolution.html" title="Direct+ Identity Resolution Guide">match candidates</a> in my <a href="http://hdr.is-a-geek.com/dev/cheat/xhtml_css/form_v2.html" title="XHTML form basics cheat sheet">(X)HTML/CSS</a>/<a href="http://hdr.is-a-geek.com/dev/cheat/test/javascript.html" title="JavaScript cheat sheet">JavaScript</a> powered user interface. In the identity resolution process I view the specification &amp; submission of the search criteria and the presentation of the match candidates as separate steps. My ambition was to reflect this in the user interface. On the Internet I stumbled upon this <a href="https://materializecss.com/collapsible.html" title="Collapsibles are accordion elements">collapsible form element</a> from the <a href="https://materializecss.com/" title="A modern responsive front-end framework based on Material Design">Materialize framework</a>. It looks the part and probably works very well but for me the reason not to include it in my project was that it would create a dependency on the <a href="https://jquery.com/" title="jQuery is a fast, small, and feature-rich JavaScript library">jQuery</a> library. I've actually used this library quite a lot in the past but nowadays I'm very much convinced that <a href="http://youmightnotneedjquery.com/" title="The URL say it all">you might not need it anymore</a>. So I <a href="http://hdr.is-a-geek.com/svn/dnbdpl/ui/dnb_frm_idr.js?p16" title="Customised collapsible">programmed</a> (a poor man's version) of such a collapsible user interface element myself:</p>
+<p>This week's assignment for me was to include a list of <a href="https://directplus.documentation.dnb.com/" title="D&amp;B Direct+ Documentation Site">D&amp;B Direct+</a> <a href="https://directplus.documentation.dnb.com/html/guides/Identify/IdentityResolution.html" title="Direct+ Identity Resolution Guide">match candidates</a> in my <a href="https://hdr.is-a-geek.com/dev/cheat/xhtml_css/form_v2.html" title="XHTML form basics cheat sheet">(X)HTML/CSS</a>/<a href="https://hdr.is-a-geek.com/dev/cheat/test/javascript.html" title="JavaScript cheat sheet">JavaScript</a> powered user interface. In the identity resolution process I view the specification &amp; submission of the search criteria and the presentation of the match candidates as separate steps. My ambition was to reflect this in the user interface. On the Internet I stumbled upon this <a href="https://materializecss.com/collapsible.html" title="Collapsibles are accordion elements">collapsible form element</a> from the <a href="https://materializecss.com/" title="A modern responsive front-end framework based on Material Design">Materialize framework</a>. It looks the part and probably works very well but for me the reason not to include it in my project was that it would create a dependency on the <a href="https://jquery.com/" title="jQuery is a fast, small, and feature-rich JavaScript library">jQuery</a> library. I've actually used this library quite a lot in the past but nowadays I'm very much convinced that <a href="http://youmightnotneedjquery.com/" title="The URL say it all">you might not need it anymore</a>. So I <a href="https://hdr.is-a-geek.com/svn/dnbdpl/ui/dnb_frm_idr.js?p16" title="Customised collapsible">programmed</a> (a poor man's version) of such a collapsible user interface element myself:</p>
 
-<p><img src="/dev/blog/imgs/idr_js_collapsible.png" alt="Customised collapsibles, no jQuery" /></p>
+<p class="img_caption"><img src="./assets/imgs/idr_js_collapsible.png" alt="Customised collapsibles, no jQuery"></p>
 
 <p>Besides the JavaScript there is, of course, a bit of CSS code as well:</p>
 
-<p><img src="/dev/blog/imgs/idr_css_collapsible.png" alt="Code to dynamically add the HTML form to the test page" /></p>
+<p class="img_caption"><img src="./assets/imgs/idr_css_collapsible.png" alt="Code to dynamically add the HTML form to the test page"></p>
 
 <p>This is how it looks when the page is first loaded:</p>
 
-<p><img src="/dev/blog/imgs/idr_collapse_criteria.png" alt="IDR form element allows for the search criteria specification" /></p>
+<p class="img_caption"><img src="./assets/imgs/idr_collapse_criteria.png" alt="IDR form element allows for the search criteria specification"></p>
 
 <p>When the IDentity Resolution request is submitted the criteria panel collapses and the match candidates panel opens:</p>
 
-<p><img src="/dev/blog/imgs/idr_html_js_mcs.png" alt="IDR form element match candidate display" /></p>
+<p class="img_caption"><img src="./assets/imgs/idr_html_js_mcs.png" alt="IDR form element match candidate display"></p>
 
 <p>In this state it is possible to return to the initial panel by clicking the button labelled Back. This is part of the screen recording below where, in first instance, a search returns no candidates and then, with different criteria specified, a valid list of match candidates is presented to the end user:</p>
 
-<p><img src="/dev/blog/imgs/idr_html_js_mcs.gif" alt="IDR UI incl match candidates" height="80%" width="80%" /></p>
-
+<p class="img_caption"><img src="./assets/imgs/idr_html_js_mcs.gif" alt="IDR UI incl match candidates"></p>

@@ -264,6 +264,18 @@
       "lastChange": "2020-10-30",
       "file": "idr_ui_pt1.html"
    },{
+      "title": "IDR UI, JavaScript",
+      "desc": "IDR UI, client-side JavaScript",
+      "firstPub": "2018-09-23",
+      "lastChange": "2020-11-02",
+      "file": "idr_ui_pt2.html"
+   },{
+      "title": "IDR UI, MCs",
+      "desc": "IDR UI, match candidate list",
+      "firstPub": "2018-09-30",
+      "lastChange": "2020-11-02",
+      "file": "idr_ui_pt3.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

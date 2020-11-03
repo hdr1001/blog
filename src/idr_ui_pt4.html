@@ -15,20 +15,18 @@
 
 <p>My <a class="blog_prev" href="./prev" title="Previous blog post">previous post</a> contains a screenshot of the user interface, as it was a week ago or so, displaying a list of match candidates. This same collapsible element now looks like this:</p>
 
-<p><img src="/dev/blog/imgs/idr_mcs_181007.png" alt="Revised IDR form element for match candidate display" /></p>
+<p><img src="./assets/imgs/idr_mcs_181007.png" alt="Revised IDR form element for match candidate display"></p>
 
 <p>Obviously there are multiple changes but the biggest difference no doubt is the inclusion of <a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_radio" title="The radio button input">radio buttons</a> on the form:</p>
 
-<p><img src="/dev/blog/imgs/idr_mcs_radio_btns.png" alt="Match candidate radio buttons" /></p>
+<p><img src="./assets/imgs/idr_mcs_radio_btns.png" alt="Match candidate radio buttons"></p>
 
 <p>The radio buttons allow the user to choose a candidate and then the DUNS associated with this particular candidate can be submitted for storage on the back-end server. Clicking the Submit button will also revert the application to an empty search criteria form allowing the user to specify a new IDentity Resolution request if needed. In order to test the application I decided to look-up the top 5 teams of the second division football league in my home country (i.e. countryISOAlpha2Code=NL).</p>
 
-<p><img src="/dev/blog/imgs/idr_top5_kkd_match.gif" alt="Looking up the top five of the Keuken Kampioen divisie" /></p>
+<p><img src="./assets/imgs/idr_top5_kkd_match.gif" alt="Looking up the top five of the Keuken Kampioen divisie"></p>
 
 <p>The search criteria, the raw Direct+ response and the DUNS chosen by the user are all automatically persisted on my PostgreSQL database because the form uses my custom Node.js web services:</p>
 
-<p><img src="/dev/blog/imgs/pg_idr_data.png" alt="PostgreSQL record of my IDR test transactions" /></p>
+<p><img src="./assets/imgs/pg_idr_data.png" alt="PostgreSQL record of my IDR test transactions"></p>
 
 <p>Please note that the Agglo example was already on the database when I started my screen recording.</p>
-
-

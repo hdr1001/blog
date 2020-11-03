@@ -276,6 +276,18 @@
       "lastChange": "2020-11-02",
       "file": "idr_ui_pt3.html"
    },{
+      "title": "IDR UI, pick MC",
+      "desc": "IDR UI, pick a match candidate",
+      "firstPub": "2018-10-07",
+      "lastChange": "2020-11-03",
+      "file": "idr_ui_pt4.html"
+   },{
+      "title": "IDR UI, attributes",
+      "desc": "IDR UI, attributes for evaluating match candidates",
+      "firstPub": "2018-10-18",
+      "lastChange": "2020-11-03",
+      "file": "idr_ui_pt5.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

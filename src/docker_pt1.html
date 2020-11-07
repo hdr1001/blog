@@ -17,7 +17,7 @@
    <li><a href="https://www.digitalocean.com/" title="Deploy, manage, and scale cloud applications faster and more efficiently">Digital Ocean</a> (the smallest droplet available).</li>
 </ol>
 
-<p>On both platforms my operating system of choice was <a class="blog_achor" title="I &#x2764; Ubuntu" href="ubuntu.html">Ubuntu</a> 18.04.</p>
+<p class="no-indent">On both platforms my operating system of choice was <a class="blog_achor" title="I &#x2764; Ubuntu" href="ubuntu.html">Ubuntu</a> 18.04.</p>
 
 <p>In this blog post I will not go into too much implementation detail because a lot of stuff was already discussed in previous blog posts (for instance <a class="blog_anchor" title="Digital Ocean Droplet Creation" href="platform_pt1.html">creating a Digital Ocean droplet</a>) and other topics (like <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html" title="Getting Started with EC2 Linux Instances">launching a new Linux instance in the Amazon Elastic Compute Cloud</a>) are documented very well elsewhere on the Internet. This allows me to proceed immediately with the installation of Docker. To accomplish the install I worked through steps 1 &amp; 2 of the excellent Digital Ocean community tutorial titled "<a href="https://do.co/2PiQda4" title="How to Install and Use Docker on Ubuntu 18.04">How to Install and Use Docker on Ubuntu 18.04</a>". The steps described in the tutorial proved to be valid not only for my Digital Ocean droplet but also worked, without alteration, on my Amazon virtual server.</p>
 
@@ -33,13 +33,21 @@
    <li><a href="https://hdr.is-a-geek.com/svn/min_dkr/src/package-lock.json" title="Empty file">package-lock.json</a>. I included this empty file in my SVN repository to avoid error messages while building the Docker image.</li>
 </ol>
 
-<p>The repository's root directory contains two files:</p>
+<p class="no-indent">The repository's root directory contains two files:</p>
 
 <ol>
    <li><a href="https://hdr.is-a-geek.com/svn/min_dkr/Dockerfile" title="Main Docker file">Dockerfile</a>. The Docker file can be considered the recipe for cooking up a specific Docker image. In this file I deviated furthest from the example provided in the guide. In my implementation I opted for the <a href="https://hub.docker.com/_/node/" title="Docker Official Node.js repository">Alpine image</a> instead of the default, Debian based, image. Click <a href="http://bit.ly/2PyHGQv" title="The 3 Biggest Wins Using Alpine">here</a> for more on the reasons why I made this change.</li>
    <li><a href="https://hdr.is-a-geek.com/svn/min_dkr/License.txt" title="The project's license">License.txt</a>. For this project I chose the <a href="https://unlicense.org" title="Set Your Code Free">unlicense</a> license.</li>
 </ol>
 
-<p>Using the SVN repository to generate a minimal Docker image is as easy as (1), if needed, installing subversion: <code>apt install subversion</code> (2) checking out the code in a development directory: <code>svn checkout https://hdr.is-a-geek.com/svn/min_dkr</code> (3) changing to directory min_dkr: <code>cd min_dkr</code> (4) issuing the Docker build command to generate the image: <code>docker build -t $USER/min_dkr .</code> (5) issuing the Docker run command to create &amp; launch the container (where <i>&lt;xyz&gt;</i> is the external port on which the application is hosted): <code>docker run -p <i>&lt;xyz&gt;</i>:8081 -d $USER/min_dkr</code></p>
+<p class="no-indent">Using the SVN repository to generate a minimal Docker image is as easy as;</p>
+
+<ol>
+   <li>if needed, installing subversion: <code>apt install subversion</code></li>
+   <li>checking out the code in a development directory: <code>svn checkout https://hdr.is-a-geek.com/svn/min_dkr</code></li>
+   <li>to directory min_dkr: <code>cd min_dkr</code></li>
+   <li>the Docker build command to generate the image: <code>docker build -t $USER/min_dkr .</code></li>
+   <li>issuing the Docker run command to create &amp; launch the container (where <i>&lt;xyz&gt;</i> is the external port on which the application is hosted): <code>docker run -p <i>&lt;xyz&gt;</i>:8081 -d $USER/min_dkr</code></li>
+</ol>
 
 <p>These instructions worked perfectly for me on both Amazon EC2 &amp; Digital Ocean. Just a quick reminder, TCP port <i>xyz</i> must be opened in order to be able to reach the application using an external client.</p>

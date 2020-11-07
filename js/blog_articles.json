@@ -288,6 +288,18 @@
       "lastChange": "2020-11-03",
       "file": "idr_ui_pt5.html"
    },{
+      "title": "Docker, 1st try",
+      "desc": "Getting started with Docker",
+      "firstPub": "2018-11-04",
+      "lastChange": "2020-11-07",
+      "file": "docker_pt1.html"
+   },{
+      "title": "Docker, Apache",
+      "desc": "Running Apache in a container",
+      "firstPub": "2018-11-19",
+      "lastChange": "2020-11-07",
+      "file": "docker_pt2.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

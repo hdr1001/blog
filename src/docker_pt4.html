@@ -1,22 +1,22 @@
 <h1>SSL client authentication</h1>
 
-<p>I agree, the title of this post is a bit of a <a href="#" title="Constructing the platform, SSL client authentication" onclick="navBlog.anchorAction(event, 'platform_pt4.xhtml')">deja vu</a>. The big difference with what I accomplished previously is of course that, this time around, I will implement SSL client authentication on an Apache Docker container.</p>
+<p>I agree, the title of this post is a bit of a <a class="blog_anchor" title="Constructing the platform, SSL client authentication" href="platform_pt4.html">deja vu</a>. The big difference with what I accomplished previously is of course that, this time around, I will implement SSL client authentication on an Apache Docker container.</p>
 
-<p>In case you want to tag along and quickly get to the point where I was when I started work on this blog post, you can, on a PC or cloud instance with <a href="https://do.co/2PiQda4" title="How to install &amp; use Docker">Docker</a> &amp; <a href="http://subversion.apache.org/" title="Subversion is an open source version control system">Subversion</a> installed, execute the following commands:</p>
+<p>In case you want to tag along and quickly get to the point where I was when I started work on this blog post, you can, on a PC or cloud instance with <a href="https://do.co/2PiQda4" title="How to install &amp; use Docker">Docker</a> &amp; <a href="https://subversion.apache.org/" title="Subversion is an open source version control system">Subversion</a> installed, execute the following commands:</p>
 
-<script src="https://gist.github.com/hdr1001/1536299d7732087af52919cdfa9c11f9/f79ea12f6c71851f8b7ab1fb61c90a8c6454ee5a.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="f79ea12f6c71851f8b7ab1fb61c90a8c6454ee5a"></div>
 
-<p>These instructions will create &amp; run an <a href="#" title="Running Apache in a container" onclick="navBlog.anchorAction(event, 'docker_pt2.xhtml')">Apache container</a> with <a href="#" title="Dockerized Apache incl. HTTPS" onclick="navBlog.anchorAction(event, 'docker_pt3.xhtml')">SSL enabled</a>.</p>
+<p>These instructions will create &amp; run an <a class="blog_anchor" title="Running Apache in a container" href="docker_pt2.html">Apache container</a> with <a class="blog_anchor" title="Dockerized Apache incl. HTTPS" href="docker_pt3.html">SSL enabled</a>.</p>
 
-<p>I will kick off the the discussion of this post's main topic with a reminder that a successful client authentication TLS handshake requires both a valid CA (i.e. Certification Authority) &amp; client certificate: <img src="/dev/blog/imgs/tls_handshake.png" alt="TLS handshake" /></p>
+<p>I will kick off the the discussion of this post's main topic with a reminder that a successful client authentication TLS handshake requires both a valid CA (i.e. Certification Authority) &amp; client certificate: <img src="./assets/imgs/tls_handshake.png" alt="TLS handshake"></p>
 
 <p>On my server I could immediately get started with generating the needed certificates because it came with <a href="https://www.openssl.org/" title="A robust, commercial-grade, and full-featured toolkit for the TLS and SSL protocols">OpenSSL</a> pre-installed. This can easily be verified by executing the command: <code>openssl version</code>Ubuntu 18.04 comes standard with OpenSSL version 1.1.0g.</p>
 
-<p>Assuming that the server already supports <a href="#" title="Dockerized Apache incl. HTTPS" onclick="navBlog.anchorAction(event, 'docker_pt3.xhtml')">HTTPS</a>, the process of creating the client authentication certificates can be broken down into the following four steps:</p>
+<p>Assuming that the server already supports <a class="blog_anchor" title="Dockerized Apache incl. HTTPS" href="docker_pt3.html">HTTPS</a>, the process of creating the client authentication certificates can be broken down into the following four steps:</p>
 
 <ol>
    <li>The creation of a directory containing a couple of subdirectories and supporting files which will be used as a working directory. <a href="https://gist.github.com/hdr1001/3010dbbe549707520a19984245d46af5" title="Create an OpenSSL working directory">Click here</a> for a complete list of the relevant commands on Github.</li>
-   <li>Making a single change to the OpenSSL configuration file: <code>vim openssl.cnf</code>Update the dir entry in section CA_default to ./ <img src="/dev/blog/imgs/openssl_ca_def.png" alt="OpenSSL default directory" /></li>
+   <li>Making a single change to the OpenSSL configuration file: <code>vim openssl.cnf</code>Update the dir entry in section CA_default to ./ <img src="./assets/imgs/openssl_ca_def.png" alt="OpenSSL default directory"></li>
    <li>Certification authority is required in order to be able to produce client certificates. Luckily, in the context of issuing client certificates, it is possible to <a href="https://gist.github.com/hdr1001/acfc52cc39e344723d6fd9e26e49b6a3" title="Create certification authority certificate">bestow this authority upon yourself</a>.</li>
    <li>Last step is the creation of one or more <a href="https://gist.github.com/hdr1001/3ef7fe72ea2e5eba926b3c2a3afed124" title="SSL client certificate creation">client certificate(s)</a>.</li>
 </ol>
@@ -25,18 +25,18 @@
 
 <ol>
    <li>Copy the CA certificate to directory SSL (which is a subdirectory of working directory apache2): <code>cd dnb_dpl_v2/apache2</code><code>cp &lt;~/OpenSSL/certs&gt;/myCA.crt ./SSL/CA.crt</code>The Dockerfile contains an instruction to copy all available certificates from directory SSL to container directory /usr/local/apache2/conf.</li>
-   <li>For the install of the client certificate your mileage may vary. Below a sequence of screenshots related to installing a SSL client certificate on Firefox. <img src="/dev/blog/imgs/ff_install_clnt_cert.gif" alt="Install client SSL certificate on Firefox" width="370px" height="370px" style="padding: 5px 10px; border-style:solid; border-width: 2px; border-color: #f0f0f0" /></li>
+   <li>For the install of the client certificate your mileage may vary. Below a sequence of screenshots related to installing a SSL client certificate on Firefox. <img src="./assets/imgs/ff_install_clnt_cert.gif" alt="Install client SSL certificate on Firefox"></li>
 </ol>
 
 <p>One last thing to do before the client authentication functionality can be tested is to make a couple of changes to file httpd-ssl.conf. <code>vim ./conf/httpd-ssl.conf</code></p>
 
-<script src="https://gist.github.com/hdr1001/e9f904ae874aa7a4f5c306dde15f68f0.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="e9f904ae874aa7a4f5c306dde15f68f0"></div>
 
-<p>Naturally an <a href="http://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/static/dnb_index.html" title="Default HTML file for directory dnb">index file</a> for directory dnb is needed as well.</p>
+<p>Naturally an <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/static/dnb_index.html" title="Default HTML file for directory dnb">index file</a> for directory dnb is needed as well.</p>
 
-<p>Edit the <a href="http://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/Dockerfile?p=3" title="The Dockerfile contains build instructions for a Docker container">Dockerfile</a> to make file dnb_index.html part of the container: <code>vim Dockerfile</code></p>
+<p>Edit the <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/Dockerfile?p=3" title="The Dockerfile contains build instructions for a Docker container">Dockerfile</a> to make file dnb_index.html part of the container: <code>vim Dockerfile</code></p>
 
-<script src="https://gist.github.com/hdr1001/b3e5aa51bf8f14f3d5cc736770247b3d.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="b3e5aa51bf8f14f3d5cc736770247b3d"></div>
 
 <p>As always, in order to test the cumulative changes, you got to do your <a href="https://gist.github.com/hdr1001/9b1a27681b577ec9691ca0aef380f06f" title="Docker chores commands">Docker chores</a>. If all goes well you will be able to request: <code>https://host.example.org:<i>&lt;port&gt;</i>/dnb/</code></p>
 

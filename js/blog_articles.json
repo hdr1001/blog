@@ -300,6 +300,18 @@
       "lastChange": "2020-11-07",
       "file": "docker_pt2.html"
    },{
+      "title": "Docker, HTTPS",
+      "desc": "Dockerized Apache incl. HTTPS",
+      "firstPub": "2018-12-08",
+      "lastChange": "2020-11-07",
+      "file": "docker_pt3.html"
+   },{
+      "title": "Docker, SSL auth",
+      "desc": "Dockerized Apache incl. SSL authentication",
+      "firstPub": "2018-12-23",
+      "lastChange": "2020-11-07",
+      "file": "docker_pt4.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

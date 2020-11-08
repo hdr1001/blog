@@ -18,11 +18,11 @@
 
 <div class="ghgist" data-ghgistid="57057bc0ca97ab3aaf27f2023c102096"></div>
 
-<p>Next I copied the <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/conf/httpd-ssl.conf?p=2" title="httpd-ssl.conf">SSL configuration file</a> out of the running container:</p>
+<p class="no-indent">Next I copied the <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/conf/httpd-ssl.conf?p=2" title="httpd-ssl.conf">SSL configuration file</a> out of the running container:</p>
 
 <div class="ghgist" data-ghgistid="abd00ac27ecab4ca8696951f831baf3a"></div>
 
-<p>In the SSL configuration file I changed the ServerName directive to: <code>ServerName dnb_dpl_a2_rvs_prx:443</code></p>
+<p class="no-indent">In the SSL configuration file I changed the ServerName directive to: <code>ServerName dnb_dpl_a2_rvs_prx:443</code></p>
 
 <p>I added the line below to the Apache <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/Dockerfile?p=2" title="Apache container Dockerfile">Dockerfile</a> so as to make the SSL configuration file part of the Docker image:<code>COPY ./conf/httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf</code></p>
 
@@ -32,11 +32,11 @@
 
 <p>Evidently Apache must be able to access these files when the container is run. For this reason I renamed my SSL keys (more above) to server.crt &amp; server.key and copied them to a new <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/SSL/" title="Directory for SSL keys">directory SSL</a> which is a subdirectory of directory apache2. To make the keys part of my Apache Docker image I added this line to the Dockerfile as well: <code>COPY ./SSL/* /usr/local/apache2/conf/</code>For obvious reasons directory SSL <a href="https://stackoverflow.com/questions/86049/how-do-i-ignore-files-in-subversion" title="How do I ignore files in SVN?">is empty</a> in the project's SVN repository.</p>
 
-<p>With all these changes in place the time had come to rebuild my Apache Docker image: <code>docker build -t $USER/apache2 .</code></p>
+<p class="no-indent">With all these changes in place the time had come to rebuild my Apache Docker image: <code>docker build -t $USER/apache2 .</code></p>
 
-<p>Because the container was already running I had to stop: <code>docker stop dnb_dpl_a2_rvs_prx</code>and remove it: <code>docker rm dnb_dpl_a2_rvs_prx</code></p>
+<p class="no-indent">Because the container was already running I had to stop: <code>docker stop dnb_dpl_a2_rvs_prx</code>and remove it: <code>docker rm dnb_dpl_a2_rvs_prx</code></p>
 
-<p>Finally I could rebuild &amp; restart the container: <code>docker run --name dnb_dpl_a2_rvs_prx -dit -p <i>&lt;port&gt;</i>:443 $USER/apache2</code></p>
+<p class="no-indent">Finally I could rebuild &amp; restart the container: <code>docker run --name dnb_dpl_a2_rvs_prx -dit -p <i>&lt;port&gt;</i>:443 $USER/apache2</code></p>
 
 <p>I must confess that I was a bit disappointed when starting the container only resulted in an error message in the log: <code>docker logs dnb_dpl_a2_rvs_prx</code>However, I quickly discovered that I was not the only one with issues starting mod_ssl in this particular setup. In the <a href="https://github.com/docker-library/httpd/issues/115" title="mod_ssl does not start">GitHub issue log</a> I found a remark stating " ... will temporarily use 2.4.35-alpine ... ". This seemed to me to be a workaround worthy of testing so I changed the Dockerfile command: <code>FROM httpd:2.4-alpine</code>to <code>FROM httpd:2.4.35-alpine</code>basically reverting from (Alpine) Apache version 2.4.37 to 2.4.35.</p>
 

@@ -312,6 +312,18 @@
       "lastChange": "2020-11-07",
       "file": "docker_pt4.html"
    },{
+      "title": "Docker Compose",
+      "desc": "Part 1: \"we have lift-off\"",
+      "firstPub": "2018-12-27",
+      "lastChange": "2020-11-08",
+      "file": "dkr_compose_pt1.html"
+   },{
+      "title": "Docker Compose",
+      "desc": "Part 2: adding a Node.js container",
+      "firstPub": "2018-12-29",
+      "lastChange": "2020-11-08",
+      "file": "dkr_compose_pt2.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

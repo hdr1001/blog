@@ -6,7 +6,7 @@
 
 <div class="ghgist" data-ghgistid="f79ea12f6c71851f8b7ab1fb61c90a8c6454ee5a"></div>
 
-<p>These instructions will create &amp; run an <a class="blog_anchor" title="Running Apache in a container" href="docker_pt2.html">Apache container</a> with <a class="blog_anchor" title="Dockerized Apache incl. HTTPS" href="docker_pt3.html">SSL enabled</a>.</p>
+<p class="no-indent">These instructions will create &amp; run an <a class="blog_anchor" title="Running Apache in a container" href="docker_pt2.html">Apache container</a> with <a class="blog_anchor" title="Dockerized Apache incl. HTTPS" href="docker_pt3.html">SSL enabled</a>.</p>
 
 <p>I will kick off the the discussion of this post's main topic with a reminder that a successful client authentication TLS handshake requires both a valid CA (i.e. Certification Authority) &amp; client certificate: <img src="./assets/imgs/tls_handshake.png" alt="TLS handshake"></p>
 
@@ -21,7 +21,7 @@
    <li>Last step is the creation of one or more <a href="https://gist.github.com/hdr1001/3ef7fe72ea2e5eba926b3c2a3afed124" title="SSL client certificate creation">client certificate(s)</a>.</li>
 </ol>
 
-<p>It goes without saying that, once created, the certificates must be installed. Therefore:</p>
+<p class="no-indent">It goes without saying that, once created, the certificates must be installed. Therefore:</p>
 
 <ol>
    <li>Copy the CA certificate to directory SSL (which is a subdirectory of working directory apache2): <code>cd dnb_dpl_v2/apache2</code><code>cp &lt;~/OpenSSL/certs&gt;/myCA.crt ./SSL/CA.crt</code>The Dockerfile contains an instruction to copy all available certificates from directory SSL to container directory /usr/local/apache2/conf.</li>
@@ -32,9 +32,9 @@
 
 <div class="ghgist" data-ghgistid="e9f904ae874aa7a4f5c306dde15f68f0"></div>
 
-<p>Naturally an <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/static/dnb_index.html" title="Default HTML file for directory dnb">index file</a> for directory dnb is needed as well.</p>
+<p class="no-indent">Naturally an <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/static/dnb_index.html" title="Default HTML file for directory dnb">index file</a> for directory dnb is needed as well.</p>
 
-<p>Edit the <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/Dockerfile?p=3" title="The Dockerfile contains build instructions for a Docker container">Dockerfile</a> to make file dnb_index.html part of the container: <code>vim Dockerfile</code></p>
+<p class="no-indent">Edit the <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/apache2/Dockerfile?p=3" title="The Dockerfile contains build instructions for a Docker container">Dockerfile</a> to make file dnb_index.html part of the container: <code>vim Dockerfile</code></p>
 
 <div class="ghgist" data-ghgistid="b3e5aa51bf8f14f3d5cc736770247b3d"></div>
 

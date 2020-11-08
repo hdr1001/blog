@@ -2,28 +2,32 @@
 
 <p>I have a couple of days off between Christmas &amp; New Year and I thought it would be good idea to use at least part of my free time to get started with <a href="https://docs.docker.com/compose/overview/" title="A tool for defining &amp; running multi-container Docker applications">Docker Compose</a>. So this morning, to kick things off, I had a nice cup of <a href="https://www.lavazza.it/it.html" title="Il caffè preferito dagli italiani">coffee</a> and watched this video:</p>
 
-<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/4EqysCR3mjo" width="448" height="252">
-   <param name="frameborder" value="0" />
-   <param name="allowfullscreen" value="true" />
-</object></p>
+<div class="ytv">
+   <iframe
+      src="https://www.youtube.com/embed/4EqysCR3mjo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+   ></iframe>
+</div>
 
-<p>This tutorial inspired me to make <a href="#" title="Running Apache in a container" onclick="navBlog.anchorAction(event, 'docker_pt2.xhtml')">my</a> <a href="#" title="Adding HTTPS to Dockerized Apache" onclick="navBlog.anchorAction(event, 'docker_pt3.xhtml')">Apache</a> <a href="#" title="Adding SSL client authentication to Dockerized Apache" onclick="navBlog.anchorAction(event, 'docker_pt4.xhtml')">container</a> part of a Docker Compose project. From a purely functional perspective this adds absolutely nothing but it is a good first step towards building a fully functioning multi-container Docker application.</p>
+
+<p>This tutorial inspired me to make <a class="blog_anchor" title="Running Apache in a container" href="docker_pt2.html">my</a> <a class="blog_anchor" title="Adding HTTPS to Dockerized Apache" href="docker_pt3.html">Apache</a> <a class="blog_anchor" title="Adding SSL client authentication to Dockerized Apache" href="docker_pt4.html">container</a> part of a Docker Compose project. From a purely functional perspective this adds absolutely nothing but it is a good first step towards building a fully functioning multi-container Docker application.</p>
 
 <p>Of course, Docker Compose must be <a href="https://docs.docker.com/compose/install/" title="Install Docker Compose">installed</a> before any work can be done. On Ubuntu 18.04 this is as easy as: <code>apt install docker-compose</code></p>
 
 <p>I created my point of departure by executing the steps below:</p>
 
-<script src="https://gist.github.com/hdr1001/1536299d7732087af52919cdfa9c11f9/ee8979c5fb575ba4edbdc76c30a8c1f0c540d63a.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="ee8979c5fb575ba4edbdc76c30a8c1f0c540d63a"></div>
 
 <p>Please note that, to bring these steps to a successful conclusion, SSL certificates will be needed and the &lt;port&gt; placeholder in the last command must be replaced with an open <a href="https://en.wikipedia.org/wiki/Port_(computer_networking)" title="Port (computer networking)">TCP port</a> on the machine on which the container is hosted.</p>
 
 <p>If you follow my blog regularly everything up until now should be familiar but at this point the time has come to do something completely new, the creation of a docker-compose file. So add, in the top level directory of the project (i.e. directory dnb_dpl_v2), a file named docker-compose.yml with the following content:</p>
 
-<script src="https://gist.github.com/hdr1001/a57dc4cc0299ff9194c38eee4eaba019.js" type="text/javascript"></script>
+<div class="ghgist" data-ghgistid="a57dc4cc0299ff9194c38eee4eaba019"></div>
 
 <p>Also add, in the same directory, a file named <a href="https://docs.docker.com/compose/env-file/" title="Declare default environment variables in file">.env</a>. At this stage this file contains just a single line: <code>ext_port=XXXX</code>Where, similar to &lt;port&gt; before, XXXX is a placeholder for an open TCP port on the host system.</p>
 
-<p>Next, in order to avoid any conflicts, I <a href="https://docs.docker.com/engine/reference/commandline/stop/" title="Stop Docker container">stopped</a> &amp; <a href="https://docs.docker.com/engine/reference/commandline/rm/" title="Remove Docker container">removed</a> the running dnb_dpl_a2_rvs_prx container. With this out of the way I was able to <a href="https://docs.docker.com/compose/reference/build/" title="docker-compose build">build</a> my Docker Compose project: <code>docker-compose build</code> and <a href="https://docs.docker.com/compose/reference/up/" title="docker-compose up">run</a> it: <code>docker-compose up –d</code><img src="/dev/blog/imgs/dkr_cmps_bld_up.png" alt="Docker Compose build &amp; up" style="margin:1emi auto" /></p>
+<p>Next, in order to avoid any conflicts, I <a href="https://docs.docker.com/engine/reference/commandline/stop/" title="Stop Docker container">stopped</a> &amp; <a href="https://docs.docker.com/engine/reference/commandline/rm/" title="Remove Docker container">removed</a> the running dnb_dpl_a2_rvs_prx container. With this out of the way I was able to <a href="https://docs.docker.com/compose/reference/build/" title="docker-compose build">build</a> my Docker Compose project: <code>docker-compose build</code> and <a href="https://docs.docker.com/compose/reference/up/" title="docker-compose up">run</a> it: <code>docker-compose up –d</code><img src="./assets/imgs/dkr_cmps_bld_up.png" alt="Docker Compose build &amp; up"></p>
 
 <p>With the container up-n-running I could access URL: <code>https://host.example.org:&lt;port&gt;/dnb/</code></p>
 

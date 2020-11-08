@@ -15,9 +15,9 @@
 
 <p>Of course, Docker Compose must be <a href="https://docs.docker.com/compose/install/" title="Install Docker Compose">installed</a> before any work can be done. On Ubuntu 18.04 this is as easy as: <code>apt install docker-compose</code></p>
 
-<p>I created my point of departure by executing the steps below:</p>
+<p class="no-indent">I created my point of departure by executing the steps below:</p>
 
-<div class="ghgist" data-ghgistid="ee8979c5fb575ba4edbdc76c30a8c1f0c540d63a"></div>
+<div class="ghgist" data-ghgistid="1536299d7732087af52919cdfa9c11f9"></div>
 
 <p>Please note that, to bring these steps to a successful conclusion, SSL certificates will be needed and the &lt;port&gt; placeholder in the last command must be replaced with an open <a href="https://en.wikipedia.org/wiki/Port_(computer_networking)" title="Port (computer networking)">TCP port</a> on the machine on which the container is hosted.</p>
 
@@ -29,6 +29,6 @@
 
 <p>Next, in order to avoid any conflicts, I <a href="https://docs.docker.com/engine/reference/commandline/stop/" title="Stop Docker container">stopped</a> &amp; <a href="https://docs.docker.com/engine/reference/commandline/rm/" title="Remove Docker container">removed</a> the running dnb_dpl_a2_rvs_prx container. With this out of the way I was able to <a href="https://docs.docker.com/compose/reference/build/" title="docker-compose build">build</a> my Docker Compose project: <code>docker-compose build</code> and <a href="https://docs.docker.com/compose/reference/up/" title="docker-compose up">run</a> it: <code>docker-compose up –d</code><img src="./assets/imgs/dkr_cmps_bld_up.png" alt="Docker Compose build &amp; up"></p>
 
-<p>With the container up-n-running I could access URL: <code>https://host.example.org:&lt;port&gt;/dnb/</code></p>
+<p class="no-indent">With the container up-n-running I could access URL: <code>https://host.example.org:&lt;port&gt;/dnb/</code></p>
 
-<p>Simply execute (as before from the top level directory): <code>docker-compose down</code>to terminate the application.</p>
+<p class="no-indent">Simply execute (as before from the top level directory): <code>docker-compose down</code>to terminate the application.</p>

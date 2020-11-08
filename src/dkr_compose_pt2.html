@@ -10,7 +10,7 @@
 
 <div class="ghgist" data-ghgistid="faef1a869cc6bd3c06b0b52ed1c9b2d6"></div>
 
-<p>You can check the entirety of your docker-compose.yml file <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/docker-compose.yml?p=4" title="Main Docker Compose configuration file">here</a>.</p>
+<p class="no-indent">You can check the entirety of your docker-compose.yml file <a href="https://hdr.is-a-geek.com/svn/dnb_dpl_v2/docker-compose.yml?p=4" title="Main Docker Compose configuration file">here</a>.</p>
 
 <p>One of the strong points of Docker Compose is the ease with which interconnections between containers can be made. In my project this is effectuated in the Apache container. So, first switch over to the Apache configuration directory: <code>cd apache2/conf</code>and edit file httpd.conf in order to enable the proxy modules. This can be done by unremarking these lines: <img src="./assets/imgs/dkr_enbl_prx_mods.png" alt="Enable the Apache proxy modules">With modules mod_proxy and mod_proxy_http enabled, the reverse proxy can be configured on file httpd-ssl.conf. The righthand side part of the picture below shows the correct settings to accomplish this: <img src="./assets/imgs/dkr_prx_mods_conf.png" alt="Define the specifics of the reverse proxy"> It's interesting to note the similarities between the instructions above and those in this <a class="blog_anchor" title="Apache configured as a reverse proxy" href="ws_run_pt3.html">blog post</a>. Obviously the biggest difference is the server reference. In the new configuration "dnb_dpl_node", a service defined in the .yml file, is referenced where previously "localhost" was used. The inner workings of Docker Compose networks are explained pretty well in this part of the <a href="https://youtu.be/4EqysCR3mjo?t=906">YouTube video</a> which I already recommended in my previous post.</p>
 
@@ -18,4 +18,4 @@
 
 <div class="ghgist" data-ghgistid="6bab0d8df409d7340885cc04927f4152"></div>
 
-<p>If you now access URL: <code>https://host.example.org:&lt;port&gt;/dnb/</code>You should see the JSON as returned from file dnb_dpl_ws.js: <img src="./assets/imgs/dkr_prx_ret.png" alt="Docker Compose application return"></p>
+<p class="no-indent">If you now access URL: <code>https://host.example.org:&lt;port&gt;/dnb/</code>You should see the JSON as returned from file dnb_dpl_ws.js: <img src="./assets/imgs/dkr_prx_ret.png" alt="Docker Compose application return"></p>

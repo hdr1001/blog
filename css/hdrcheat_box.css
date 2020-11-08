@@ -179,7 +179,11 @@ article p img, article ol li img {
    max-width: 520px;
    display: block;
    padding: 0.4em 0;
-   margin: 1em auto;
+   margin: 1em auto 0.6em;
+}
+
+article p.img_caption img {
+   margin-bottom: 0;
 }
 
 #page_header_url h2, #announce h3 {

@@ -336,6 +336,18 @@
       "lastChange": "2020-11-11",
       "file": "dkr_compose_pt4.html"
    },{
+      "title": "Docker Compose",
+      "desc": "Part 5: entire stack 100% up-n-running",
+      "firstPub": "2019-01-20",
+      "lastChange": "2020-11-11",
+      "file": "dkr_compose_pt5.html"
+   },{
+      "title": "Docker on T430",
+      "desc": "Installing Docker Compose on my T430",
+      "firstPub": "2019-02-09",
+      "lastChange": "2020-11-11",
+      "file": "dkr_compose_t430.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

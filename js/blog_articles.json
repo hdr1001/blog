@@ -324,6 +324,18 @@
       "lastChange": "2020-11-08",
       "file": "dkr_compose_pt2.html"
    },{
+      "title": "Docker Compose",
+      "desc": "Part 3: a standalone PostgreSQL container",
+      "firstPub": "2019-01-04",
+      "lastChange": "2020-11-11",
+      "file": "dkr_compose_pt3.html"
+   },{
+      "title": "Docker Compose",
+      "desc": "Part 4: integrating the PostgreSQL container",
+      "firstPub": "2019-01-06",
+      "lastChange": "2020-11-11",
+      "file": "dkr_compose_pt4.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

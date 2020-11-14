@@ -348,6 +348,36 @@
       "lastChange": "2020-11-11",
       "file": "dkr_compose_t430.html"
    },{
+      "title": "Blog reboot",
+      "desc": "Believe me, I've been working hard 😎",
+      "firstPub": "2019-11-03",
+      "lastChange": "2020-11-13",
+      "file": "blog_reboot_pt1.html"
+   },{
+      "title": "Blog reboot, pt. 2",
+      "desc": "Introducing my API hub GitHub repository",
+      "firstPub": "2019-11-10",
+      "lastChange": "2020-11-13",
+      "file": "blog_reboot_pt2.html"
+   },{
+      "title": "Blog reboot, pt. 3",
+      "desc": "Composition > inheritance (?)",
+      "firstPub": "2019-12-27",
+      "lastChange": "2020-11-13",
+      "file": "blog_reboot_pt3.html"
+   },{
+      "title": "GLEIF integration",
+      "desc": "API Hub GLEIF data integration",
+      "firstPub": "2019-12-31",
+      "lastChange": "2020-11-14",
+      "file": "gleif_data.html"
+   },{
+      "title": "Blog reboot, pt. 4",
+      "desc": "Final episode in my blog reboot series",
+      "firstPub": "2020-01-03",
+      "lastChange": "2020-11-14",
+      "file": "blog_reboot_pt4.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

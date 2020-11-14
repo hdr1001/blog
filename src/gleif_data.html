@@ -2,11 +2,10 @@
 
 <p>GitHub has no issue with making it perfectly clear that you have been neglecting your <a href="https://github.com/hdr1001" title="Zzz">project</a>;</p>
 
-<p><img src="/dev/blog/imgs/GitHubNovDec19.png" alt="It has been rather quiet" style="margin:1em auto" /></p>
+<p><img src="./assets/imgs/GitHubNovDec19.png" alt="It has been rather quiet"></p>
 
 <p>So I was looking for a short &amp; sweet assignment to get at least one more green block on the board before the end of 2019. Integrating <a href="https://www.gleif.org/en/" title="Global Legal Entity Identifier Foundation">GLEIF data</a> into my <a href="https://github.com/hdr1001/api_hub_rpr" title="Application Programming Interface Hub on GitHub">API Hub</a> presented itself as a prime candidate. GLEIF has an extremely easy to use <a href="https://www.gleif.org/en/lei-data/gleif-lei-look-up-api/access-the-api#" title="GLEIF API">reference data API</a> and my best guess was that I would able to get it implemented in a couple of hours.</p>
 
 <p>Fortunately I was right and I even had some spare time left to do some other things as well on my day off. <a href="https://github.com/hdr1001/api_hub_rpr/commit/ce9c051981c2b584c424173f6e91d5c500f281d4" title="Added GLEIF API to GitHub repo">Commit 29</a> on GitHub provides an excellent overview of the code changes I had to make to integrate my first non-D&amp;B API. In summary, a bit of configuration and SQL code and, voila, it is now possible to respond to GLEIF data requests as well. Just a quick reminder, it is standard Hub functionality to persist/archive the API's HTTP JSON reponse.</p>
 
-
-<p><img src="/dev/blog/imgs/gleif_ref_data.gif" alt="Request GLEIF data from the Hub" style="margin:1em auto" /></p>
+<p><img src="./assets/imgs/gleif_ref_data.gif" alt="Request GLEIF data from the Hub"></p>

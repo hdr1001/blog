@@ -378,6 +378,12 @@
       "lastChange": "2020-11-14",
       "file": "blog_reboot_pt4.html"
    },{
+      "title": "Ubuntu 20.04",
+      "desc": "Installing Ubuntu Focal Fossa (in pre-release)",
+      "firstPub": "2020-03-08",
+      "lastChange": "2020-11-19",
+      "file": "ubuntu_20_04.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

@@ -9,6 +9,10 @@
    text-align: center;
 }
 
+div.ghgist {
+   margin: 0.8em auto 1.4em;
+}
+
 div.ytv {
    width: 448px;
    height: 252px;

@@ -384,6 +384,30 @@
       "lastChange": "2020-11-19",
       "file": "ubuntu_20_04.html"
    },{
+      "title": "React pt. 1",
+      "desc": "Getting started with React",
+      "firstPub": "2020-04-05",
+      "lastChange": "2020-11-21",
+      "file": "react_pt1.html"
+   },{
+      "title": "React pt. 2",
+      "desc": "Getting started with React forms (JSFiddle)",
+      "firstPub": "2020-04-10",
+      "lastChange": "2020-11-21",
+      "file": "react_pt2.html"
+   },{
+      "title": "React pt. 3",
+      "desc": "Getting started with React forms (CodeSandbox)",
+      "firstPub": "2020-04-13",
+      "lastChange": "2020-11-21",
+      "file": "react_pt3.html"
+   },{
+      "title": "React pt. 4",
+      "desc": "Getting started with react forms (local env.)",
+      "firstPub": "2020-04-19",
+      "lastChange": "2020-11-21",
+      "file": "react_pt4.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

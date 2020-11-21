@@ -35,11 +35,24 @@ function getUrlQryStrParamVal(qryStrParam) {
 
 //Constructor function for blog navigation object
 function BlogNav() {
+   function pathNameExclIndexHtml() {
+      const defaultPage = 'index.html';
+      let sPathName = window.location.pathname;
+
+      if(window.location.pathname.slice(sPathName.length - defaultPage.length) === defaultPage) {
+         sPathName = window.location.pathname.slice(0, sPathName.length - defaultPage.length);
+      }
+
+      console.log('Returning path ' + sPathName);
+
+      return sPathName;
+   }
+
    //Object containing & exposing (global) blog parameters
    this.blog = {
       protocol: window.location.protocol,
       host: window.location.host,
-      path: window.location.pathname,
+      path: pathNameExclIndexHtml(),
       contentPath: 'src/',
       javaScript: 'js/',
       contentQryParam: 'content',

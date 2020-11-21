@@ -172,7 +172,7 @@ p.img_caption + p.img_caption {
 }
 
 p + div.gist {
-   margin-top: -0.8em;
+   margin-top: -0.5em;
 }
 
 article p img, article ol li img {

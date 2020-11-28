@@ -25,6 +25,10 @@ div.ytv iframe {
    height: 100%;
 }
 
+iframe.jsfiddle {
+   width: 100%;
+}
+
 #icon_menu {
    margin-top: 1.4em;
 }
@@ -37,7 +41,7 @@ code {
 }
 
 table {
-   margin: 1.2em auto 1.4em;
+   margin: 1.4em auto;
    border-style: solid;
    border-width: 1px;
    border-color: #cccccc;

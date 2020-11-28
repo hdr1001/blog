@@ -1,13 +1,16 @@
 <h1>API Hub on a Raspberry Pi</h1>
 
-<p>As you might know I have been using <a href="https://www.digitalocean.com/" title="Digital Ocean, welcome to the dev cloud">Digital Ocean</a> as my main provider of Linux cloud instances for <a href="#" title="The platform, Digital Ocean Droplet" onclick="navBlog.anchorAction(event, 'platform_pt1.xhtml')">a long time</a>. I still love so-called Digital Ocean Droplets but because these virtual machines can be spun up so easily, this might be one of these rare products which is, at least for me, too easy to use. To be more precise, the marginal cost of creating an additional <abbr title="Virtual Machine">VM</abbr> is so low that, in practice, I tend to lose oversight over the instances I created and the reasons why I created them in the first place. So, at some point, I just decided to kill all my Droplets to make a fresh start. I decided to make a new beginning with a twist though. This time around my goal was to use a <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/" title="Raspberry Pi 3 Model B">Raspberry Pi (3B)</a>, which was collecting dust in my study, as my server.</p>
+<p>As you might know I have been using <a href="https://www.digitalocean.com/" title="Digital Ocean, welcome to the dev cloud">Digital Ocean</a> as my main provider of Linux cloud instances for <a class="blog_anchor" title="The platform, Digital Ocean Droplet" href="platform_pt1.html">a long time</a>. I still love so-called Digital Ocean Droplets but because these virtual machines can be spun up so easily, this might be one of these rare products which is, at least for me, too easy to use. To be more precise, the marginal cost of creating an additional <abbr title="Virtual Machine">VM</abbr> is so low that, in practice, I tend to lose oversight over the instances I created and the reasons why I created them in the first place. So, at some point, I just decided to kill all my Droplets to make a fresh start. I decided to make a new beginning with a twist though. This time around my goal was to use a <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/" title="Raspberry Pi 3 Model B">Raspberry Pi (3B)</a>, which was collecting dust in my study, as my server.</p>
 
 <p>You can check out how things turned out for me (spoiler 🙂) in the video below before, in the remainder of this blog post, I go into detail regarding the individual steps I took to get to a fully functioning implementation of my <a href="https://bit.ly/3fj3NnS" title="API Hub - Request Persist Respond v3">API Hub</a> on a Raspberry Pi (3B).</p>
 
-<p><object type="application/x-shockwave-flash" data="https://www.youtube.com/v/5hKlJ2i_jTc" width="448" height="252">
-   <param name="frameborder" value="0" />
-   <param name="allowfullscreen" value="true" />
-</object></p>
+<div class="ytv">
+   <iframe
+      src="https://www.youtube.com/embed/5hKlJ2i_jTc"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+   ></iframe>
+</div>
 
 <p>I started completely from scratch with the operating system install to get a good impression of what is needed to get the entire stack off the ground;</p>
 
@@ -39,9 +42,8 @@
 
    <li>I added my user account to the docker group before issuing the build command; <code>sudo usermod -aG docker $USER</code></li>
 
-   <li>The big moment had arrived, would it be possible to produce the containers?<code>sudo docker-compose build</code><img src="/dev/blog/imgs/docker_compose_build.png" alt="docker-compose build" /></li>
+   <li>The big moment had arrived, would it be possible to produce the containers?<code>sudo docker-compose build</code><img src="./assets/imgs/docker_compose_build.png" alt="docker-compose build"></li>
 
    <li>With the containers successfully built the application could be started; <code>sudo docker-compose up -d</code></li>
 
 </ol>
-

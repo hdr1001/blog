@@ -1,6 +1,6 @@
 <h1>Run-up to IDR UI code</h1>
 
-<p>Recently I have created a new version of my <a href="https://bit.ly/3fj3NnS" title="API Hub - Request Persist Respond v3">API Hub</a> repository. I have come a long way since the <a href="http://bit.ly/2OKuOWM" title="Subversion repo of what came to be my API Hub">1st version</a> of the project which, in hindsight, basically was just a collection of Node.js prototypes. The <a href="http://bit.ly/2Ssc7bX" title="Dockerized Dockerized implementation of the D&amp;B Direct+ API">successor project</a> (more or less) contained the same code but Dockerized. In the summer of 2019 I moved the next version of the codebase to <a href="http://bit.ly/2NBvdd6" title="Github repo API hub RPR">GitHub</a>. The code in this repository was significantly better structured and more modular. This allowed me to implement the <a href="https://www.gleif.org" title="Global Legal Entity Identifier Foundation">GLEIF</a> <a href="#" title="GLEIF data integration" onclick="navBlog.anchorAction(event, 'gleif_data.xhtml')">reference data product</a> in no time. Even though the structure of the code was superior, the way the files were organized in the repository was not. In the end file <a href="http://bit.ly/39ac36C" title="file ah_rpr_objs.js">ah_rpr_objs.js</a> contained several distinct functional parts and more than a 1000 lines of code! This was the main reason behind my decision to create an entirely new <a href="https://bit.ly/3fj3NnS" title="API Hub - Request Persist Respond v3">GitHub repository</a> with an improved file structure.</p>
+<p>Recently I have created a new version of my <a href="https://bit.ly/3fj3NnS" title="API Hub - Request Persist Respond v3">API Hub</a> repository. I have come a long way since the <a href="http://bit.ly/2OKuOWM" title="Subversion repo of what came to be my API Hub">1st version</a> of the project which, in hindsight, basically was just a collection of Node.js prototypes. The <a href="http://bit.ly/2Ssc7bX" title="Dockerized Dockerized implementation of the D&amp;B Direct+ API">successor project</a> (more or less) contained the same code but Dockerized. In the summer of 2019 I moved the next version of the codebase to <a href="http://bit.ly/2NBvdd6" title="Github repo API hub RPR">GitHub</a>. The code in this repository was significantly better structured and more modular. This allowed me to implement the <a href="https://www.gleif.org" title="Global Legal Entity Identifier Foundation">GLEIF</a> <a class="blog_anchor" title="GLEIF data integration" href="gleif_data.html">reference data product</a> in no time. Even though the structure of the code was superior, the way the files were organized in the repository was not. In the end file <a href="http://bit.ly/39ac36C" title="file ah_rpr_objs.js">ah_rpr_objs.js</a> contained several distinct functional parts and more than a 1000 lines of code! This was the main reason behind my decision to create an entirely new <a href="https://bit.ly/3fj3NnS" title="API Hub - Request Persist Respond v3">GitHub repository</a> with an improved file structure.</p>
 
 <p>These are, when compared to the <a href="http://bit.ly/2NBvdd6" title="Github repo API hub RPR">previous version</a> of the repository, the most important changes that I have implemented in <a href="https://bit.ly/3fj3NnS" title="API Hub - Request Persist Respond v3">api_hub_rpr_v3x</a>;</p>
 
@@ -8,7 +8,7 @@
 
    <li>I have removed the Apache container from the project. My current thinking is that a reverse proxy will be part of the infrastructure in which my API Hub will be deployed.</li>
 
-   <li>I have upgraded the (Alpine) Docker container versions of both Node.js (8.12 ➡️  12.16) &amp; Postgres (10.6 ➡️  12.2). Consequently I had to change this code; <img src="/dev/blog/imgs/buff_new.png" alt="new Buffer" /> to; <img src="/dev/blog/imgs/buff_from.png" alt="Buffer from" /></li>
+   <li>I have upgraded the (Alpine) Docker container versions of both Node.js (8.12 ➡️  12.16) &amp; Postgres (10.6 ➡️  12.2). Consequently I had to change this code; <img src="./assets/imgs/buff_new.png" alt="new Buffer"> to; <img src="./assets/imgs/buff_from.png" alt="Buffer from"></li>
 
    <li>I moved code from 📄 <a href="http://bit.ly/39ac36C" title="file ah_rpr_objs.js">ah_rpr_objs.js</a> to;</li>
 
@@ -28,9 +28,8 @@
 
    <li>making the references to the token object instances part of the exports of the shared object code (at end of <a href="https://bit.ly/3b2fzj2" title="Object globals">ah_rpr_glob_obj.js</a>),</li>
 
-   <li>initializing these references in file <a href="https://bit.ly/2W285by" title="Authorization token">ah_rpr_obj_auth.js</a> <img src="/dev/blog/imgs/inst_tokens.jpg" alt="Instantiation of auth tokens" /> and</li>
+   <li>initializing these references in file <a href="https://bit.ly/2W285by" title="Authorization token">ah_rpr_obj_auth.js</a> <img src="./assets/imgs/inst_tokens.jpg" alt="Instantiation of auth tokens"> and</li>
 
    <li>adding the following statement; <code>const ahObjAuth = require('./ah_rpr_obj_auth.js');</code> as the last line of file <a href="https://bit.ly/3b2fzj2" title="Object globals">ah_rpr_glob_obj.js</a>.</li>
 
 </ol>
-

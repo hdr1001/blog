@@ -1,12 +1,12 @@
 <h1>Getting started with React, forms</h1>
 
-<p>If you follow me on <a href="https://twitter.com/H_de_Rooij" title="Me, on Twitter">Twitter</a> you probably know about my enthusiasm for <a href="https://releases.ubuntu.com/20.04/" title="Ubuntu 20.04">Ubuntu Focal Fossa</a>.</p>
+<p class="no-indent">If you follow me on <a href="https://twitter.com/H_de_Rooij" title="Me, on Twitter">Twitter</a> you probably know about my enthusiasm for <a href="https://releases.ubuntu.com/20.04/" title="Ubuntu 20.04">Ubuntu Focal Fossa</a>.</p>
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Bit early but I ❤️ <a href="https://twitter.com/hashtag/Ubuntu?src=hash&amp;ref_src=twsrc%5Etfw">#Ubuntu</a> 20.04. Usually <a href="https://twitter.com/hashtag/late?src=hash&amp;ref_src=twsrc%5Etfw">#late</a> to the game but 6 weeks for its official release Focal Fossa works 👍 💯 for me. 🤓 <a href="https://t.co/bHRQoD2h6F">pic.twitter.com/bHRQoD2h6F</a></p>&mdash; Hans de Rooij (@H_de_Rooij) <a href="https://twitter.com/H_de_Rooij/status/1236042133980827650?ref_src=twsrc%5Etfw">March 6, 2020</a></blockquote>
 
 <p>Furthermore, in case you are a regular reader of this blog, it should come as no surprise that I am very much interested in <a href="https://jsfiddle.net/user/hdr1001" title="Me, on JSFiddle">JavaScript</a> <a href="https://codesandbox.io/u/hdr1001" title="Me, on CodeSandbox">playgrounds</a>.</p>
 
-<iframe width="100%" height="300" src="//jsfiddle.net/hdr1001/0muzbs9x/embedded/result,js/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+<iframe class="jsfiddle" height="300" src="//jsfiddle.net/hdr1001/0muzbs9x/embedded/result,js/" allowfullscreen="allowfullscreen"></iframe>
 
 <p>Considering the above it is only logical that, as a next step, my aim was to put together a local, Ubuntu based, <abbr title="Integrated Development Environment">IDE</abbr> to develop React applications. It is important to note that, while working on this project, I kept the following two objectives in mind;</p>
 
@@ -15,19 +15,11 @@
    <li>I did <b>not</b> want to use <a href="https://create-react-app.dev/" title="Set up a React app by running one command">Create React App</a>. Even though setting up all the build tools, dependencies &amp; configuration files by running a single command sounds tempting, it will not help with the creation of the (primarily) educational experience I am looking for.</li>
 </ol>
 
-<p>I kicked off the project by initiating a new <a href="https://github.com/hdr1001/min_react_app" title="Minimal React application">GitHub repository</a> online and cloning it to my PC;</p>
+<p class="no-indent">I kicked off the project by initiating a new <a href="https://github.com/hdr1001/min_react_app" title="Minimal React application">GitHub repository</a> online and cloning it to my PC; <code>cd ~/Documents/dev</code> <code>git clone https://github.com/hdr1001/min_react_app</code></p>
 
-<code>cd ~/Documents/dev</code>
+<p>Of course the <a href="https://www.npmjs.com/" title="Node Package Manager">Node Package Manager</a> is an important part of the entire setup. I installed it locally with this command; <code>curl https://www.npmjs.com/install.sh | sudo sh</code></p>
 
-<code>git clone https://github.com/hdr1001/min_react_app</code>
-
-<p>Of course the <a href="https://www.npmjs.com/" title="Node Package Manager">Node Package Manager</a> is an important part of the entire setup. I installed it locally with this command;</p>
-
-<code>curl https://www.npmjs.com/install.sh | sudo sh</code>
-
-<p><a href="https://code.visualstudio.com/" title="Visual Studio Code">VS Code</a> was already <a href="https://code.visualstudio.com/download" title="Download Visual Code">available</a> on my machine with these extensions;</p>
-
-<p><img src="./assets/imgs/vsc_ext.png" alt="My VS Code extensions"></p>
+<p class="img_caption"><img src="./assets/imgs/vsc_ext.png" alt="My VS Code extensions"><a href="https://code.visualstudio.com/" title="Visual Studio Code">VS Code</a> was already <a href="https://code.visualstudio.com/download" title="Download Visual Code">available</a> on my machine with the extensions listed above</p>
 
 <p>To continue with my work I just opened the project's main folder and followed the instructions in this YouTube video;</p>
 
@@ -39,38 +31,8 @@
    ></iframe>
 </div>
 
-<p>Nearly all the instructions in the video worked perfectly for me with one exception, in order to install Babel I used;</p>
+<p>Nearly all the instructions in the video worked perfectly for me with one exception, in order to install Babel I used; <code>npm i --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react html-webpack-plugin</code> The associated Babel presets in the file .babelrc are different as well; <code>{"presets": ["@babel/preset-env", "@babel/preset-react"]}</code> I also <a href="https://webpack.js.org/loaders/css-loader/" title="CSS loader">added</a> an additional <abbr title="Cascading Style Sheet">CSS</abbr> loader to my project; <code>npm install --save-dev css-loader</code> <code>npm install --save-dev style-loader</code> To make the style sheets part of the project's build I added the JavaScript object below to the rules array of file webpack.config.js; <code>, { test: /\.css$/i, use: ['style-loader', 'css-loader'] }</code></p>
 
-<code>npm i --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react html-webpack-plugin</code>
+<p class="no-indent">At this point I was ready to test the, admittedly minimal, application. <code>npm start</code> Everything worked just fine on the 1st try. Building the final product went smoothly as well. <code>npm run build</code></p>
 
-<p>The associated Babel presets in the file .babelrc are different as well;</p>
-
-<code>{"presets": ["@babel/preset-env", "@babel/preset-react"]}</code>
-
-<p>I also <a href="https://webpack.js.org/loaders/css-loader/" title="CSS loader">added</a> an additional <abbr title="Cascading Style Sheet">CSS</abbr> loader to my project;</p>
-
-<code>npm install --save-dev css-loader</code>
-
-<code>npm install --save-dev style-loader</code>
-
-<p>To make the style sheets part of the project's build I added the JavaScript object below to the rules array of file webpack.config.js;</p>
-
-<code>, { test: /\.css$/i, use: ['style-loader', 'css-loader'] }</code>
-
-<p>At this point I was ready to test the, admittedly minimal, application.</p>
-
-<code>npm start</code>
-
-<p>Everything worked just fine on the 1st try. Building the final product went smoothly as well.</p>
-
-<code>npm run build</code>
-
-<p>I have <a href="https://github.com/hdr1001/min_react_app/commit/44405ab5ce793ea58cb3d285bdec7ba87d3f4d63" title="Minimal React app">committed &amp; pushed</a> my changes to GitHub. On another PC I could clone the repository, install the necessary packages using ... </p>
-
-<code>npm install</code>
-
-<p> ... immediately followed by ... </p>
-
-<code>npm start</code>
-
-<p> ... to start the application. 👍</p>
+<p>I have <a href="https://github.com/hdr1001/min_react_app/commit/44405ab5ce793ea58cb3d285bdec7ba87d3f4d63" title="Minimal React app">committed &amp; pushed</a> my changes to GitHub. On another PC I could clone the repository, install the necessary packages using ... <code>npm install</code> ... immediately followed by ... <code>npm start</code> ... to start the application. 👍</p>

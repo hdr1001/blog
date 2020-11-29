@@ -8,5 +8,6 @@
    {"sDate": "27th of October '20", "htmlNews": "Finished porting my IDR <a class=\"blog_anchor\" href=\"idr_ws_pt1.html\" title=\"IDR backend code\">server</a> posts."},
    {"sDate": "1st of November '20", "htmlNews": "The HTML <a class=\"blog_anchor\" href=\"blog_ghp_pt3.html\" title=\"The blog's HTML framework\">framework</a> of my blog."},
    {"sDate": "11th of November '20", "htmlNews": "Ported my <a class=\"blog_anchor\" href=\"dkr_compose_pt1.html\" title=\"Dev stack to Docker (Compose)\">Docker Compose</a> posts."},
-   {"sDate": "14th of November '20", "htmlNews": "Ported my <a class=\"blog_anchor\" href=\"blog_reboot_pt1.html\" title=\"blog reboot & GLEIF posts\">blog reboot</a> posts."}
+   {"sDate": "14th of November '20", "htmlNews": "Ported my <a class=\"blog_anchor\" href=\"blog_reboot_pt1.html\" title=\"Blog reboot & GLEIF posts\">blog reboot</a> posts."},
+   {"sDate": "29th of November '20", "htmlNews": "Ported my <a class=\"blog_anchor\" href=\"runup_2_idr_pt1.html\" title=\"Run-up to IDentity Resolution posts\">run-up to IDR</a> posts."}
 ]}

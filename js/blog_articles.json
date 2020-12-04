@@ -426,6 +426,12 @@
       "lastChange": "2020-11-28",
       "file": "runup_2_idr_pt3.html"
    },{
+      "title": "IDR back-end",
+      "desc": "Integrated IDR code into API Hub (v3)",
+      "firstPub": "2020-05-24",
+      "lastChange": "2020-12-04",
+      "file": "idr_backend.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

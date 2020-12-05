@@ -22,19 +22,20 @@
 
 'use strict'
 
-//Get the value of a URL query string parameter
-function getUrlQryStrParamVal(qryStrParam) {
-   qryStrParam = qryStrParam.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-
-   let regExpr = new RegExp('[\\?&]' + qryStrParam + '=([^&#]*)');
-
-   let rslt = regExpr.exec(location.search);
-
-   return rslt === null ? '' : decodeURIComponent(rslt[1].replace(/\+/g, ' '));
-}
-
 //Constructor function for blog navigation object
 function BlogNav() {
+   //Get the value of a URL query string parameter
+   function getUrlQryStrParamVal(qryStrParam) {
+      qryStrParam = qryStrParam.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+
+      let regExpr = new RegExp('[\\?&]' + qryStrParam + '=([^&#]*)');
+
+      let rslt = regExpr.exec(location.search);
+
+      return rslt === null ? '' : decodeURIComponent(rslt[1].replace(/\+/g, ' '));
+   }
+
+   //Strip index.html from the pathname if applicable
    function pathNameExclIndexHtml() {
       const defaultPage = 'index.html';
       let sPathName = window.location.pathname;

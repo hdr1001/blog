@@ -456,6 +456,30 @@
       "lastChange": "2020-12-05",
       "file": "whitsun_idr_pt4.html"
    },{
+      "title": "Match candidates, pt. 1",
+      "desc": "IDR React UI, match candidate listing",
+      "firstPub": "2020-06-21",
+      "lastChange": "2020-12-06",
+      "file": "match_cand_pt1.html"
+   },{
+      "title": "Match candidates, pt. 2",
+      "desc": "IDR React UI, IDR error handling",
+      "firstPub": "2020-06-28",
+      "lastChange": "2020-12-06",
+      "file": "match_cand_pt2.html"
+   },{
+      "title": "Match candidates, pt. 3",
+      "desc": "Persist match candidate, CORS",
+      "firstPub": "2020-07-14",
+      "lastChange": "2020-12-06",
+      "file": "psist_mc_pt1.html"
+   },{
+      "title": "International IDR",
+      "desc": "International IDentity Resolution",
+      "firstPub": "2020-08-02",
+      "lastChange": "2020-12-06",
+      "file": "ctry_slct_pt2.html"
+   },{
       "title": "Migrate blog, pt. 1",
       "desc": "Why migrate my blog to GitHub pages?",
       "firstPub": "2020-10-04",

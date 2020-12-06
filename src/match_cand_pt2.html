@@ -4,7 +4,7 @@
 
 <p>The <a href="https://bit.ly/3i65CGe" title="Fetch v1">first version</a> of the fetch call basically implemented the entire <a href="https://en.wikipedia.org/wiki/Happy_path" title="Process happy path">happy path</a> of the API transaction. The <a href="https://bit.ly/2BhvzCa" title="Fetch v2">most recent version</a> of the code contains proper error handling. It is interesting to note that adding error handling increased the number of lines of code from 37 to 76!</p>
 
-<p><img src="/dev/blog/imgs/resp_not_ok.png" alt="Fetch with error handling" /></p>
+<p><img src="./assets/imgs/resp_not_ok.png" alt="Fetch with error handling"></p>
 
 <p>In the fragment above expression ... <code>!resp.ok</code> ... evaluates to true if the Direct+ API responds with an <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" title="HTTP response status codes">HTTP status code</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/ok" title="The fetch response, property ok">outside of the 2xx</a> range. Functionally this maps perfectly to my definition of an error condition (i.e. if there is, for whatever reason, not a single match candidate available) and this, in turn, means that I do not have to parse the transaction's response body to determine if I have to follow an exception path in my code.</p>
 
@@ -12,9 +12,8 @@
 
 <p>The two error conditions mentioned before now look like this in my React based UI;</p>
 
-<p class="img_caption"><img src="/dev/blog/imgs/invalid_iso.png" alt="Invalid country code" />Invalid country code (HTTP status 400)</p>
+<p class="img_caption"><img src="./assets/imgs/invalid_iso.png" alt="Invalid country code">Invalid country code (HTTP status 400)</p>
 
-<p class="img_caption"><img src="/dev/blog/imgs/no_cand_avail.png" alt="No candidate available" />No candidate available (HTTP status 404)</p>
+<p class="img_caption"><img src="./assets/imgs/no_cand_avail.png" alt="No candidate available">No candidate available (HTTP status 404)</p>
 
 <p>PS, <a href="https://directplus.documentation.dnb.com/errorsAndInformationMessages.html" title="Direct+ error and information Messages">click here</a> for more information about Direct+ errors.</p>
-

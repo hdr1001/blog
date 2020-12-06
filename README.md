@@ -4,6 +4,9 @@
 1. [License](#license)
 2. [Why](#why)
 3. [High level concepts](#high-level-concepts)
+   - [An ordered collection of posts](#an-ordered-collection-of-posts)
+   - [The HTML framework](#the-html-framework)
+   - [The JavaScript code](#the-javascript-code)
 
 ## License
 ©Hans de Rooij, 2020
@@ -105,11 +108,13 @@ The article reference is used each time the reader navigates to a different blog
 
 ### The JavaScript code
 
-JavaScript makes web pages interactive but making sure that the logic contained in the code functions as intended for all users on the Internet is by no means a small feat. In practice there are multiple hurdles, for instance common JavaScript problems with the basic syntax of a program, performance issues and cross-browser incompatibilities. In the [previous version](https://hdr.is-a-geek.com/svn/blog/ "hdr.is-a-geek.com/blog/") of my blog I used [jQuery](https://jquery.com/ "jQuery, write less, do more") to help alleviate many of the cross-browser headaches inherent in JavaScript/DOM development but, over the past decade, browsers have become much more standards compliant and therefore, nowadays, my preferred approach is to use [Vanilla JavaScript](https://bit.ly/32N4UrS "You might not need jQuery") when I develop relatively simple web <abbr title="User Interfaces">UIs</abbr>. This is a good fit with [GitHub Pages](https://pages.github.com/ "GitHub Pages") but limits support for older browsers. I have done a couple of quick tests and I have established that [my blog's JavaScript code](https://github.com/hdr1001/blog/blob/master/js/hdrblogv2.js "hdrblogv2.js") is supported on;
+#### General
+
+JavaScript makes web pages interactive but making sure that the logic contained in the code functions as intended for all users on the Internet is by no means a small feat. In practice there are multiple hurdles, for instance common JavaScript problems with the basic syntax of a program, performance issues and cross-browser incompatibilities. In the [previous version](https://hdr.is-a-geek.com/svn/blog/ "hdr.is-a-geek.com/blog/") of my blog I used [jQuery](https://jquery.com/ "jQuery, write less, do more") to help alleviate many of the cross-browser headaches inherent in JavaScript/DOM development but, over the past decade, browsers have become much more standards compliant and therefore, nowadays, my preferred approach is to use [Vanilla JavaScript](https://bit.ly/32N4UrS "You might not need jQuery") when I develop relatively simple web *[UIs]: User Interfaces. This is a good fit with [GitHub Pages](https://pages.github.com/ "GitHub Pages") but limits support for older browsers. I have done a couple of quick tests and I have established that [my blog's JavaScript code](https://github.com/hdr1001/blog/blob/master/js/hdrblogv2.js "hdrblogv2.js") is supported on;
 
 - [Google Chrome](https://www.google.com/chrome/ "Google Chrome") as of version 52 (1st released July 2016),
 - [Mozilla FireFox](https://www.mozilla.org/en-US/firefox/ "Mozilla FireFox") as of version 50 (1st released November 2016),
 - [Opera by Opera Norway](https://www.opera.com/ "Opera") as of version 38 (1st released June 2016) and
 - [Microsoft Edge](https://www.microsoft.com/en-us/edge "Microsoft Edge") as of version 16 (1st released October 2017).
 
-This is good enough for me. It has to be said though that my code breaks on (even the most recent version of) [Internet Explorer](https://www.microsoft.com/en-us/download/internet-explorer.aspx "Microsoft IE"). I'm convinced that I can fix this in one debugging session but, considering the current market share of this browser (1% on [Statcounter](https://gs.statcounter.com "Statcounter GlobalStats") and 5% on [NetMarketShare](https://netmarketshare.com "NetMarketShare")), the likelihood of me sitting down any time soon to rewrite the incompatible code is not very high. 
+This is good enough for me. It is only fair to mention that my code breaks on (even the most recent version of) [Internet Explorer](https://www.microsoft.com/en-us/download/internet-explorer.aspx "Microsoft IE"). I'm convinced that I can fix this in one debugging session but, considering the current market share of this browser (1% on [Statcounter](https://gs.statcounter.com "Statcounter GlobalStats") and 5% on [NetMarketShare](https://netmarketshare.com "NetMarketShare")), the likelihood of me sitting down any time soon to rewrite the incompatible code is not very high. 

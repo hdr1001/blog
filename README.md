@@ -110,11 +110,49 @@ The article reference is used each time the reader navigates to a different blog
 
 #### General
 
-JavaScript makes web pages interactive but making sure that the logic contained in the code functions as intended for all users on the Internet is by no means a small feat. In practice there are multiple hurdles, for instance common JavaScript problems with the basic syntax of a program, performance issues and cross-browser incompatibilities. In the [previous version](https://hdr.is-a-geek.com/svn/blog/ "hdr.is-a-geek.com/blog/") of my blog I used [jQuery](https://jquery.com/ "jQuery, write less, do more") to help alleviate many of the cross-browser headaches inherent in JavaScript/DOM development but, over the past decade, browsers have become much more standards compliant and therefore, nowadays, my preferred approach is to use [Vanilla JavaScript](https://bit.ly/32N4UrS "You might not need jQuery") when I develop relatively simple web *[UIs]: User Interfaces. This is a good fit with [GitHub Pages](https://pages.github.com/ "GitHub Pages") but limits support for older browsers. I have done a couple of quick tests and I have established that [my blog's JavaScript code](https://github.com/hdr1001/blog/blob/master/js/hdrblogv2.js "hdrblogv2.js") is supported on;
+JavaScript makes web pages interactive but making sure that the logic contained in the code functions as intended for all users on the Internet is by no means a small feat. In practice there are multiple hurdles, for instance common JavaScript problems with the basic syntax of a program, performance issues and cross-browser incompatibilities. In the [previous version](https://hdr.is-a-geek.com/svn/blog/ "hdr.is-a-geek.com/blog/") of my blog I used [jQuery](https://jquery.com/ "jQuery, write less, do more") to help alleviate many of the cross-browser headaches inherent in JavaScript/DOM development but, over the past decade, browsers have become much more standards compliant and therefore, nowadays, my preferred approach is to use [Vanilla JavaScript](https://bit.ly/32N4UrS "You might not need jQuery") when I develop relatively simple web UIs. This is a good fit with [GitHub Pages](https://pages.github.com/ "GitHub Pages") but limits support for older browsers. I have done a couple of quick tests and I have established that [my blog's JavaScript code](https://github.com/hdr1001/blog/blob/master/js/hdrblogv2.js "hdrblogv2.js") is supported on;
 
 - [Google Chrome](https://www.google.com/chrome/ "Google Chrome") as of version 52 (1st released July 2016),
 - [Mozilla FireFox](https://www.mozilla.org/en-US/firefox/ "Mozilla FireFox") as of version 50 (1st released November 2016),
 - [Opera by Opera Norway](https://www.opera.com/ "Opera") as of version 38 (1st released June 2016) and
 - [Microsoft Edge](https://www.microsoft.com/en-us/edge "Microsoft Edge") as of version 16 (1st released October 2017).
 
-This is good enough for me. It is only fair to mention that my code breaks on (even the most recent version of) [Internet Explorer](https://www.microsoft.com/en-us/download/internet-explorer.aspx "Microsoft IE"). I'm convinced that I can fix this in one debugging session but, considering the current market share of this browser (1% on [Statcounter](https://gs.statcounter.com "Statcounter GlobalStats") and 5% on [NetMarketShare](https://netmarketshare.com "NetMarketShare")), the likelihood of me sitting down any time soon to rewrite the incompatible code is not very high. 
+This is good enough for me. It is only fair to mention that my code breaks on (even the most recent version of) [Internet Explorer](https://www.microsoft.com/en-us/download/internet-explorer.aspx "Microsoft IE"). I'm convinced that I can fix this in a single debugging session but, considering the current market share of this browser (1% on [Statcounter](https://gs.statcounter.com "Statcounter GlobalStats") and 5% on [NetMarketShare](https://netmarketshare.com "NetMarketShare")), the likelihood of me sitting down any time soon to rewrite the incompatible code is not very high. 
+
+#### Functionality
+
+Currently the following functionality is supported;
+
+1. **Event handler for event DOMContentLoaded**. In the handler;
+   - A new BlogNav object is instantiated,
+   - Events are associated with certain elements of the HTML framework and
+   - Event handlers for the event _load_ and _popstate_ are defined.
+
+2. **Blog initialization** in the constructor of object BlogNav. Intialization comprises;
+   - working out which article to display,
+   - reading the ordered collection of blog post from file blog_articles.json and
+   - switching to the initial article.
+
+3. **Blog navigation**. The following navigation options are available;
+   - Home (as defined in the blogNav object instance)
+   - Display index page
+   - Display previous page
+   - Display next page
+   - Display last page
+   - Clickable hyperlinks to other blog posts
+   
+   ![GitHub blog menu](https://github.com/hdr1001/blog/raw/master/assets/imgs/gh_blog_menu.png "GitHub navigation menu")
+   
+   The JavaScript code automatically adds an icon navigation menu to the bottom of the article as well.
+   
+   ![Icon navigation menu](https://github.com/hdr1001/blog/raw/master/assets/imgs/gh_icon_menu.png "GitHub icon navigation menu")
+   
+4. **Dynamic content**. Besides iframes the following dynamic content is supported;
+   - GitHub Gists
+   - Twitter Tweets
+   - Index page
+   - News section
+   
+   ![Index page](https://github.com/hdr1001/blog/raw/master/assets/imgs/blog_index.png "Blog index page")
+
+5. **Switching between blog posts**. As part of the switch the new article is pushed onto the history stack.

@@ -22,36 +22,43 @@
 @import url("./hdrcheat_bg.css");
 
 #center_col {
-   width: 760px;
+   max-width: 760px;
+   min-width: 540px;
+   width: 100%;
    padding: 5px 10px 12px;
    margin: 0 auto;
 }
 
-header {
-   display: inline-block;
-}
-
 #page_header_url {
-   width: 300px;
-   padding: 7px 0 3px;
+   width: 280px;
    float: left;
+   padding-top: 4px;
 }
 
 #page_header_quote {
-   width: 450px;
+   width: 460px;
    float: right;
+   padding-bottom: 10px;
 }
 
-#page_header_banner {
-   width: inherit;
+#page_header_banner img {
+   max-width: 100%;
    height: auto;
-   clear: both;
+}
+
+#blog_main {
+   width: 100%;
+   margin-top: 3px;
 }
 
 #left_col {
    width: 150px;
-   padding: 5px 0;
+   padding-right: 8px;
    float: left;
+}
+
+div#icon_menu {
+   display: none;
 }
 
 #announce {
@@ -61,16 +68,15 @@ header {
 }
 
 article {
-   width: 582px;
-   padding: 5px 8px 0;
-   margin: 5px 0;
+   overflow: auto;
+   padding: 0 8px 0;
+   margin: 3px 0;
    border-left-style: solid;
    border-left-width: 1px;
    border-left-color: #f0f0f0;
    border-right-style: solid;
    border-right-width: 1px;
    border-right-color: #f0f0f0;
-   float: right;
 }
 
 nav#icon_menu {
@@ -232,4 +238,28 @@ article > h1 {
 
 #site_menu li a:hover {
    border-color: #286ea0;
+}
+
+@media (max-width: 779px) {
+   #page_header_url  {
+      display: none;
+   }
+}
+
+@media (max-width: 600px) {
+   #left_col {
+      width: 34px;
+   }
+
+   #site_menu {
+      display: none;
+   }
+
+   div#icon_menu {
+      display: block;
+   }
+
+   #announce {
+      display: none;
+   }
 }

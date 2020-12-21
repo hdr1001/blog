@@ -462,9 +462,7 @@ BlogNav.prototype.switchBlogPost = function(newIdx, blogHistory) {
          }
 
          //Add the navigation menu to the end of the article
-         this.elemArticle.appendChild(this.elemIconNavMenu
-                                       ? this.elemIconNavMenu
-                                       : this.elemIconNavMenu = this.createIconNavMenu());
+         this.addIconNavMenu(this.elemArticle);
       }
    };
 
@@ -596,6 +594,22 @@ BlogNav.prototype.createIconNavMenu = function() {
    return elemIconNav;
 }
 
+//Add an icon navigation menu to the page
+BlogNav.prototype.addIconNavMenu = function(docElem) {
+   if(docElem) {
+      if(this.elemIconNavMenu) {
+         this.addEvnts(docElem.appendChild(this.elemIconNavMenu.cloneNode(true))); 
+      }
+      else {
+         this.elemIconNavMenu = this.createIconNavMenu();
+         docElem.appendChild(this.elemIconNavMenu);
+      }
+   }
+   else {
+      console.log('docElem passed into addIconNavMenu not valid');
+   }
+}
+
 //Further initialize the HTML page when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
    console.log('DOM content loaded, hosted on URL ' + window.location.pathname);
@@ -608,11 +622,15 @@ document.addEventListener('DOMContentLoaded', () => {
    window.addEventListener('load', () => {
       console.log('Blog completely loaded');
 
+      //Add content to the news section
       let divAnnc = document.querySelector('div#announce');
 
       if(divAnnc) {
          blogNav.addDynamicContent(divAnnc);
       }
+
+      //Add icon navigation menu for narrow displays
+      blogNav.addIconNavMenu(document.getElementById('icon_menu'));
    });
    
    window.addEventListener('popstate', psEvnt => {

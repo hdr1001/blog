@@ -7,6 +7,7 @@
    - [An ordered collection of posts](#an-ordered-collection-of-posts)
    - [The HTML framework](#the-html-framework)
    - [The JavaScript code](#the-javascript-code)
+4. [Responsive Web design](#responsive-web-design)
 
 ## License
 ©Hans de Rooij, 2020
@@ -156,3 +157,10 @@ Currently the following functionality is supported;
    ![Index page](https://github.com/hdr1001/blog/raw/master/assets/imgs/blog_index.png "Blog index page")
 
 5. **Switching between blog posts**. As part of the switch the new article is pushed onto the history stack.
+
+
+## Responsive Web design
+
+All the code changes to implement a responsive web design are reflected in [this commit](https://github.com/hdr1001/blog/commit/426c07e9184171cf8bc10350a841f55b85f66b21 "Responsive web design code changes").
+
+![Responsive Web design](https://github.com/hdr1001/blog/raw/master/assets/imgs/respwebdesign.gif "Made the CSS of my blog responsive")

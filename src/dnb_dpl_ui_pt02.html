@@ -1,0 +1,15 @@
+<h1>Adding a file selector control</h1>
+
+<p>I've added an input file selector to my project's <a href="https://github.com/hdr1001/dnbdplui/blob/main/index.html" title="index.html">HTML file</a> on day two of my New Year's challenge to build a D&amp;B Direct+ <a href="https://directplus.documentation.dnb.com/DataBlocks.html">Data Blocks</a> user interface in thirty-one days. Not much code is needed to accomplish this; <img src="./assets/imgs/FileInpComponent.png" alt="Input file selector"></p>
+
+<p class="no-indent">The addition of the new control changes the look of the form; <img src="./assets/imgs/InpCtrlOnForm.png" alt="Form including file selector"></p>
+
+<p>The form is connected to an eventhandler defined in a new JavaScript file, <a href="https://github.com/hdr1001/dnbdplui/blob/main/js/main.js" title="Project's main JavaScript code file">main.js</a>. The connection between the HTML component and the code is made by including a script tag in the HTML header section. <img src="./assets/imgs/HtmlScriptTag.png" alt="script tag"></p>
+
+<p>Because of the inclusion of the script tag the event DOMContentLoaded is caught and an event listener is registered to handle any changes to the file selected by the end user; <img src="./assets/imgs/EventListenerInpChange.png" alt="Definition event listener input file change"></p>
+
+<p>At this stage the file name of the selected file is simply echoed in a alert box. The plan for tomorrow is to parse the JSON contained in the file.</p>
+
+<p>An obvious question is of course <i>why bother with opening a file when we are dealing with a REST API and executing an HTTP GET clearly is the more direct route?</i> The thing is that, at this moment, I do not want to get involved in the complications of storing and retrieving credentials and, as a matter of fact, users of the cloud based application might not be in possession of credentials anyway. Therefore using data retrieved with tools like <a href="https://www.postman.com/" title="The Collaboration Platform for API Development">Postman</a> and <a href="https://smartbear.com/product/ready-api/overview/" title="Accelerating API Quality Through Testing">ReadyAPI</a>, saved as a file, is just so much easier.</p>
+
+<p>Because <a href="https://github.com/hdr1001/dnbdplui" title="My repo for a Direct+ Data Blocks UI">my repository</a> is hosted on <a href="https://github.com/hdr1001" title="My GitHub profile page">Github</a> it is easy to track <a href="https://github.com/hdr1001/dnbdplui/commits/main" title="Overview of repository code commits">the changes</a> I've made on a particular day & to see the outcome <a href="https://hdr1001.github.io/dnbdplui/" title="Live on GitHub pages">live in action</a>.</p>

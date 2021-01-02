@@ -503,5 +503,11 @@
       "firstPub": "2021-01-01",
       "lastChange": "2021-01-01",
       "file": "dnb_dpl_ui_pt01.html"
+   },{
+      "title": "Added a file selector",
+      "desc": "Adding an input file component",
+      "firstPub": "2021-01-02",
+      "lastChange": "2021-01-02",
+      "file": "dnb_dpl_ui_pt02.html"
    }
 ]}

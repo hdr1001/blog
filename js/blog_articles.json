@@ -509,5 +509,11 @@
       "firstPub": "2021-01-02",
       "lastChange": "2021-01-02",
       "file": "dnb_dpl_ui_pt02.html"
+   },{
+      "title": "Reading a Data Block",
+      "desc": "Reading a D&B Data Block product",
+      "firstPub": "2021-01-03",
+      "lastChange": "2021-01-03",
+      "file": "dnb_dpl_ui_pt03.html"
    }
 ]}

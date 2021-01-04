@@ -1,0 +1,13 @@
+<h1>First Document Object Model code</h1>
+
+<p>Up until now all the code I developed for my example implementation of a user interface for the information contained in D&amp;B Direct+ Data Blocks has been foundational but not directly related to my primary goal, the conversion of the JSON data structure to an HTML layout. In this blog post I will review the first DOM manipulations I coded and the new structure of the project.</p>
+
+<p>First order of business was the creation of a hook for the new element nodes on the HTML page; <img src="./assets/imgs/divDnbDplDBs.png" alt="div dnbDplDBs"></p>
+
+<p>Next I removed the check for the <i>organization</i> property from main.js (this check is now performed elsewhere) and I implemented the following code to (1) locate the dnbDplDBs hook and (2) append the document fragment returned from function getDBsDocFrag; <img src="./assets/imgs/AppDocFrag.png" alt="appendChild(docFrag)"></p>
+
+<p>I decided to implement function getDBsDocFrag in an entirely new file, <a href="https://github.com/hdr1001/dnbdplui/blob/main/js/constructDom.js" title="JavaScript DOM code">constructDom.js</a>. This function returns a document fragment which reflects the transformed data as contained in the Data Block; <img src="./assets/imgs/constrDomv1.png" alt="function getDBsDocFrag"></p>
+
+<p>At this moment the layout of the resulting page is still very basic but this will definitely change soon; <img src="./assets/imgs/AppChildLook.png" alt="No formatting applied yet"></p>
+
+<p>Because <a href="https://github.com/hdr1001/dnbdplui" title="My repo for a Direct+ Data Blocks UI">the repository</a> of my project is hosted on <a href="https://github.com/hdr1001" title="My GitHub profile page">Github</a> it is easy to track <a href="https://github.com/hdr1001/dnbdplui/commits/main" title="Overview of repository code commits">the changes</a> I've made on a particular day & to see the outcome <a href="https://hdr1001.github.io/dnbdplui/" title="Live on GitHub pages">live in action</a>.</p>

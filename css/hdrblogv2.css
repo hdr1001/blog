@@ -39,10 +39,9 @@ div.twitter-tweet {
 }
 
 code {
-   display: inline-block;
+   display: block;
    text-indent: 0;
-   width: 100%;
-   margin: 1.2em 2.8em;
+   margin: 1.4em 2.8em 1.6em;
 }
 
 table {

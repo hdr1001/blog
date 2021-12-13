@@ -1,0 +1,31 @@
+<h1>I still very much ❤️ Ubuntu</h1>
+
+<p><img src="./assets/imgs/conky6.gif" alt="More power" style="float:right;max-width:80%;max-height:80%;margin:0 0 0.6em 0.8em"></p>
+
+<p>In 2021 Ubuntu still is my favorite Linux distribution (just as it was in <a class="blog_anchor" title="Ubuntu" href="ubuntu.html">2017</a>).It should therefore come as no surprise that I chose to install this Linux distro as the operating system for my <a class="blog_anchor" title="AMD5900X" href="more_power_hw.html">new PC</a>. Where, in the past, I tended to stick to <a href="https://ubuntu.com/about/release-cycle" title="The Ubuntu lifecycle and release cadence">long-term support</a> releases I now decided to go for an interim release, <a href="http://www.releases.ubuntu.com/21.04/" title="Hirsute Hippo, 21.04">Hirsute Hippo</a>. At the time of this writing I have already moved on to the next interim release, <a href="http://www.releases.ubuntu.com/21.10/" title="Impish Indri, 21.10">Impish Indri</a>. The plan is to move again when <a href="https://discourse.ubuntu.com/t/jammy-jellyfish-release-schedule/23906" title="Jammy Jellyfish, 22.04">Jammy Jellyfish (22.04)</a> becomes available and I expect to stay on that particular version of the software for a number of years as this will be a LTS release.</p>
+
+<p>My new PC will not have a dual boot option. Previously I always made sure that I could choose, on startup, whether to boot Linux or Windows. This time around though Ubuntu will be booted no matter what. I have reserved ample disk space though to deploy Windows if needed. When this scenario becomes relevant my plan is to deploy Windows as a virtual machine not as a separate boot option. In order to (potentially) facilitate this I have created my own, custom partition scheme;</p>
+
+<table style="table-layout: fixed; float: left; width: 68%; margin-top: 0.2em;">
+   <thead>
+      <tr id="trh">
+         <th style="width: 30%">Device</th>
+         <th style="width: 30%">Mounted</th>
+         <th style="width: 20%">Size (GB)</th>
+         <th style="width: 20%">Type</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr><td>nvme0n1p1</td><td>/boot/efi</td><td>3,8</td><td>EFI</td></tr>
+      <tr><td>nvme0n1p2</td><td>/boot</td><td>9,5</td><td>Ext4</td></tr>
+      <tr><td>nvme0n1p3</td><td>/</td><td>122,1</td><td>Ext4</td></tr>
+      <tr><td>nvme0n1p4</td><td>/var</td><td>58,2</td><td>Ext4</td></tr>
+      <tr><td>nvme0n1p5</td><td>/tmp</td><td>7,6</td><td>Ext4</td></tr>
+      <tr><td>nvme0n1</td><td><i>no</i></td><td>700+</td><td><i>empty</i></td></tr>
+      <tr><td>nvme0n1p6</td><td>swap</td><td>61,0</td><td>swap</td></tr>
+      <tr><td>nvme1n1p1</td><td>/home</td><td>476,9</td><td>Ext4</td></tr>
+      <tr><td>nvme1n1</td><td><i>no</i></td><td>500+</td><td><i>empty</i></td></tr>
+   </tbody>
+</table>
+
+<p>Straight out of the box an Ubuntu install contains a slew of standard software components like FireFox, LibreOffice and the GNOME file manager. I usually immediately add <a href="https://www.chromium.org/Home" title="Chromium">Chromium</a> for testing my web dev projects and <a href="https://www.gimp.org/" title="GIMP">GIMP</a> for advanced image manipulation. In this case, because I have 24 CPU threads at my disposal, I also installed <a href="https://github.com/brndnmtthws/conky" title="Conky is a light-weight system monitor">Conky</a>. On the right-hand side of this blog post you can see a screen recording of this system monitor in action on my PC. I have uploaded the <a href="https://gist.github.com/hdr1001/171c461d75725759c55c345e279c1e59" title=".conkyrc file">configuration file</a> to GitHub in case your interested. BTW the screen recording was made using <a href="https://launchpad.net/kazam" title="Kazam, a screencasting program created with design in mind">Kazam</a> and <a href="https://gist.github.com/hdr1001/41d4d10cea7dffeb97ae30e81c89f4b2" title="Example of how to use ffmpeg to create a gif">ffmpeg</a>.</p>

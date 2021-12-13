@@ -522,10 +522,16 @@
       "lastChange": "2021-01-04",
       "file": "dnb_dpl_ui_pt04.html"
    },{
-      "title": "More power",
+      "title": "More power, pt. 1",
       "desc": "More power = better",
       "firstPub": "2021-12-08",
       "lastChange": "2021-12-08",
       "file": "more_power_hw.html"
+   },{
+      "title": "More power, pt. 2",
+      "desc": "An OS for all that power",
+      "firstPub": "2021-12-12",
+      "lastChange": "2021-12-13",
+      "file": "more_power_sw.html"
    }
 ]}

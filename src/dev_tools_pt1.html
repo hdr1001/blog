@@ -1,0 +1,51 @@
+<h1>Setting up my dev environment</h1>
+
+<p class="no-indent">Software installs on Ubuntu invariably <a href="https://embeddedinventor.com/apt-update-apt-upgrade-command-explained-for-beginners/" title="apt update &amp;&amp; apt upgrade explained">begin</a> with: <code>sudo apt update &amp;&amp; sudo apt upgrade</code></p>
+
+<p class="no-indent">I always install <a href="https://www.vim.org/" title="Vim - the ubiquitous text editor">VIM</a> first: <code>sudo apt install vim</code></p>
+
+<p class="no-indent">Compiling C or C++ code no longer is my daily business but I make it a point to install the <a href="https://packages.ubuntu.com/impish/build-essential" title="GNU compilers for C and C++">GNU compilers</a>: <code>sudo apt install build-essential</code></p>
+
+<p class="no-indent">There <a class="blog_anchor" href="first_run_pt1.html" title="The good old days">were times</a> when I used <a href="https://subversion.apache.org/" title="Subversion, an open source version control system">SVN</a> for version control but those days are over. <a href="https://git-scm.com/" title="Git is a distributed version control system ">Git</a> now is the de facto standard: <code>sudo apt install git</code></p>
+
+<p class="no-indent">
+   A quick check to verify if everything works as expected:
+
+   <code>cd ~/Documents/dev</code>
+
+   <code>git clone https://github.com/hdr1001/cheat-sheets</code>
+
+   <code>cd cheat-sheets/c</code>
+
+   <code>gcc -c timestwo.c</code>
+
+   <code>gcc -c basics.c</code>
+
+   <code>gcc -o cbasics timestwo.o basics.o</code>
+
+   <code>./cbasics</code>
+</p>
+
+<p><img src="./assets/imgs/devtoolsgcc.png" alt="GNU Compiler Collection in action"></p>
+
+<p class="no-indent">
+   Basically the same check but for C++:
+
+   <code>g++ -c basics.c timestwo.c</code>
+
+   <code>g++ -o basics timestwo.o basics.o</code>
+   
+   <code>./basics</code>   
+</p>
+
+<p class="no-indent">
+   In the process of verifying my code I made a <a href="https://github.com/hdr1001/cheat-sheets/commit/cb862943904c07f2efac53ae4110dd43285eeeb4" title="Minor code changes">couple of changes</a>. To <a href="https://githowto.com/staging_changes" title="Staging code changes">stage</a>, <a href="https://githowto.com/commiting_changes" title="Commiting code changes">commit</a> &amp; <a href="https://githowto.com/pushing_a_change" title="Push the code changes to GitHub">push</a> these changes just:
+
+   <code>cd ..</code>
+
+   <code>git add c/basics.c</code>
+   
+   <code>git commit -m "Changed placeholder for long unsigned int"</code>
+   
+   <code>git push origin</code>
+</p>

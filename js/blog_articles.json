@@ -533,5 +533,11 @@
       "firstPub": "2021-12-12",
       "lastChange": "2021-12-13",
       "file": "more_power_sw.html"
+   },{
+      "title": "Dev environment, pt. 1",
+      "desc": "Creating a development environment",
+      "firstPub": "2021-12-14",
+      "lastChange": "2021-12-14",
+      "file": "dev_tools_pt1.html"
    }
 ]}

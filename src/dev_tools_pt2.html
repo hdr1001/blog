@@ -1,0 +1,21 @@
+<h1>Setting up my dev env, Docker</h1>
+
+<p>It is my preference when installing Docker on Ubuntu to follow the instructions as laid out by the makers themselves on their <a href="https://dockr.ly/3ywr2or" title="Install the Docker Engine on Ubuntu">website</a>. The instructions are all about (1) preparing for the install (primarily related to the configuration of the correct code repository), (2) the actual install and (3) verification of the proper functioning of the software. These commands worked for me:</p>
+
+<div class="ghgist" data-ghgistid="dfa37a11caaaf3006c30d2faed9fbdb6"></div>
+
+<p class="no-indent">Execution of the command: <code>sudo docker run hello-world</code> resulted in:
+   <img src="./assets/imgs/dockerinstverify.png" alt="Verify Docker install" style="margin-top: 0">
+</p>
+
+<p class="no-indent">I configured the <a href="https://docs.docker.com/engine/install/linux-postinstall/" title="Linux post-installation steps">post-installation steps</a> for Linux as well because I want to be able to execute Docker commands based on my own permissions: <code>sudo groupadd docker</code><code>sudo usermod -aG docker $USER</code>After logging in &amp; out I was able to execute the following Docker command without using sudo: <code>docker run hello-world</code> As before this resulted in:
+   <img src="./assets/imgs/dockercmdwosudo.png" alt="No sudo!">
+</p>
+
+<p class="no-indent">For me Docker Compose is an integral part of the entire Docker solution. It is a separate but relatively straightforward <a href="https://dockr.ly/3Ff16jG" title="Docker Compose Installation guide">install</a> though: </p>
+
+<div class="ghgist" data-ghgistid="9a179c4fe8bb15676a38ba26a578b41b"></div>
+
+<p class="no-indent">The install does not really contain a verification besides: <code>docker-compose --version</code>The output below is supposed to be good news: 
+   <img src="./assets/imgs/dcinstverify.png" alt="Verify Docker Compose install">
+</p>

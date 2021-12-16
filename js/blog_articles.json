@@ -539,5 +539,11 @@
       "firstPub": "2021-12-14",
       "lastChange": "2021-12-14",
       "file": "dev_tools_pt1.html"
+      },{
+      "title": "Dev env, pt. 2 Docker",
+      "desc": "Creating a dev environment, Docker",
+      "firstPub": "2021-12-16",
+      "lastChange": "2021-12-16",
+      "file": "dev_tools_pt2.html"
    }
 ]}

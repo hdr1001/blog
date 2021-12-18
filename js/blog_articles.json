@@ -545,5 +545,11 @@
       "firstPub": "2021-12-16",
       "lastChange": "2021-12-16",
       "file": "dev_tools_pt2.html"
+   },{
+      "title": "Dev env, pt. 3 Node.js",
+      "desc": "Creating a dev environment, Node.js",
+      "firstPub": "2021-12-17",
+      "lastChange": "2021-12-17",
+      "file": "dev_tools_pt3.html"
    }
 ]}

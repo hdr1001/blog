@@ -14,6 +14,7 @@
    {"sDate": "1st of January '21", "htmlNews": "First D&B Direct+ <a class=\"blog_anchor\" href=\"dnb_dpl_ui_pt01.html\" title=\"Direct+ Data Blocks UI\">Data Blocks</a> UI post."},
    {"sDate": "9th of December '21", "htmlNews": "New hardware ➡️ <a class=\"blog_anchor\" href=\"more_power_hw.html\" title=\"More power ... \">more power 💪</a>."},
    {"sDate": "13th of December '21", "htmlNews": "Much ❤️ for <a class=\"blog_anchor\" href=\"more_power_sw.html\" title=\"❤️ my Linux OS\">Ubuntu</a>."},
-   {"sDate": "14th of December '21", "htmlNews": "Creating a <a class=\"blog_anchor\" href=\"dev_tools_pt1.html\" title=\"Development environment\">development environment 🛠️</a>."},
-   {"sDate": "15th of December '21", "htmlNews": "Adding Docker to my <a class=\"blog_anchor\" href=\"dev_tools_pt2.html\" title=\"Development environment pt. 2\">dev environment 🛠️</a>."}
+   {"sDate": "14th of December '21", "htmlNews": "Creating a <a class=\"blog_anchor\" href=\"dev_tools_pt1.html\" title=\"Development environment pt. 1\">development environment 🛠️</a>."},
+   {"sDate": "15th of December '21", "htmlNews": "Adding Docker to my <a class=\"blog_anchor\" href=\"dev_tools_pt2.html\" title=\"Development environment pt. 2\">dev environment 🛠️</a>."},
+   {"sDate": "16th of December '21", "htmlNews": "Adding Node.js to my <a class=\"blog_anchor\" href=\"dev_tools_pt3.html\" title=\"Development environment pt. 3\">dev environment 🛠️</a>."}
 ]}

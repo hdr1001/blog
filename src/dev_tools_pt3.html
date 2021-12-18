@@ -1,0 +1,23 @@
+<h1>Setting up my dev env, Node.js</h1>
+
+<p>As of the 26th of October 2021 version <a href="https://nodejs.org/en/about/releases/" title="Node releases">16.13</a> is designated the active long term support (LTS) release of <a href="https://nodejs.org/en/about/" title="About Node.js">Node.js</a>. Unfortunately Ubuntu's package management system is lagging a little bit behind. Even in Impish Indri (Ubuntu release 21.10) the supported <a href="https://packages.ubuntu.com/impish/nodejs" title="Package: nodejs (12.22)">Node package</a> is still at version 12.22. That is just not good enough for my purposes. Luckily the <a href="https://nodejs.org/en/download/package-manager/" title="Node.js binary distributions">binary distributions</a> of Node are not hard to find. The version for Ubuntu is maintained by NodeSource and is located <a href="https://github.com/nodesource/distributions/blob/master/README.md" title="Binary Node.js Distributions">here</a>. The installation instructions for version 16.x worked perfectly fine for me: <code>curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -</code><code>sudo apt-get install -y nodejs</code>To verify my install I executed:
+   <img src="./assets/imgs/nodeinstverify.png" alt="Verify Node.js install" style="margin-top: 0">
+</p>
+
+<p>With Node installed I immediately moved on to <a href="https://docs.npmjs.com/try-the-latest-stable-version-of-npm" title="Try the latest stable version of npm">upgrading</a> the Node Package Manager (<a href="https://docs.npmjs.com/about-npm" title="About npm">npm</a>) to the latest stable release. <code>npm -v</code><code>sudo npm install -g npm@latest</code></p>
+
+<p class="no-indent">To test the install I build a Node.js and <a href="https://expressjs.com/" title="The fast, unopinionated, minimalist web framework for Node.js">Express</a> based prototype by:</p>
+
+<ol>
+   <li>Creating a <a href="https://github.com/hdr1001/minExpress/commit/64a1269e174ad89f07e28a37b92b855b0d331cb4" title="Initial commit">new code repository</a> on GitHub,</li>
+   <li>Cloning the repository and <a href="https://github.com/hdr1001/minExpress/commit/fb46b04e4589133d9a7d830f7d7ff4112ff9da38" title="Initialized package.json with all defaults">initializing the package manager</a>,</li>
+   <li><a href="https://github.com/hdr1001/minExpress/commit/1a195b139d3f6d0d7215730eb27e7988b260761a">Adding the Express package</a> as a dependency and</li>
+   <li>Adding the <a href="https://github.com/hdr1001/minExpress/commit/46bb3c54ad768c58ada414f04b8423a81da44cfa" title="Minimal Node.js Express app now working">JavaScript code</a>.</li>
+</ol>
+
+<p class="no-indent">Please note that all the commands necessary for creating the prototype are listed in commit comments on GitHub (just follow the links above ⬆️).</p>
+
+<p class="no-indent">On a different PC with Git, Node &amp; npm installed, it is now possible to do the following: 
+   <img src="./assets/imgs/cloneDiffPC.png" alt="Clone &amp; execute the code">
+   Ça marche, ça marche très bien.
+</p>

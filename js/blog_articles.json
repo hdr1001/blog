@@ -551,5 +551,11 @@
       "firstPub": "2021-12-17",
       "lastChange": "2021-12-17",
       "file": "dev_tools_pt3.html"
+   },{
+      "title": "Dev env, pt. 4 VSC",
+      "desc": "Creating a dev env, Visual Studio Code",
+      "firstPub": "2021-12-20",
+      "lastChange": "2021-12-20",
+      "file": "dev_tools_pt4.html"
    }
 ]}

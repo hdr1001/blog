@@ -563,5 +563,11 @@
       "firstPub": "2021-12-21",
       "lastChange": "2021-12-21",
       "file": "dev_tools_pt5.html"
+   },{
+      "title": "React form on GitHub",
+      "desc": "Creating a React form hosted on GitHub",
+      "firstPub": "2021-12-27",
+      "lastChange": "2021-12-27",
+      "file": "gh_form_react.html"
    }
 ]}

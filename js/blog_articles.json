@@ -569,5 +569,11 @@
       "firstPub": "2021-12-27",
       "lastChange": "2021-12-27",
       "file": "gh_form_react.html"
+   },{
+      "title": "MUI form on GitHub",
+      "desc": "Creating a React MUI form on GitHub",
+      "firstPub": "2021-12-28",
+      "lastChange": "2021-12-29",
+      "file": "gh_form_react_mui.html"
    }
 ]}

@@ -581,5 +581,11 @@
       "firstPub": "2021-12-30",
       "lastChange": "2021-12-30",
       "file": "api_hub_v4.html"
+   },{
+      "title": "API Hub v4 dev env",
+      "desc": "API Hub v4 development environment",
+      "firstPub": "2022-01-01",
+      "lastChange": "2021-01-01",
+      "file": "api_hub_v4_dev.html"
    }
 ]}

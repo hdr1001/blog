@@ -1,0 +1,27 @@
+<h1>A dev environment for my API Hub</h1>
+
+<p>The <a href="https://github.com/hdr1001/api_hub_rpr_v4/tree/main/backend" title="Both Node and PostgreSQL are 100% Dockerized">backend code</a> of the API Hub is completely Dockerized. Luckily Microsoft Visual Studio Code has an excellent <a href="https://code.visualstudio.com/docs/containers/overview" title="Docker in Visual Studio Code">extension</a> for Docker and Docker Compose: <img src="./assets/imgs/vscDockerExt.png" alt="Docker for Visual Studio Code">What is even better is that the integration between editor and codebase can still be taken one step further. With the <a href="https://code.visualstudio.com/docs/remote/containers" title="Developing inside a Container">Remote - Containers extension</a> installed it is possible to run Visual Studio Code inside a Docker container.<img src="./assets/imgs/vscRemoteContainerExt.png" alt="Remote - Containers VSC"></p>
+
+<p class="no-indent">
+   Just open the API Hub repository as cloned in the <a class="blog_anchor" href="api_hub_v4.html" title="API Hub (v4)">previous blog post</a> in Visual Studio Code (it goes without saying that the above mentioned extensions must be installed):
+
+   <code>cd ~/Documents/dev/api_hub_rpr_v4</code>
+
+   <code>code .</code>
+   
+   and then click the reopen in container button:
+   
+   <img src="./assets/imgs/reopenInContainer.png" alt="Choose Reopen in container">
+   
+   The workspace created is running inside a container. Execute, in a terminal window (keyboard shortcut ctrl + shift + `), the following commands to start the API Hub's webservices:
+
+   <code>cd backend/node/src</code>
+
+   <code>npm install</code>
+
+   <code>npm run dev</code>
+
+   <img src="./assets/imgs/liveFromDevContainer.png" alt="Choose Reopen in container">
+</p>
+
+<p class="no-indent">Testing the endpoints exposed by the API Hub will be the topic of the <a class="blog_next" href="#" title="Next blog post">next blog post</a>.</p>

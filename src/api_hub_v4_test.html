@@ -1,45 +1,13 @@
-<h1>A more thorough test of my API Hub v4</h1>
+<h1>Testing my API Hub v4 dev environment</h1>
 
-<p>Just a quick overview of how I got to the 4th version of my API Hub before explaining how to get it up-n-running. The <a href="https://github.com/hdr1001/api_hub_rpr" title="API Hub v1">1st version</a> of this project dates back to August 2019. It supports four APIs, (1) <a href="https://directplus.documentation.dnb.com/" title="Direct+">D&amp;B Direct+</a>, (2) <a href="https://docs.dnb.com/direct/2.0/en-US/quick-soap-API" title="Direct 2.0">D&amp;B Direct 2.0</a>, (3) <a href="https://toolkit-api.dnb.com/" title="Toolkit">D&amp;B Toolkit</a> and (4) <a href="https://www.gleif.org/en/" title="Global Legal Entity Identifier Foundation">GLEIF</a>. Last code commit was in May 2020, at that time I had already commenced work on the <a href="https://github.com/hdr1001/api_hub_rpr_v3x" title="API Hub v3">3rd version</a> of the project. In all honesty I can not remember what happened to the 2nd version. The 3rd version of the project was supposed to be more modular than the 1st (and it was) but it became too abstract. As a result I started developing more off-the-cuff proof of concepts in a <a href="https://github.com/hdr1001/dnbDplUtils" title="D&amp;B Direct+ Utilities">separate repository</a> which worked great but, in the end, I want to get back to one big codebase. The same is true for the frontend piece. I have done smaller user interface projects (<a href="https://github.com/hdr1001/api_hub_rpr_ui" title="API Hub UI">here</a> &amp; <a href="https://github.com/hdr1001/dnbdplui" title="D&amp;B Data Block UI">here</a>) but not as part of a larger, integrated approach. In its latest iteration my API Hub has a Node.js, Express and PostgreSQL backend and a React and Material UI based frontend and is supposed to replace all repositories referenced above.</p>
+<p>In my <a class="blog_prev" href="#" title="A dev environment for my API Hub">previous blog post</a> I created a containerized development environment for my <a href="https://github.com/hdr1001/api_hub_rpr_v4" title="API Hub version 4">API Hub (v4)</a>. After executing: <code>npm run dev</code>a console log message confirmed that the application was listening on port 3000 but I did not confirm that any further. In this blog post I will executed a couple of in-depth checks to verify whether the application is functioning properly.</p>
 
-<p>It is possible to start using the 4th version of my API Hub today but please note that, on both the frontend and backend parts of the project, a lot of work is still needed. To get a feel for the current state of affairs, first clone the <a href="https://github.com/hdr1001/api_hub_rpr_v4" title="API Hub - Request, Persist & Respond (v4)">repository</a> as available on GitHub:
-
-   <code>cd ~/Documents/dev</code>
-
-   <code>git clone https://github.com/hdr1001/api_hub_rpr_v4</code>
-   
-   <code>cd api_hub_rpr_v4</code>
-   
-   <code>cp dotEnv .env</code>
-   
-   <code>vim .env</code>
-</p>
-
-<p class="no-indent">The commands above assume that the .env file will be edited using vim. Of course this is by no means necessary. At this time application configuration is solely concerned with setting values for parameters in the .env file. The <a href="https://github.com/hdr1001/api_hub_rpr_v4/blob/main/dotEnv" title=".env defaults">dotEnv</a> file from the GitHub repo contains some default values but filling out a <a href="https://www.postgresql.org/" title="PostgreSQL: The World's Most Advanced Open Source Relational Database">PostgreSQL</a> username and password is mandatory. Save &amp; close the updated .env file when done.</p>
-
-<p class="no-indent">For the next steps both <a href="https://www.docker.com/" title="Accelerate how you build, share &amp; run applications">Docker</a> and <a href="https://docs.docker.com/compose/" title="Docker Compose is a tool for defining &amp; running multi-container apps">Docker Compose</a> must be <a class="blog_anchor" title="Setting up my dev environment, Docker" href="dev_tools_pt2.html">installed</a>.</p>
-
-<ol>
+<ul>
    <li>
-      Build the containers that make up the application:
-      <code>docker-compose build</code>
-
-      <img src="./assets/imgs/dkrcmpsbld.png" alt="Execute docker-compose build" style="margin-top: 0; padding-top: 0;">
+      <strong>Postman</strong>. In a previous post I already explained why <a class="blog_anchor" href="dev_tools_pt5.html" title="Postman">Postman</a> is an important part of my toolkit. When I develop a new API I always create a collection of HTTP requests while implementing the endpoints. I did this for the most recent revision of my API Hub as well. Because I have shared a <a href="https://www.getpostman.com/collections/5a9d3d688a6166c04106" title="API Hub v4 Postman collection">link</a> to the collection it can be imported using standard Postman functionality: <img src="./assets/imgs/pmImpColl.png" alt="Import a link to a Postman Collection"  style="max-width:75%">Please note that, in order for the transactions to work, at this moment, 3 environment variables must be set: <img src="./assets/imgs/pmEnvVars.png" alt="Postman environment variables" style="max-width:85%">With the proper environment specified all test requests worked 100% in accordance with my design: <img src="./assets/imgs/pmGleifTest.png" alt="Gleif test request 👍"  style="max-width:80%">
    </li><li>
-      Run the multi-container application:
-
-      <code>docker-compose up -d</code>
-
-      <img src="./assets/imgs/dkrcmpsrun.png" alt="Execute docker-compose up -d">
-   </li><li>
-      Perform a minimal check in, for instance, a web browser:
-
-      <img src="./assets/imgs/dkrcmps200.png" alt="Request about">
-   </li><li>
-      The services can be brought down again using:
-
-      <code>docker-compose down</code>
+      <strong>pgAdmin</strong>. <a href="https://www.pgadmin.org/" title="pgAdmin PostgreSQL Tools">pgAdmin</a> is a great tool when working with <a href="https://www.postgresql.org/" title="PostgreSQL, the most advanced open source relational database">PostgreSQL</a>. In the API Hub v4 <a href="https://github.com/hdr1001/api_hub_rpr_v4" title="API Hub (v4)">repository</a> PostgreSQL is delivered as a <a href="https://github.com/hdr1001/api_hub_rpr_v4/tree/main/backend/postgres" title="PostgreSQL Docker container">separate container</a> whereas pgAdmin is part of my local development environment. <a href="https://www.pgadmin.org/download/pgadmin-4-apt/" title="pgAdmin download &amp; install">Installing pgAdmin</a> on Ubuntu is easy: <div class="ghgist" data-ghgistid="f642ebc608d4ae9b5bbf97b211b7347e"></div>Of course a connection to the database must be configured: <img src="./assets/imgs/pgaConnI.png" alt="pgAdmin connection, tab General" style="max-width:65%">and: <img src="./assets/imgs/pgaConnII.png" alt="pgAdmin connection, tab Connection" style="max-width:65%">With a working connection to the PostgreSQL database it is, for instance, possible to execute a SQL query;<img src="./assets/imgs/pgaSqlSelect.png" alt="pgAdmin View/Edit DSata, All Rows" style="max-width:65%">
    </li>
-</ol>
+</ul>
 
-<p class="no-indent">Just speaking for myself, 🆙&amp;🏃 in no time! 🤓</p>
+<p class="no-indent">My conclusion, the backend part of the project is working just fine in my containerized development environment!</p>

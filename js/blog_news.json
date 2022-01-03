@@ -22,5 +22,6 @@
    {"sDate": "27th of December '21", "htmlNews": "Hosting a <a class=\"blog_anchor\" href=\"gh_form_react.html\" title=\"GitHub hosted React form\">React form</a> on GitHub."},
    {"sDate": "29th of December '21", "htmlNews": "Hosting a <a class=\"blog_anchor\" href=\"gh_form_react_mui.html\" title=\"GitHub hosted React Material UI form\">React MUI form</a> on GitHub."},
    {"sDate": "30th of December '21", "htmlNews": "Intro to the 4th version of my <a class=\"blog_anchor\" href=\"api_hub_v4.html\" title=\"API Hub v4\">API Hub</a>."},
-   {"sDate": "1st of January '22", "htmlNews": "A <a class=\"blog_anchor\" href=\"api_hub_v4_dev.html\" title=\"API Hub dev environment\">dev environment</a> for the API Hub."}
+   {"sDate": "1st of January '22", "htmlNews": "A <a class=\"blog_anchor\" href=\"api_hub_v4_dev.html\" title=\"API Hub dev environment\">dev environment</a> for the API Hub."},
+   {"sDate": "3rd of January '22", "htmlNews": "<a class=\"blog_anchor\" href=\"api_hub_v4_test.html\" title=\"API Hub dev env test\">Testing</a> my API Hub dev environment."}
 ]}

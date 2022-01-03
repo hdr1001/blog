@@ -587,5 +587,11 @@
       "firstPub": "2022-01-01",
       "lastChange": "2021-01-01",
       "file": "api_hub_v4_dev.html"
+   },{
+      "title": "API Hub v4 testing",
+      "desc": "API Hub v4 dev environment test",
+      "firstPub": "2022-01-03",
+      "lastChange": "2021-01-03",
+      "file": "api_hub_v4_test.html"
    }
 ]}

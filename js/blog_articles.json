@@ -593,5 +593,11 @@
       "firstPub": "2022-01-03",
       "lastChange": "2021-01-03",
       "file": "api_hub_v4_test.html"
+   },{
+      "title": "API Hub v4 UI",
+      "desc": "API Hub v4 user interface",
+      "firstPub": "2022-01-15",
+      "lastChange": "2021-01-15",
+      "file": "api_hub_v4_ui.html"
    }
 ]}

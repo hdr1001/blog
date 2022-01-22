@@ -24,5 +24,6 @@
    {"sDate": "30th of December '21", "htmlNews": "Intro to the 4th version of my <a class=\"blog_anchor\" href=\"api_hub_v4.html\" title=\"API Hub v4\">API Hub</a>."},
    {"sDate": "1st of January '22", "htmlNews": "A <a class=\"blog_anchor\" href=\"api_hub_v4_dev.html\" title=\"API Hub dev environment\">dev environment</a> for the API Hub."},
    {"sDate": "3rd of January '22", "htmlNews": "<a class=\"blog_anchor\" href=\"api_hub_v4_test.html\" title=\"API Hub dev env test\">Testing</a> my API Hub dev environment."},
-   {"sDate": "15th of January '22", "htmlNews": "My API Hub <a class=\"blog_anchor\" href=\"api_hub_v4_ui.html\" title=\"API Hub UI\">user interface</a>."}
+   {"sDate": "15th of January '22", "htmlNews": "My API Hub <a class=\"blog_anchor\" href=\"api_hub_v4_ui.html\" title=\"API Hub UI\">user interface</a>."},
+   {"sDate": "18th of January '22", "htmlNews": "Added <a class=\"blog_anchor\" href=\"api_hub_v4_ui_1.html\" title=\"Logosyllabic company names\">Logosyllabic</a> company names."}
 ]}

@@ -1,0 +1,24 @@
+<h1>Attributes related to company size</h1>
+
+<p>From level 2 and up, data elements having to do with company size have always been a part of the <a href="https://directplus.documentation.dnb.com/DataBlocks.html?apiID=dataBlocks&blockIDs=companyinfo_L2_v1" title="Company Info @ level 2">Company Information</a> data block. <img src="./assets/imgs/companySize.png" alt="Company size section">A wonderful addition to this data, delivered as part of the March 24th 2021 <a href="https://directplus.documentation.dnb.com/html/resources/ChangeHistory.html" title="D&amp;B Direct+ Release Change History">release</a>, are figures related to company size but not as it pertains to the DUNS itself but to the domestic &amp; global ultimates associated with the requested legal entity. This enables the consumer of the data to not only make a judgement of the size of a company in isolation but to also assess, in case the entity is part of a larger corporate hierarchy, the combined size of the corporation (1) in the country in which the requested DUNS is located and (2) at the global level.<img src="./assets/imgs/globalUltSize.png" alt="Size of the corporate global ultimate"></p>
+
+<p class="no-indent">Company size information is contained in the following three objects:</p>
+
+<ol>
+   <li>organization</li>
+   <li>organization.domesticUltimate</li>
+   <li>organization.globalUltimate</li>
+</ol>
+
+<p class="no-indent">The above-mentioned objects all contain the following child arrays:</p>
+
+<ul>
+   <li>numberOfEmployees</li>
+   <li>financials</li>
+</ul>
+
+<p class="no-indent">The structure of the numberOfEmployees and financials arrays is consistent in all constituent parts of the Company Information data block. This allows for the reuse of code. I created a new component, CompanySizeDetails, specifically for this purpose. This component, in turn, uses generic functions to display the information contained in the numberOfEmployees &amp; financials arrays.<img src="./assets/imgs/companySizeComp.png" alt="The companySize component"></p>
+
+<p>A further improvement I have made to the code uses the newly introduced defaultCurrency attribute to, if available, display the revenue figure in the default currency. I have noted that, in the yearlyRevenue array, the default currency is not always listed at index 0.<img src="./assets/imgs/revInDfltCurr.png" alt="Display the revenue in the default currency"></p>
+
+<p>In the <a href="https://github.com/hdr1001/api_hub_rpr_v4/blob/main/frontend/src/components/dnb/DplCompanyInfo.js" title="Source code DplCompanyInfo.js">most recent version</a> of my code I also introduced an additional row for the new isSmallBusiness attribute. <img src="./assets/imgs/isSmlBus.png" alt="Is small business attribute">Whereas the organization <a href="https://ec.europa.eu/growth/smes/sme-definition_en" title="EU small and medium-sized enterprises definition">size category</a> is mainly relevant in Europe, the is small business attribute is linked to US <a href="https://www.sba.gov/funding-programs/grants" title="U.S. Small Business Administration, grants">rules and regulations</a>.</p>

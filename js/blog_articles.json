@@ -605,5 +605,11 @@
       "firstPub": "2022-01-18",
       "lastChange": "2021-01-18",
       "file": "api_hub_v4_ui_1.html"
+   },{
+      "title": "Company size attributes",
+      "desc": "New attributes related to company size",
+      "firstPub": "2022-02-17",
+      "lastChange": "2021-02-17",
+      "file": "api_hub_v4_ui_2.html"
    }
 ]}

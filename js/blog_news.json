@@ -26,5 +26,6 @@
    {"sDate": "3rd of January '22", "htmlNews": "<a class=\"blog_anchor\" href=\"api_hub_v4_test.html\" title=\"API Hub dev env test\">Testing</a> my API Hub dev environment."},
    {"sDate": "15th of January '22", "htmlNews": "My API Hub <a class=\"blog_anchor\" href=\"api_hub_v4_ui.html\" title=\"API Hub UI\">user interface</a>."},
    {"sDate": "18th of January '22", "htmlNews": "Added <a class=\"blog_anchor\" href=\"api_hub_v4_ui_1.html\" title=\"Logosyllabic company names\">Logosyllabic</a> company names."},
-   {"sDate": "17th of February '22", "htmlNews": "Added new <a class=\"blog_anchor\" href=\"api_hub_v4_ui_2.html\" title=\"Company size attributes\">company size</a> attributes."}
+   {"sDate": "17th of February '22", "htmlNews": "Added new <a class=\"blog_anchor\" href=\"api_hub_v4_ui_2.html\" title=\"Company size attributes\">company size</a> attributes."},
+   {"sDate": "19th of July '22", "htmlNews": "👀 <a class=\"blog_anchor\" href=\"gh_codespc_pt1.html\" title=\"GitHub Codespaces\">GitHub Codespaces</a>."}
 ]}
